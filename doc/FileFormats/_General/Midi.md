@@ -807,7 +807,7 @@ Additional info:
   - Notes are cymbals by default in .mid. Toms are marked using notes 110-112, excluding red which is always a tom note.
     - This makes it impossible to have a tom and cymbal of the same color at the same position, unless the respective tom+cymbal SysEx event is enabled.
   - Roll lanes are used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes.
-    - During parsing, if a 1-lane roll starts on a chord (excluding kicks), the lane should be started on the next non-chord note instead.
+    - During parsing, if a 1-lane roll starts on a chord (excluding kicks), the lane should be marked on the lane matching the next non-chord note.
     - Roll lanes cannot be applied to kicks.
 - 5-lane:
   - Red, blue, and green are toms, yellow and orange are cymbals.
