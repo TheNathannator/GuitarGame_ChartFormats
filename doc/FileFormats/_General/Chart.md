@@ -582,17 +582,17 @@ Additional info:
   - Notes are toms by default in .chart. Cymbals are marked using note types 66-68, excluding red which is always a tom note.
     - This makes it impossible to have a tom and cymbal of the same color at the same position.
   - Roll lanes are not implemented in .chart yet, they are currently only available in .mid.<!-- Roll lanes are used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes. -->
-    - <!-- (logic for how to determine which lane to put a roll lane on goes here) -->
-    - <!-- Roll lanes cannot be applied to kicks. -->
+    <!-- - During parsing, if a 1-lane roll starts on a chord (excluding kicks), the lane should be marked on the lane matching the next non-chord note. -->
+    <!-- - Roll lanes cannot be applied to kicks. -->
 - 5-lane:
   - Red, blue, and green are toms, yellow and orange are cymbals.
   - Drum sustains are used for imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells. They prevent overhitting and require you to hit faster than a certain threshold (around 4 hits per second in GH) to maintain the sustain.
-  - Unlike 4-lane roll lanes, kicks can be drum sustains.
+    - Unlike 4-lane roll lanes, kicks can be drum sustains.
 - Expert+ kicks are used for double-kick sections or kicks faster than around 5-6 kicks per second, alternating these faster kicks between normal and Expert+ to make these sections playable with a single pedal.
   - In gameplay, they are equivalent to normal kicks, but they should only be visible if the user enables them.
 - Accent and ghost notes are not implemented in .chart yet, they are currently only available in .mid.<!-- Accent and ghost notes are notes that need to be hit either hard or soft, respectively. -->
-  - <!-- (Preemptive assumption) These are marked with their respective note modifiers. -->
-  - <!-- (May be unnecessary for .chart, as there's nothing that would conflict with how accents/ghosts would theoretically be marked) Clone Hero requires a `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended. -->
+  <!-- - (Preemptive assumption) These are marked with their respective note modifiers. -->
+  <!-- - (May be unnecessary for .chart, as there's nothing that would conflict with how accents/ghosts would theoretically be marked) Clone Hero requires a `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended. -->
 
 #### Drums Special Phrase Types
 
