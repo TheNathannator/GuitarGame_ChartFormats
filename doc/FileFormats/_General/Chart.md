@@ -419,11 +419,11 @@ Notes and modifiers use the `N` type code, and are written like this:
 
 Modifiers are applied to existing notes but are listed as separate events. A modifier applies to all notes on the same tick, so different notes on the same tick cannot have different modifiers unless the modifier specifically targets a single color/type.
 
-In .chart, single notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note and are also a different lane as the previous note. The default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold). This can be changed through the song.ini tag `hopo_threshold` (or the legacy `eighthnote_hopo`).
+Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .chart, the default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold). This can be changed through the song.ini tag `hopo_frequency`.
 
-Chords do not get naturally forced as HOPOs, they must be forced using the HOPO flip modifier.
+Notes can have their natural forcing flipped using the strum/HOPO flip modifier, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
-Sustains do not get removed if they are shorter than a certain threshold, unlike .mid. This can be configured through the song.ini tag `sustain_cutoff_threshold`.
+In .chart, sustains do not get cut off if they are shorter than a certain threshold, unlike .mid. This can be configured through the song.ini tag `sustain_cutoff_threshold`.
 
 #### Note and Modifier Type Divisions
 
