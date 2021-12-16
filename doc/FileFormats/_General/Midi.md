@@ -494,13 +494,14 @@ This section excludes `T1 GEMS` and GH2 tracks, as they have differences and are
 | 41        | Left hand position 2                                                                                          |
 | 40        | Left hand position 1 (near headstock)                                                                         |
 
-Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .mid, the default threshold is a 1/12th step (though sources elsewhere say the threshold is, assuming a 480 tick resolution, a 1/16th (120 ticks) step or 170 ticks instead of 160, but the currently accepted threshold is a 1/12th step (160 ticks)). This can be changed through the song.ini tag `hopo_frequency`.
+Additional information:
 
-Notes can be forced as either strums or HOPOs using the Force Strum and Force HOPO markers. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
-
-In .mid, sustains shorter than a 1/12th step should be cut off and turned into a normal note. This can be changed using the `sustain_cutoff_threshold` song.ini tag. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
-
-Some tracks contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band account for this and snap notes with a difference of 10 ticks or less to be at the position of the earliest note within the chord.
+- Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord.
+  - In .mid, the default threshold is a 1/12th step (though sources elsewhere say the threshold is, assuming a 480 tick resolution, a 1/16th (120 ticks) step or 170 ticks instead of 160, but the currently accepted threshold is a 1/12th step (160 ticks)). This can be changed through the song.ini tag `hopo_frequency`.
+  - Notes can be forced as either strums or HOPOs using the Force Strum and Force HOPO markers. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
+- In .mid, sustains shorter than a 1/12th step should be cut off and turned into a normal note. This can be changed using the `sustain_cutoff_threshold` song.ini tag. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
+- Trill and tremolo lanes are used to make imprecise/indiscernible trills or fast strumming easier to play. They prevent overstrumming and only require you to hit faster than a certain threshold to hit the charted notes.
+- Some tracks contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band account for this and snap notes with a position difference of 10 ticks or less to be at the position of the earliest note within the chord.
 
 #### Guitar Hero 1/2 Notes
 
