@@ -86,6 +86,13 @@ Hand maps:
 | `[idle]`   | Bassist idles during a part with no notes. |
 | `[play]`   | Bassist starts playing.                    |
 
+### BAND_SINGER Text Events
+
+| Event Text | Description                                 |
+| :--------- | :----------                                 |
+| `[idle]`   | Vocalist idles during a part with no notes. |
+| `[play]`   | Vocalist starts playing.                    |
+
 ### EVENTS Track
 
 | Event Text              | Description                                         |
@@ -124,16 +131,3 @@ Hand maps:
 | `(color2)`   | Changes the lighting color to the second color specified in a venue. |
 | `(color3)`   | Changes the lighting color to the third color specified in a venue.  |
 | `(sweep)`    | Makes the lights sweep the stage.                                    |
-
-## Local Events
-
-- `idle` - Sets the character to idle.
-- `play` - Sets the character to be playing their instrument.
-- `solo_on` - Sets the character to a solo-playing state. (Not to be confused with `solo`)
-- `solo_off` - Returns the character to their `[play]` state. (Not to be confused with `soloend`)
-- `wail_on` - Makes the character wail on their instrument.
-- `wail_off` - Returns the character to their `[play]` state.
-- `ow_face_on` - Makes the character do a cringing face.
-- `ow_face_off` - Makes the character's face normal.
-- `half_tempo` - Makes the character move at half the song's tempo.
-- `normal_tempo` - Returns the character's movements to normal tempo.

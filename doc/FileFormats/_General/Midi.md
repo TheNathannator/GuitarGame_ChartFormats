@@ -501,7 +501,7 @@ Additional information:
   - Notes can be forced as either strums or HOPOs using the Force Strum and Force HOPO markers. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 - In .mid, sustains shorter than a 1/12th step should be cut off and turned into a normal note. This can be changed using the `sustain_cutoff_threshold` song.ini tag. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
 - Trill and tremolo lanes are used to make imprecise/indiscernible trills or fast strumming easier to play. They prevent overstrumming and only require you to hit faster than a certain threshold to hit the charted notes.
-- Some tracks contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band account for this and snap notes with a position difference of 10 ticks or less to be at the position of the earliest note within the chord.
+- Some tracks contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band account for this and snap notes with a position difference of 10 ticks or less (480 res) to be at the position of the earliest note within the chord.
 
 #### Guitar Hero 1/2 Notes
 
@@ -590,7 +590,7 @@ Guitar Hero 2:
 
 This is (most likely) what Rock Band 3 expects from a Keys track.
 
-In RB3 when playing with a Pro Keyboard, extended sustains/disjoint chords are allowed and HOPOs are also not displayed. Playing Keys using a guitar will trim extended sustains/disjoint chords and also display HOPOs.
+In RB3 when playing with a Pro Keyboard, extended sustains/disjoint chords are allowed and HOPOs are not displayed. Playing Keys using a guitar will trim extended sustains/disjoint chords and display HOPOs.
 
 | MIDI Note | Description                                                                                            |
 | :-------: | :----------                                                                                            |
@@ -702,6 +702,10 @@ In RB3 when playing with a Pro Keyboard, extended sustains/disjoint chords are a
 | 60        | Easy White 2 (5th lane)     |
 | 59        | Easy White 1 (4th lane)     |
 | 58        | Easy Open                   |
+
+Additional info:
+
+- 6-fret has the same HOPO and sustain cutoff threshold rules as 5-fret.
 
 #### 6-Fret SysEx Events
 
@@ -1049,7 +1053,8 @@ Here's how these symbols should be handled for displaying as just text:
 
 Additional info:
 
-- For RB3, up to 4 notes are allowed in a chord, and extended sustains/disjoint chords are allowed.
+- For RB3, up to 4 notes are allowed at a time, and extended sustains/disjoint chords are allowed.
+- Trill and glissando lanes are used to make imprecise/indiscernible trills and glissandi easier to play. They prevent overhitting, and for trill markers, only require you to alternate faster than a certain threshold to hit the charted notes.
 - The range shift notes will shift the range of the keys shown on the track. In RB3, 17 keys out of the 25 keys are shown at a time, so if there are notes that go beyond the current range, the range must be shifted to show those notes.
   - These notes do not last the duration of the shift, they simply mark when the shift happens.
   - One of these shifts should be marked at the very beginning as the starting range.
@@ -1245,14 +1250,14 @@ Gems/markers:
 | 120        | Big Rock Ending marker 6                                  |
 | 116        | Star Power/Overdrive marker                               |
 | 115        | Solo marker                                               |
-| 108        | Player's hand position marker<br>Marks where the player's left hand should be and determines how fret numbers get positioned on top of the note. Fret number determined by note velocity, from 101 to 114 for 17-fret, 119 for 22-fret.<br>Applies to following notes until a new marker is placed, at which point that marker will continue until the next, and so on. |
+| 108        | Player's hand position marker<br>Marks where the player's left hand should be from this point forward and determines how fret numbers get positioned on top of the note. Fret number determined by note velocity, from 101 to 114 for 17-fret, 119 for 22-fret. |
 | 107        | Force chord numbering to display all fret numbers         |
 |            |                                                           |
 | Expert     |                                                           |
 | 106        | Expert Unknown                                            | 
 | 105        | Expert string emphasis marker<br>Uses track channels to emphasize certain strings: 13 = EAD, 14 = ADGB, 15 = GBe. |
 | 104        | Expert arpeggio marker<br>Requires a corresponding note/chord on track channel 2 to use as a ghost note/chord shape in-game.
-| 103        | Expert slide marker<br>Slide direction determined by various rules:<br>- Default: If the fret number for the corresponding note is 0-7, slide will go up, otherwise if it's 8 or higher it will go down.<br>- If the sustain ends within a 1/16th of a following note, the slide will follow the direction of the next note's fret number: lower to higher will slide up, higher to lower will slide down. If both are the same, it will slide down.<br>- For chords, the lowest non-open (fret number of 0) string's fret number determines the direction.<br>- At least for muted notes or muted chords, the direction can be reversed by placing the note on channel 12. |
+| 103        | Expert slide marker<br>Slide direction determined by various rules detailed below. |
 | 102        | Expert force HOPO                                         |
 | 101        | Expert Purple (e string)                                  |
 | 100        | Expert Yellow (B string)                                  |
@@ -1315,9 +1320,7 @@ Gems/markers:
 | 5          | Root note marker: F                                       |
 | 4          | Root note marker: E                                       |
 
-The fret number of notes and markers that use fret numbers is determined by the MIDI note velocity, starting from velocity 100 and going to velocity 117 for 17-fret or 122 for 22-fret.
-
-Track channels are used to modify the notes in different ways. Ones specific to a marker are listed in the notes list with that marker.
+Channels:
 
 | MIDI Channel | Description                       |
 | :----------: | :----------                       |
@@ -1328,12 +1331,20 @@ Track channels are used to modify the notes in different ways. Ones specific to 
 | 4            | Tapped notes                      |
 | 5            | Harmonics                         |
 | 6            | Pinch harmonics                   |
-| 14           | Bass slap                         |
+| 13           | String emphasis: EAD              |
+| 14           | Bass slap; string emphasis: ADGB  |
+| 15           | String emphasis: GBe              |
 
-Other notes:
+Additional info:
 
+- The fret number of notes and markers that use fret numbers is determined by the MIDI note velocity, starting from velocity 100 and going to velocity 117 for 17-fret or 122 for 22-fret.
 - There are separate tracks for 17-fret and 22-fret due to different controller models having a different amount of available frets.
 - Root notes are required for chords, but they don't have to be placed on every chord. It's only necessary to place one when the root note changes.
+- RB3 slide direction rules:
+  - If the sustain ends within a 1/16th of a following note, the slide will follow the direction of the next note's fret number: lower to higher will slide up, higher to lower will slide down. If both are the same, it will slide down.
+  - Otherwise, if the fret number for the corresponding note is 0-7, the slide will go up, otherwise if it's 8 or higher it will go down.
+  - For chords, the lowest non-open (fret number of 0) string's fret number determines the direction.
+  - At least for muted notes or muted chords, the direction can be reversed by placing the slide marker on channel 12.
 - For RB3, overdrive must match that of standard Guitar/Bass.
 
 #### Pro Guitar/Bass SysEx Events
@@ -1521,6 +1532,8 @@ These are tracks specific to Guitar Hero 1/2 that pertain to character animation
 - `GUITAR` - Guitar animations track
 - `BASS` - Bass animations track (identical to `GUITAR` in content)
 
+Text events for these tracks are detailed in [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
+
 #### GH1 TRIGGERS Track
 
 ##### GH1 TRIGGERS Notes
@@ -1574,10 +1587,6 @@ This track is not present if the co-op track is Bass.
 | :-------: | :----------             |
 | 36        | Strum animation trigger |
 
-##### BAND_BASS Text Events
-
-See [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
-
 #### BAND_DRUM Track
 
 ##### BAND_DRUM Notes
@@ -1587,10 +1596,6 @@ See [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
 | 37        | Crash cymbal |
 | 36        | Kick drum    |
 
-##### BAND_DRUM Text Events
-
-See [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
-
 #### BAND_SINGER Track
 
 ##### BAND_SINGER Notes
@@ -1598,13 +1603,6 @@ See [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
 | MIDI Note | Description                                            |
 | :-------: | :----------                                            |
 | 108       | Mouth open/close<br>Note on = open, note off = closed. |
-
-##### BAND_SINGER Text Events
-
-| Event Text | Description                                 |
-| :--------- | :----------                                 |
-| `[idle]`   | Vocalist idles during a part with no notes. |
-| `[play]`   | Vocalist starts playing.                    |
 
 ## References
 
