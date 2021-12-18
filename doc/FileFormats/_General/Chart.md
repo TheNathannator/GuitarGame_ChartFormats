@@ -124,6 +124,8 @@ Supported instrument names:
 
 Legacy instrument names:
 
+- These are not fully documented, as they are not necessarily standard and Feedback just used the 5-fret track layout for all of the ones it supported.
+
 - `SingleBass` - present in some older charts, but was never actually used in any games and is considered to be unsupported
 - `EnhancedGuitar` - available in Feedback Editor
 - `CoopLead` - available in Feedback Editor
@@ -142,10 +144,10 @@ Its data follows this format:
 
 `<Name> = <Value>`
 
-- `Name` is the name of the metadata entry,  written in PascalCase. These should be unique, and any duplicates should be ignored.
+- `Name` is the name of the metadata entry, typically written in PascalCase (though their casing may vary). These should be unique, and any duplicates should be ignored.
 - `Value` is the value of the metadata entry. The data type of `Value` depends on which entry it is paired to.
 
-The order of metadata tags may vary, and so may their upper/lowercasing.
+The order of metadata tags may vary.
 
 Note: .chart files made for Clone Hero often don't have this section properly filled out, they instead use an accompanying song.ini file. The metadata in the song.ini should be prioritized over the metadata in the .chart wherever possible. See [Song_ini.md](Song_ini.md) for details on the song.ini file.
 
@@ -157,14 +159,14 @@ In the descriptions, GHTCP stands for Guitar Hero Three Control Panel, a tool to
 
 | Key            | Description                                                                                      | Data type |
 | :---           | :----------                                                                                      | :-------- |
-| `Name`         | Title of the song.                                                                               | string    |
-| `Artist`       | Artist(s) or band(s) behind the song.                                                            | string    |
+| `Name`         | (Required) Title of the song.                                                                    | string    |
+| `Artist`       | (Required) Artist(s) or band(s) behind the song.                                                 | string    |
 | `Charter`      | Community member who charted the song.                                                           | string    |
 | `Album`        | Title of the album the song is featured in.                                                      | string    |
 | `Genre`        | Genre of the song.                                                                               | string    |
 | `Year`         | Year of the song’s release.<br>Typically preceded by a comma and space, for example `, 2002`, to make importing into GHTCP quicker. | string |
 | `Offset`       | Start time of the audio in seconds.<br>A higher value makes the audio start sooner.              | float (seconds.milliseconds) |
-| `Resolution`   | Number of positional ticks between the start of one beat and the start of the next.              | number    |
+| `Resolution`   | (Required) Number of positional ticks between the start of one beat and the start of the next.   | number    |
 | `Difficulty`   | Estimated difficulty of the song.                                                                | number    |
 | `PreviewStart` | Time of the song in seconds where the song preview should start.                                 | float (seconds.milliseconds) |
 | `PreviewEnd`   | Time of the song in seconds where the song preview should end.                                   | float (seconds.milliseconds) |
