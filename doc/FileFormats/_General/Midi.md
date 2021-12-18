@@ -277,6 +277,8 @@ The following sections detail per-track tables and lists of MIDI notes, text eve
 
 Please note that these should not be used as a comprehensive technical documentation for how charts should be made for Rock Band or Guitar Hero 1/2, this document is focused on the format itself and does not include most game-specific events, limitations, or technicalities. Known game-specific events can be found in other documents in this repo, and later this document will be split/copied into multiple documents that detail a base standard to be used in modern games, and game-specific standards which will re-include these events in the file.
 
+There may also be some specific-game notes missing here and there, but the core functionality for each track should be fully documented.
+
 ## Track Names
 
 Tracks are identified by their track name meta event.
