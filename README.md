@@ -4,7 +4,7 @@ A repository of documentation for chart files of guitar- or band-centric rhythm 
 
 ## Work In Progress
 
-This documentation project is a work in progress. The directory structure currently requires some work to make it more modular and specific to games, and some documents may need to be split or restructured/duplicated for variations in other games.
+This documentation project is a work in progress. Some documents may need to be split or restructured/duplicated for variations in other games.
 
 ## Contributing
 
