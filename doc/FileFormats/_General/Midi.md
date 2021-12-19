@@ -910,8 +910,8 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 | :-------:  | :----------                                                                                                         |
 | Markers    |                                                                                                                     |
 | 116        | Star Power/Overdrive marker<br>Standard vocals and Harmonies can have independent overdrive. `HARM2` and `HARM3` get their overdrive from `HARM1`. |
-| 106        | Lyrics phrase marker 2/Score Duel player 2 phrase<br>This can appear with the other phrase marker at the same time. |
-| 105        | Lyrics phrase marker 1/Score Duel player 1 phrase<br>This can appear with the other phrase marker at the same time.<br>For harmonies, the `HARM1` phrase is used for all 3 harmony tracks. The `HARM2` phrase is only used for when harmony 2/3 lyrics shift in static vocals. `HARM3` typically has no phrases marked. |
+| 106        | Lyrics phrase marker 2/Score Duel player 2 phrase<br>Can appear with the other phrase marker at the same time (same start and end). |
+| 105        | Lyrics phrase marker 1/Score Duel player 1 phrase<br>Can appear with the other phrase marker at the same time (same start and end).<br>For harmonies, the `HARM1` phrase is used for all 3 harmony tracks. The `HARM2` phrase is only used for when harmony 2/3 lyrics shift in static vocals. `HARM3` typically has no phrases marked. |
 |            |                                                                                                                     |
 | Percussion |                                                                                                                     |
 | 97         | Not displayed percussion                                                                                            |
@@ -974,7 +974,9 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 
 #### Vocals Lyrics
 
-Lyrics are stored as text events paired up with notes in the 36 to 84 range. There are various symbols used for specific things in lyrics:
+Lyrics are stored as text events paired up with notes in the 36 to 84 range. Lyric phrases are marked using either note 105 or note 106, or both at the same time (same start and end). (Rock Band 3 phased out the Score Duel mode and only uses note 105.)
+
+There are various symbols used for specific things in lyrics:
 
 | Name           | Symbol | Description                                                                                               |
 | :---           | :----: | :----------                                                                                               |
