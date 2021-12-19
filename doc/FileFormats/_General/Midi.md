@@ -260,7 +260,7 @@ Meta events are events that store non-MIDI data such as text. They follow this f
 | `FF 02 <len> <text[]>`                  | Copyright notice    | A copyright notice.                                                    |
 | `FF 03 <len> <text[]>`                  | Sequence/track name | The name of a sequence or track.                                       |
 | `FF 04 <len> <text[]>`                  | Instrument name     | A description of the instrumentation for the track.                    |
-| `FF 05 <len> <text[]>`                  | Lyric               | A lyric, typically a single syllable.<br>Not used for chart lyrics.    |
+| `FF 05 <len> <text[]>`                  | Lyric               | A lyric, typically a single syllable.                                  |
 | `FF 06 <len> <text[]>`                  | Marker              | Marks a point in a sequence.                                           |
 | `FF 07 <len> <text[]>`                  | Cue point           | Describes an event happening at this point in an accompanying media.   |
 | `FF 20 01 <chn>`                        | MIDI channel prefix | Associates a MIDI channel to all following events, up until the next channel prefix event.<br>`chn` is any channel number from 0-15. |
@@ -974,7 +974,7 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 
 #### Vocals Lyrics
 
-Lyrics are stored as text events paired up with notes in the 36 to 84 range. Lyric phrases are marked using either note 105 or note 106, or both at the same time (same start and end). (Rock Band 3 phased out the Score Duel mode and only uses note 105.)
+Lyrics are stored as meta events (usually text or lyric), paired up with notes in the 36 to 84 range. Lyric phrases are marked using either note 105 or note 106, or both at the same time (same start and end). (Rock Band 3 phased out the Score Duel mode and only uses note 105.)
 
 There are various symbols used for specific things in lyrics:
 
