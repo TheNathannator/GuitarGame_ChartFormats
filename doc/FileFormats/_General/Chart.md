@@ -134,6 +134,8 @@ Legacy instrument names:
 - `DoubleDrums` - available in Feedback Editor
 - `Vocals` - available in Feedback Editor
 
+NOTE: Some .chart files may contain .mid track names in their section names, these should be ignored as they don't necessarily contain the same information as the original .mid track.
+
 All sections aside from `Song` (for chart resolution) and `SyncTrack` are optional, and instrument sections may show up in any order. A missing section is equivalent to a section with no data.
 
 ## Song Section Details
