@@ -125,7 +125,7 @@ Difficulty names:
 - `Medium`
 - `Easy`
   
-Supported instrument names:
+Common instrument names:
 
 - `Single` – Lead Guitar
 - `DoubleGuitar` – Co-op Guitar
@@ -147,6 +147,12 @@ Legacy instrument names:
 - `10KeyGuitar` - available in Feedback Editor
 - `DoubleDrums` - available in Feedback Editor
 - `Vocals` - available in Feedback Editor
+
+Other instrument names:
+
+- These are other instrument names that are not necessarily related to band games, but are documented regardless for preservation.
+
+- `Beatmania` - BME format converted to .chart, seems to be from [a BME to .chart converter](https://github.com/iDestyKK/bme2chart/)
 
 NOTE: Some .chart files may contain .mid track names in their section names, these should be ignored as they don't necessarily contain the same information as the original .mid track.
 
@@ -684,6 +690,33 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 | Green tom     | Green  |
 | Y tom + B tom | R + B  |
 | B cym + G cym | Y + O  |
+
+### BME Conversion Track
+
+Applies to the `Beatmania` track.
+
+#### BME Event Types
+
+This track uses the `A` type code to mark auto-play notes, and also extends the `N` type code to include a sound number after the length.
+
+`<Position> = A <Sound>`
+
+`<Position> = N <Type> <Length> <Sound>`
+
+- Sound is a number indicating which keysound to play.
+
+#### BME Conversion Note and Modifier Types
+
+| Note Type | Description                              |
+| :-------: | :----------                              |
+| 0         | Key 1<br>Equivalent to BME channel 11.   |
+| 1         | Key 2<br>Equivalent to BME channel 12.   |
+| 2         | Key 3<br>Equivalent to BME channel 13.   |
+| 3         | Key 4<br>Equivalent to BME channel 14.   |
+| 4         | Key 5<br>Equivalent to BME channel 15.   |
+| 5         | Key 6<br>Equivalent to BME channel 18.   |
+| 6         | Key 7<br>Equivalent to BME channel 19.   |
+| 7         | Scratch<br>Equivalent to BME channel 16. |
 
 ### Instrument Section Examples
 
