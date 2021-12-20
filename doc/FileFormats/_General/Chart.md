@@ -730,7 +730,6 @@ Other info comes from:
   - [GitHub](https://github.com/TurkeyMan/feedback-editor)
   - [ScoreHero page](https://www.scorehero.com/forum/viewtopic.php?t=7466)
 - Some ScoreHero posts:
-  - [GH1/2 text event descriptions](https://www.scorehero.com/forum/viewtopic.php?t=20179)
   - [GHTCP page](https://www.scorehero.com/forum/viewtopic.php?t=72367)
     - [GHTCP song properties window](https://www.scorehero.com/forum/viewtopic.php?t=72367#songproperties)
     - [HoPo metadata tag format](https://www.scorehero.com/forum/viewtopic.php?t=72367#common_06)
