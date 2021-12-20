@@ -4,6 +4,7 @@
 
 ## Table of Contents
 
+- [Brief History](#brief-history)
 - [Basic Infrastructure](#basic-infrastructure)
   - [Sections](#sections)
     - [Section Data](#section-data)
@@ -43,7 +44,10 @@
     - [Drums Note and Modifier Types](#drums-note-and-modifier-types)
     - [Drums Special Phrase Types](#drums-special-phrase-types)
     - [Drums Local Events](#drums-local-events)
-    - [Drums Other Info](#drums-other-info)
+    - [Drums Track Type Determining](#drums-track-type-determining)
+  - [BME Conversion Track](#bme-conversion-track)
+    - [BME Event Types](#bme-event-types)
+    - [BME Conversion Note and Modifier Types](#bme-conversion-note-and-modifier-types)
   - [Instrument Section Examples](#instrument-section-examples)
 - [Resources](#resources)
 
@@ -697,13 +701,13 @@ Applies to the `Beatmania` track.
 
 #### BME Event Types
 
-This track uses the `A` type code to mark auto-play notes, and also extends the `N` type code to include a sound number after the length.
+This track uses the `A` type code to mark auto-play notes (equivalent to BME channel 01), and also extends the `N` type code to include a keysound number after the length.
 
 `<Position> = A <Sound>`
 
 `<Position> = N <Type> <Length> <Sound>`
 
-- Sound is a number indicating which keysound to play.
+- `Sound` is a number indicating which keysound to play.
 
 #### BME Conversion Note and Modifier Types
 
