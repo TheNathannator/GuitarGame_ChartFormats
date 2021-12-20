@@ -215,7 +215,7 @@ Often times, paths to audio files to play during the song are included here. The
 | `VocalStream`  | Vocals audio.                                                                         | file path |
 | `CrowdStream`  | Background crowd noise/singing audio.                                                 | file path |
 
-Note that charts made for Clone Hero don't necessarily use these paths intentionally. Clone Hero has static names for these tracks, and dynamically includes them based on their presence. These are detailed in [Overview.md](Overview.md).
+Note that charts made for Clone Hero don't necessarily use these paths intentionally. Clone Hero has static names for these tracks, and dynamically includes them based on their presence. These are detailed in [Overview.md](_Overview.md).
 
 ### Legacy Metadata
 
