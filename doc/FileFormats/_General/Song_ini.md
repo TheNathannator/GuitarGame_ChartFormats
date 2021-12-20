@@ -98,7 +98,6 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `preview`            | (PS) Two timestamps in milliseconds for preview start and end time.<br>Example: `55000 85000` | two numbers |
 | `video_start_time`   | Timestamp in milliseconds where playback of an included video will start. Can be negative.    | number      |
 | `video_end_time`     | Timestamp in milliseconds where playback of an included video background will end.            | number      |
-| `delay`              | Chart offset time in milliseconds.<br>Higher = later notes. Can be negative.                  | number      |
 |                      |                                                                                               |             |
 | `tags`               | (FoFiX) Name is unclear, known use is to mark a song as a cover and have `As made famous by` display next to the artist name.<br>Only known valid value is `cover`. | string |
 | `cassettecolor`      | (FoFiX) Hex color to use in the song screen for the cassette.                                 | hex color   |
@@ -107,7 +106,7 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `playlist`           | (CH) Playlist that the song should show up in.                                                | string      |
 | `sub_playlist`       | (CH) Sub-playlist that the song should show up in.                                            | string      |
 |                      |                                                                                               |             |
-| `loading_phrase`     | Flavor text that will be shown after selecting the song.                                      | string      |
+| `loading_phrase`     | Flavor text for this song, usually shown after picking the song or during loading.            | string      |
 
 ### Track Difficulties
 
@@ -146,16 +145,17 @@ These tags affect the parsing or configuration of a chart.
 
 | Tag Name                     | Description                                                                              | Data type |
 | :-------                     | :----------                                                                              | :-------: |
+| `delay`                      | Chart offset time in milliseconds.<br>Higher = later notes. Can be negative.             | number    |
+|                              |                                                                                          |           |
 | `pro_drums`                  | Forces the Drums track to be Pro Drums.                                                  | boolean   |
 | `pro_drum`                   | (FoFiX) Same as `pro_drums`?                                                             | boolean   |
 | `five_lane_drums`            | Forces the Drums track to be 5-lane.                                                     | boolean   |
-| `drum_fallback_blue`         | (PS) "Sets 5 to 4 Lane Drums Fallback Note" | boolean  |
+| `drum_fallback_blue`         | (PS) "Sets 5 to 4 Lane Drums Fallback Note" (No solid idea what this means lol)          | boolean   |
 |                              |                                                                                          |           |
 | `sustain_cutoff_threshold`   | Overrides the default sustain cutoff threshold with the specified number of ticks.       | number    |
 | `hopo_frequency`             | Overrides the natural HOPO threshold with the specified number of ticks.                 | number    |
 | `hopofreq`                   | (FoFiX) Overrides the natural HOPO threshold using [numbers from 0 to 5](https://github.com/fofix/fofix/blob/7730d1503c66562b901f62b33a5bd46c3d5e5c34/fofix/game/song/song.py#L1309).<br>0 = 1/24th, 1 = 1/16th, 2 = 1/12th, 3 = calculates to 1/9th but 1/8th is more reasonable, 4 = 1/6th, 5 = 1/4th<br>Not recommended for new charts, use `hopo_frequency` instead. | number |
 | `eighthnote_hopo`            | (FoFiX) Overrides the natural HOPO threshold to be a 1/8th step.<br>Not recommended for new charts, use `hopo_frequency` instead. | boolean |
-|                              |                                                                                          |           |
 | `multiplier_note`            | Overrides the Star Power phrase MIDI note for .mid charts.                               | MIDI note |
 | `star_power_note`            | (PS) Same as above.                                                                      | MIDI note |
 |                              |                                                                                          |           |
@@ -173,7 +173,7 @@ These tags affect the parsing or configuration of a chart.
 | `bass_type`                  | (PS) Sample sound set for Bass.                                                          | number    |
 | `kit_type`                   | (PS) Sample sound set for Drums.                                                         | number    |
 | `keys_type`                  | (PS) Sample sound set for Keyboard.                                                      | number    |
-| `dance_type`                 | (PS) Sets the type of pad for Part Dance?                                                | number    |
+| `dance_type`                 | (PS) Unsure (sets the type of pad for Part Dance?)                                       | number    |
 | `vocal_gender`               | (PS) Specifies a voice type for the singer (either "male" or "female").                  | string    |
 |                              |                                                                                          |           |
 | `real_guitar_tuning`         | Specifies a tuning for 17-fret Pro Guitar.                                               | Pro Guitar tuning |
