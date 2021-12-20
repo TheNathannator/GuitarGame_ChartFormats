@@ -1002,6 +1002,8 @@ Here's how these symbols should be handled for displaying as just text:
 - Replace `§`, `_` with a space.
 - Join together a syllable that has `-` or `=` at the end of it with the following syllable.
 
+NOTE: Some charts may have more than one lyric event at the same position. While this shouldn't be common, it has happened in some charts and needs to be accounted for in some way.
+
 ### Rock Band 3 Pro Keys
 
 - `PART REAL_KEYS_X` - Pro Keys Expert
