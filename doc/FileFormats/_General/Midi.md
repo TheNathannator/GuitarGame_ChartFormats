@@ -271,6 +271,10 @@ Meta events are events that store non-MIDI data such as text. They follow this f
 | `FF 59 02 <shp/flt> <maj/min>`          | Key signature       | Sets a new key signature.<br>`shp/flat` is the number of sharps or flats from -7 to 7 (positive is sharps, negative is flats, 0 is none), `maj/min` is 0 for major, 1 for minor. |
 | `FF 7F <len> <data[]>`                  | Sequencer-specific  | Stores a sequencer-specific meta event.                                |
 
+##### Type 1 MIDI Tempo Map Track
+
+Typically, a type 1 MIDI file dedicates its first track to tempo map data and other things that affect all tracks, with the rest of the tracks being normal tracks.
+
 ## Chart Format Details
 
 The following sections detail per-track tables and lists of MIDI notes, text events, and SysEx events that lay out charts.
