@@ -640,23 +640,41 @@ I would like to use a table here instead of a list for consistency, but the mix 
 
 - `solo` - Starts a solo.
 - `soloend` - Ends a solo.
-- `mix_<difficulty>_drums<configuration><flag>` - Sets a stem configuration for drums. This event can be found both with or without brackets, and possibly with spaces instead of underscores.
-  - `difficulty` is a number indicating the difficulty this mix event applies to:
-    - 0 - Easy
-    - 1 - Medium
-    - 2 - Hard
-    - 3 - Expert
-  - `configuration` is a number corresponding to a specific stem configuration for Rock Band:
-    - 0 - One stereo stem for the entire kit. This should be used for no stem, as well.
-    - 1 - Mono kick, mono snare, stereo other.
-    - 2 - Mono kick, stereo snare, stereo other.
-    - 3 - Stereo kick, stereo snare, stereo other.
-    - 4 - Mono kick, stereo other.
-  - `flag` is an optional additional string added to the end of the mix event that does some form of modification outside of setting up the mix:
-    - `d` - Known as Disco Flip. On standard 4-lane, moves the snare stem to be activated by yellow and makes red activate the cymbal stem. On Pro Drums, flips yellow cymbal/yellow tom and red notes to restore proper playing of the part with cymbals.
-    - `dnoflip` - Used in sections where the snare stem should be activated by yellow and the cymbal stem should be activated by red regardless of if it's Pro or standard 4-lane.
-    - `easy` - Used in sections where there are no tom or cymbal gems to unmute the cymbal stem. Not supported in RB3, it handles this automatically.
-    - `easynokick` - Used in sections where there are no kick gems to unmute the kick stem. Not supported in RB3, it handles this automatically.
+
+Mix events:
+
+`mix_<difficulty>_drums<configuration><flag>` - Sets a stem configuration for drums. This event can be found both with or without brackets, and with either spaces or underscores.
+
+- `difficulty` is a number indicating the difficulty this event applies to:
+
+| Text | Description |
+| :--: | :---------- |
+| `0`  | Easy        |
+| `1`  | Medium      |
+| `2`  | Hard        |
+| `3`  | Expert      |
+
+- `configuration` is a number corresponding to a specific stem configuration:
+
+| Text | Description                                                                      |
+| :--: | :----------                                                                      |
+| `0`  | One stereo stem for the entire kit.<br>This should be used for no stem, as well. |
+| `1`  | Mono kick, mono snare, stereo other.                                             |
+| `2`  | Mono kick, stereo snare, stereo other.                                           |
+| `3`  | Stereo kick, snare, and other.                                                   |
+| `4`  | Mono kick, stereo other.                                                         |
+| `5`  | Stereo kick, snare, toms, and cymbals.<br>Not part of the RBN docs, rather it is [defined as a community standard](https://strikeline.myjetbrains.com/youtrack/issue/CH-43) based on the GH stem layout. |
+
+- `flag` is an optional string added to the end of the event that applies a modification outside of setting up the mix:
+
+| Text         | Description |
+| :--:         | :---------- |
+| `d`          | Known as Disco Flip.<br>- On non-Pro, swaps the the snare and other/cymbal+tom stems, such that snare is activated by yellow, and other/cymbal+tom are activated by red.<br>- On Pro Drums, flips yellow cymbal/yellow tom and red notes to restore proper playing of the part with cymbals instead of swapping the stems.<br>- This flag is used in sections that require alternating the left and right hands quickly on the hi-hat (commonly a disco beat, hence the name), which are typically charted swapped, since playing it un-swapped in non-Pro on stock Rock Band kits tends to be uncomfortable. |
+| `dnoflip`    | Swaps the snare and kit/cymbal and tom stems on both non-Pro and Pro Drums, without swapping red and yellow in Pro Drums.<br>- Used in sections where notes should not be flipped in Pro Drums, but the snare and kit/cymbal stems should still be swapped.
+| `easy`       | Unmutes the tom and cymbal gems on Easy.<br>- Used in sections where there are no tom or cymbal gems to unmute the kit stem or tom/cymbal stems. Not supported in RB3, it handles this automatically. |
+| `easynokick` | Unmutes the other/cymbal+tom stem on Easy.<br>- Used in sections where there are no kick gems to unmute the kick stem. Not supported in RB3, it handles this automatically. |
+
+Aside from `d` and `dnoflip`, detecting stem configuration can be done automatically and these mix events can be ignored if that approach is chosen. If these events are used for more than just disco flip in a chart, then the `configuration` number should remain constant throughout the chart.
 
 #### Drums Track Type Determining
 
