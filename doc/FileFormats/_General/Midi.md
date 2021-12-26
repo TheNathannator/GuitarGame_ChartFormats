@@ -840,6 +840,10 @@ Additional info:
 
 #### Drums Text Events
 
+| Event Text                | Description                                                                   |
+| :---------                | :----------                                                                   |
+| `[ENABLE_CHART_DYNAMICS]` | Enables accent/ghost marking.<br>Can be found both with and without brackets. |
+
 Mix events:
 
 `[mix <difficulty> drums<configuration><flag>]` - Sets a stem configuration for drums. This event can be found both with or without brackets, and with either spaces or underscores.
