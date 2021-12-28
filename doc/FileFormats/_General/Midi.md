@@ -828,7 +828,7 @@ Additional info:
   - In gameplay, they are equivalent to normal kicks, but they should only be visible if the user enables them.
 - Accent and ghost notes are notes that need to be hit either hard or soft, respectively.
   - A note marked at a velocity of 127 is an accent note, and a note at a velocity of 1 is a ghost note.
-  - Clone Hero requires a `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended.
+  - Clone Hero requires an `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended.
 
 #### Phase Shift Real Drums SysEx Events
 

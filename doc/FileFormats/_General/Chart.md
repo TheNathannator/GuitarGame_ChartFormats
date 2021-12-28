@@ -620,7 +620,7 @@ Additional info:
   - In gameplay, they are equivalent to normal kicks, but they should only be visible if the user enables them.
 - Accent and ghost notes are not implemented in .chart yet, they are currently only available in .mid.<!-- Accent and ghost notes are notes that need to be hit either hard or soft, respectively. -->
   <!-- - (Preemptive assumption) These are marked with their respective note modifiers. -->
-  <!-- - (May be unnecessary for .chart, as there's nothing that would conflict with how accents/ghosts would theoretically be marked) Clone Hero requires a `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended. -->
+  <!-- - (May be unnecessary for .chart, as there's nothing that would conflict with how accents/ghosts would theoretically be marked) Clone Hero requires an `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended. -->
 
 #### Drums Special Phrase Types
 
