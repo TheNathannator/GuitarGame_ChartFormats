@@ -121,7 +121,7 @@ MIDI files are comprised of what are called "chunks". These chunks are distinct 
 There are two types of chunks:
 
 - Header chunks
-- Track chunks.
+- Track chunks
 
 #### Header Chunks
 
