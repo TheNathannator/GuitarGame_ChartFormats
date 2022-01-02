@@ -289,64 +289,64 @@ Tracks are identified by their track name meta event.
 
 Standard tracks:
 
-| Track Name         | Track Description            |
-| :---------         | :----------------            |
-| `PART GUITAR`      | Lead Guitar                  |
-| `PART GUITAR COOP` | Co-op Guitar                 |
-| `PART GUITAR GHL`  | Guitar Hero Live Guitar      |
-| `PART BASS`        | Bass Guitar                  |
-| `PART BASS GHL`    | Guitar Hero Live Bass        |
-| `PART RHYTHM`      | Rhythm Guitar                |
-| `PART KEYS`        | 5-Lane Keys                  |
-| `PART DRUMS`       | Drums/Pro Drums/5-Lane Drums |
-| `PART VOCALS`      | Vocals                       |
-| `EVENTS`           | Global events                |
+| Track Name                           | Track Description            |
+| :---------                           | :----------------            |
+| [`PART GUITAR`](#5-fret-tracks)      | Lead Guitar                  |
+| [`PART GUITAR COOP`](#5-fret-tracks) | Co-op Guitar                 |
+| [`PART GUITAR GHL`](#6-fret-tracks)  | Guitar Hero Live Guitar      |
+| [`PART BASS`](#5-fret-tracks)        | Bass Guitar                  |
+| [`PART BASS GHL`](#6-fret-tracks)    | Guitar Hero Live Bass        |
+| [`PART RHYTHM`](#5-fret-tracks)      | Rhythm Guitar                |
+| [`PART KEYS`](#5-fret-tracks)        | 5-Lane Keys                  |
+| [`PART DRUMS`](#drums-tracks)        | Drums/Pro Drums/5-Lane Drums |
+| [`PART VOCALS`](#vocals-tracks)      | Vocals/lyrics                |
+| [`EVENTS`](#events-track)            | Global events                |
 
 Additional tracks (from either Rock Band or Phase Shift):
 
-| Track Name               | Track Description                              |
-| :---------               | :----------------                              |
-| `PART DRUMS_2X`          | RBN 2x Kick Drums chart<br>Meant for generating separate 1x and 2x kick CON files for Rock Band. Probably won't ever be seen in a publicly-available chart, but worth noting. |
-| `PART REAL_GUITAR`       | RB3 Pro Guitar (17-fret)                       |
-| `PART REAL_GUITAR_22`    | RB3 Pro Guitar (22-fret)                       |
-| `PART REAL_GUITAR_BONUS` | Some sort of Pro Guitar track, details unknown |
-| `PART REAL_BASS`         | RB3 Pro Bass (17-fret)                         |
-| `PART REAL_BASS_22`      | RB3 Pro Bass (22-fret)                         |
-| `PART REAL_DRUMS_PS`     | PS Real Drums                                  |
-| `PART REAL_KEYS_X`       | RB3 Pro Keys Expert                            |
-| `PART REAL_KEYS_H`       | RB3 Pro Keys Hard                              |
-| `PART REAL_KEYS_M`       | RB3 Pro Keys Medium                            |
-| `PART REAL_KEYS_E`       | RB3 Pro Keys Easy                              |
-| `PART KEYS_ANIM_LH`      | RB3 Pro Keys left-hand animations              |
-| `PART KEYS_ANIM_RH`      | RB3 Pro Keys right-hand animations             |
-| `PART REAL_KEYS_PS_X`    | PS Keys Real Expert                            |
-| `PART REAL_KEYS_PS_M`    | PS Keys Real Medium                            |
-| `PART REAL_KEYS_PS_H`    | PS Keys Real Hard                              |
-| `PART REAL_KEYS_PS_E`    | PS Keys Real Easy                              |
-| `PART DANCE`             | PS 4-key dance                                 |
-| `HARM1`                  | RB3 Harmony part 1                             |
-| `HARM2`                  | RB3 Harmony part 2                             |
-| `HARM3`                  | RB3 Harmony part 3                             |
-| `VENUE`                  | RB venue camera/lighting effects               |
-| `BEAT`                   | RB beat track                                  |
+| Track Name                                                                         | Track Description                      |
+| :---------                                                                         | :----------------                      |
+| [`PART DRUMS_2X`]                                                                  | RBN 2x Kick Drums chart<br>Meant for generating separate 1x and 2x kick CON files for Rock Band. Probably won't ever be seen in a publicly-available chart, but worth noting. |
+| [`PART REAL_GUITAR`](#rock-band-3-pro-guitar-tracks)                               | RB3 Pro Guitar (17-fret)               |
+| [`PART REAL_GUITAR_22`](#rock-band-3-pro-guitar-tracks)                            | RB3 Pro Guitar (22-fret)               |
+| [`PART REAL_GUITAR_BONUS`](#rock-band-3-pro-guitar-tracks)                         | Some Pro Guitar track, details unknown |
+| [`PART REAL_BASS`](#rock-band-3-pro-guitar-tracks)                                 | RB3 Pro Bass (17-fret)                 |
+| [`PART REAL_BASS_22`](#rock-band-3-pro-guitar-tracks)                              | RB3 Pro Bass (22-fret)                 |
+| [`PART REAL_DRUMS_PS`](#drums-tracks)                                              | PS Real Drums                          |
+| [`PART REAL_KEYS_X`](#rock-band-3-pro-keys-tracks)                                 | RB3 Pro Keys Expert                    |
+| [`PART REAL_KEYS_H`](#rock-band-3-pro-keys-tracks)                                 | RB3 Pro Keys Hard                      |
+| [`PART REAL_KEYS_M`](#rock-band-3-pro-keys-tracks)                                 | RB3 Pro Keys Medium                    |
+| [`PART REAL_KEYS_E`](#rock-band-3-pro-keys-tracks)                                 | RB3 Pro Keys Easy                      |
+| [`PART KEYS_ANIM_LH`](../RockBand/Midi_RockBand.md#pro-keys-animation-track-notes) | RB3 Pro Keys left-hand animations      |
+| [`PART KEYS_ANIM_RH`](../RockBand/Midi_RockBand.md#pro-keys-animation-track-notes) | RB3 Pro Keys right-hand animations     |
+| [`PART REAL_KEYS_PS_X`](#phase-shift-real-keys-tracks)                             | PS Keys Real Expert                    |
+| [`PART REAL_KEYS_PS_M`](#phase-shift-real-keys-tracks)                             | PS Keys Real Medium                    |
+| [`PART REAL_KEYS_PS_H`](#phase-shift-real-keys-tracks)                             | PS Keys Real Hard                      |
+| [`PART REAL_KEYS_PS_E`](#phase-shift-real-keys-tracks)                             | PS Keys Real Easy                      |
+| [`PART DANCE`](#phase-shift-dance-track)                                           | PS 4-key dance                         |
+| [`HARM1`](#vocals-tracks)                                                          | RB3 Harmony part 1                     |
+| [`HARM2`](#vocals-tracks)                                                          | RB3 Harmony part 2                     |
+| [`HARM3`](#vocals-tracks)                                                          | RB3 Harmony part 3                     |
+| [`VENUE`](../RockBand/Midi_RockBand.md#venue-track)                                | RB venue track                         |
+| [`BEAT`](../RockBand/Midi_RockBand.md#beat-track)                                  | RB upbeat/downbeat track               |
 
 Legacy tracks:
 
-| Track Name         | Track Description                                          |
-| :---------         | :----------------                                          |
-| `T1 GEMS`          | GH1 Lead Guitar                                            |
-| `ANIM`             | GH1 guitarist animations track                             |
-| `TRIGGERS`         | GH1/2 lighting, venue, and practice mode drum sample track |
-| `BAND_DRUM`        | GH1/2 drummer animations track                             |
-| `BAND_BASS`        | GH1/2 bassist animations track                             |
-| `BAND_SINGER`      | GH1/2 vocalist animations track                            |
-| `Click`            | Track that FoFiX supports for Lead Guitar                  |
-| `Midi Out`         | Same as above                                              |
-| `PART LEAD`        | Same as above (different line in the code)                 |
-| `PART DRUM`        | Alternate name for `PART DRUMS` that FoFiX supports        |
-| `PART REAL GUITAR` | `PART REAL_GUITAR` as it appears in FoFiX's code           |
-| `PART REAL BASS`   | `PART REAL_BASS` as it appears in FoFiX's code             |
-| `PART REAL DRUM`   | Pro Drums as it appears in FoFiX's code                    |
+| Track Name                                                                | Track Description                                    |
+| :---------                                                                | :----------------                                    |
+| [`T1 GEMS`](#5-fret-tracks)                                               | GH1 Lead Guitar                                      |
+| [`ANIM`](../GuitarHero1-2/Midi_GuitarHero1-2.md#anim-track)               | GH1 guitarist animations track                       |
+| [`TRIGGERS`](../GuitarHero1-2/Midi_GuitarHero1-2.md#triggers-track)       | GH1/2 lighting, venue, and practice mode drums track |
+| [`BAND_BASS`](../GuitarHero1-2/Midi_GuitarHero1-2.md#band-bass-track)     | GH1/2 bassist animations track                       |
+| [`BAND_DRUM`](../GuitarHero1-2/Midi_GuitarHero1-2.md#band-drum-track)     | GH1/2 drummer animations track                       |
+| [`BAND_SINGER`](../GuitarHero1-2/Midi_GuitarHero1-2.md#band-singer-track) | GH1/2 vocalist animations track                      |
+| [`Click`]                                                                 | Track that FoFiX supports for Lead Guitar            |
+| [`Midi Out`]                                                              | Same as above                                        |
+| [`PART LEAD`]                                                             | Same as above                                        |
+| [`PART DRUM`]                                                             | Alternate name for `PART DRUMS` that FoFiX supports  |
+| [`PART REAL GUITAR`]                                                      | `PART REAL_GUITAR` as it appears in FoFiX's code     |
+| [`PART REAL BASS`]                                                        | `PART REAL_BASS` as it appears in FoFiX's code       |
+| [`PART REAL DRUM`]                                                        | Pro Drums as it appears in FoFiX's code              |
 
 ([FoFiX tracks reference](https://github.com/fofix/fofix/blob/7730d1503c66562b901f62b33a5bd46c3d5e5c34/fofix/game/song/song.py#L154))
 
