@@ -188,7 +188,7 @@ These tags affect the parsing or configuration of a chart.
 
 | Tag Name        | Description                                | Data type |
 | :-------        | :----------                                | :-------: |
-| `icon`          | Name of an icon to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://gitlab.com/clonehero/sources). | string |
+| `icon`          | Name of an icon to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://gitlab.com/clonehero/sources).<br>Note that Moonscraper likes to set this to `0` as its default value for this tag. | string |
 |                 |                                            |           |
 | `background`    | Name/path for a background image file.     | file path |
 | `video`         | Name/path for a background video file.     | file path |
