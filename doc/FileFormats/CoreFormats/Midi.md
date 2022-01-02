@@ -24,40 +24,60 @@ This document will be split up later into multiple documents, with one being a r
     - [System Exclusive Events](#system-exclusive-events)
       - [Warning For SysEx](#warning-for-sysex)
     - [Meta Events](#meta-events)
-      - [Type 1 MIDI Tempo Map Track](#type-1-midi-tempo-map-track)
 - [Chart Format Details](#chart-format-details)
   - [Track Names](#track-names)
   - [Basic Info](#basic-info)
   - [Metadata](#metadata)
   - [SysEx Event Details](#sysex-event-details)
-  - [5-Fret Tracks](#5-fret-tracks)
+  - [5-Fret](#5-fret)
     - [5-Fret Notes](#5-fret-notes)
+    - [Guitar Hero 1/2 Notes](#guitar-hero-12-notes)
+    - [5-Lane Keys Notes](#5-lane-keys-notes)
     - [5-Fret SysEx Events](#5-fret-sysex-events)
     - [5-Fret Text Events](#5-fret-text-events)
-  - [6-Fret Tracks](#6-fret-tracks)
+  - [6-Fret](#6-fret)
     - [6-Fret Notes](#6-fret-notes)
     - [6-Fret SysEx Events](#6-fret-sysex-events)
-  - [Drums Tracks](#drums-tracks)
+  - [Drums](#drums)
     - [Drums Notes](#drums-notes)
     - [Phase Shift Real Drums SysEx Events](#phase-shift-real-drums-sysex-events)
     - [Drums Text Events](#drums-text-events)
     - [Drums Track Type Determining](#drums-track-type-determining)
-  - [Vocals Tracks](#vocals-tracks)
+  - [Vocals](#vocals)
     - [Vocals Notes](#vocals-notes)
     - [Vocals Lyrics](#vocals-lyrics)
-  - [Rock Band 3 Pro Keys Tracks](#rock-band-3-pro-keys-tracks)
+  - [Rock Band 3 Pro Keys](#rock-band-3-pro-keys)
     - [Pro Keys Notes](#pro-keys-notes)
-  - [Phase Shift Real Keys Tracks](#phase-shift-real-keys-tracks)
+    - [Pro Keys Animation Track Notes](#pro-keys-animation-track-notes)
+  - [Phase Shift Real Keys](#phase-shift-real-keys)
     - [Real Keys Notes](#real-keys-notes)
-  - [Rock Band 3 Pro Guitar Tracks](#rock-band-3-pro-guitar-tracks)
-    - [Pro Guitar Notes and Channels](#pro-guitar-notes-and-channels)
-    - [Pro Guitar SysEx Events](#pro-guitar-sysex-events)
-  - [Phase Shift Dance Track](#phase-shift-dance-track)
+  - [Pro Guitar/Bass](#pro-guitarbass)
+    - [Pro Guitar/Bass Notes and Channels](#pro-guitarbass-notes-and-channels)
+    - [Pro Guitar/Bass SysEx Events](#pro-guitarbass-sysex-events)
+  - [Dance Track](#dance-track)
     - [Dance Notes](#dance-notes)
   - [Events Track](#events-track)
+    - [Events Notes](#events-notes)
     - [Events Common Text Events](#events-common-text-events)
-  - [Rock Band Tracks](#rock-band-tracks)
+  - [Venue Track](#venue-track)
+    - [Venue Notes (RB1/RB2/RBN1)](#venue-notes-rb1rb2rbn1)
+    - [Venue Notes (RB3/RBN2)](#venue-notes-rb3rbn2)
+  - [Beat Track](#beat-track)
+    - [Beat Notes](#beat-notes)
   - [GH1 and 2 Tracks](#gh1-and-2-tracks)
+    - [GH1 TRIGGERS Track](#gh1-triggers-track)
+      - [GH1 TRIGGERS Notes](#gh1-triggers-notes)
+    - [GH1 ANIM Track](#gh1-anim-track)
+      - [ANIM Notes](#anim-notes)
+    - [BAND_BASS Track](#band_bass-track)
+      - [BAND_BASS Notes](#band_bass-notes)
+      - [BAND_BASS Text Events](#band_bass-text-events)
+    - [BAND_DRUM Track](#band_drum-track)
+      - [BAND_DRUM Notes](#band_drum-notes)
+      - [BAND_DRUM Text Events](#band_drum-text-events)
+    - [BAND_SINGER Track](#band_singer-track)
+      - [BAND_SINGER Notes](#band_singer-notes)
+      - [BAND_SINGER Text Events](#band_singer-text-events)
 - [References](#references)
 
 ## Basic Infrastructure
@@ -259,17 +279,15 @@ Typically, a type 1 MIDI file dedicates its first track to tempo map data and ot
 
 The following sections detail per-track tables and lists of MIDI notes, text events, and SysEx events that lay out charts.
 
-Notes are listed in descending order to match how a piano roll view typically lays notes out. Channels and SysEx events are listed in ascending order. Note and channel lists are 0-indexed.
+Please note that these should not be used as a comprehensive technical documentation for how charts should be made for Rock Band or Guitar Hero 1/2, this document is focused on the format itself and does not include most game-specific events, limitations, or technicalities. Known game-specific events can be found in other documents in this repo, and later this document will be split/copied into multiple documents that detail a base standard to be used in modern games, and game-specific standards which will re-include these events in the file.
 
-Please note that these should not be used as a comprehensive technical documentation for how charts should be made for Rock Band or Guitar Hero 1/2, this document is focused on the format itself and does not include most game-specific events, limitations, or technicalities. Other documents are included in this repo for that purpose.
+There may also be some specific-game notes missing here and there, but the core functionality for each track should be fully documented.
 
-There may also be some game-specific things missing here and there, but the core functionality for each track should be fully documented. Given the generic nature of MIDI files, unexpected tracks, notes, and other events should be ignored.
+## Track Names
 
-### Track Names
+Tracks are identified by their track name meta event.
 
-Tracks are identified by a track name meta event at the start of the track.
-
-Common tracks:
+Standard tracks:
 
 | Track Name                           | Track Description            |
 | :---------                           | :----------------            |
@@ -340,11 +358,11 @@ Each track consists of various MIDI notes that serve some purpose, along with te
   - Phrase markers typically do not include notes on the same tick as their Note Off, meaning that if a Star Power phrase ends on tick 4800, it will not affect notes that start on tick 4800.
   - Note markers typically will affect all notes under their range, not just ones that start at the same time or match their length. They also typically do not include the Note Off in their affected range.
 
-### Metadata
+## Metadata
 
 Metadata for .mid charts is not stored within the .mid file itself; rather, it is contained in an accompanying song.ini file, documented in [Song_ini.md](Song_ini.md).
 
-### SysEx Event Details
+## SysEx Event Details
 
 SysEx events are used in some chart files to specify modifications to notes. These originate from Phase Shift, and follow this format:
 
@@ -390,7 +408,7 @@ SysEx events are used in some chart files to specify modifications to notes. The
 - `value` is the value for this event.
   - For phrase messages, this is either `00` to end the phrase, or `01` to enable the phrase.
 
-### 5-Fret Tracks
+### 5-Fret
 
 - `T1 GEMS` - GH1 Lead Guitar
 - `PART GUITAR` - Lead Guitar
@@ -402,14 +420,21 @@ SysEx events are used in some chart files to specify modifications to notes. The
 
 #### 5-Fret Notes
 
-This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
+This section excludes `T1 GEMS` and GH2 tracks, as they have differences and are best explained standalone.
 
 | MIDI Note | Description                                                                                                   |
 | :-------: | :----------                                                                                                   |
 | Markers   |                                                                                                               |
 | 127       | Trill lane marker<br>Only applies to Expert unless velocity is 50-41, then it will show up on Hard as well.   |
 | 126       | Tremolo lane marker<br>Only applies to Expert unless velocity is 50-41, then it will show up on Hard as well. |
+| 124       | Big Rock Ending marker 1                                                                                      |
+| 123       | Big Rock Ending marker 2                                                                                      |
+| 122       | Big Rock Ending marker 3                                                                                      |
+| 121       | Big Rock Ending marker 4                                                                                      |
+| 120       | Big Rock Ending marker 5<br>All 5 must be used as a chord along with a `[coda]` event on the EVENTS track at the start of the chord to initiate a Big Rock Ending. |
 | 116       | Star Power/Overdrive marker                                                                                   |
+| 106       | Score Duel(?) player 2 phrase<br>Can overlap with the Player 1 marker.                                        |
+| 105       | Score Duel(?) player 1 phrase<br>Can overlap with the Player 2 marker.                                        |
 | 104       | Tap note marker                                                                                               |
 | 103       | Solo marker, or Star Power if no 116 notes exist for legacy compatibility                                     |
 |           |                                                                                                               |
@@ -421,7 +446,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 98        | Expert Yellow (3rd lane)                                                                                      |
 | 97        | Expert Red (2nd lane)                                                                                         |
 | 96        | Expert Green (1st lane)                                                                                       |
-| 95        | Expert Open<br>Only available if there's an `[ENHANCED_OPENS]` text event at the start.                       |
+| 95        | Expert Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.      |
 |           |                                                                                                               |
 | Hard      |                                                                                                               |
 | 90        | Hard force strum                                                                                              |
@@ -431,7 +456,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 86        | Hard Yellow (3rd lane)                                                                                        |
 | 85        | Hard Red (2nd lane)                                                                                           |
 | 84        | Hard Green (1st lane)                                                                                         |
-| 83        | Hard Open<br>Only available if there's an `[ENHANCED_OPENS]` text event at the start.                         |
+| 83        | Hard Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.        |
 |           |                                                                                                               |
 | Medium    |                                                                                                               |
 | 78        | Medium force strum                                                                                            |
@@ -441,7 +466,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 74        | Medium Yellow (3rd lane)                                                                                      |
 | 73        | Medium Red (2nd lane)                                                                                         |
 | 72        | Medium Green (1st lane)                                                                                       |
-| 71        | Medium Open<br>Only available if there's an `[ENHANCED_OPENS]` text event at the start.                       |
+| 71        | Medium Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.      |
 |           |                                                                                                               |
 | Easy      |                                                                                                               |
 | 66        | Easy force strum                                                                                              |
@@ -451,7 +476,29 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 62        | Easy Yellow (3rd lane)                                                                                        |
 | 61        | Easy Red (2nd lane)                                                                                           |
 | 60        | Easy Green (1st lane)                                                                                         |
-| 59        | Easy Open<br>Only available if there's an `[ENHANCED_OPENS]` text event at the start. Otherwise, part of the Rock Band/GH2 left hand position animation data. |
+| 59        | Easy Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start. Otherwise, part of the left hand position animation data below. |
+|           |                                                                                                               |
+| Animation |                                                                                                               |
+| 59        | Left hand position 20                                                                                         |
+| 58        | Left hand position 19                                                                                         |
+| 57        | Left hand position 18                                                                                         |
+| 56        | Left hand position 17                                                                                         |
+| 55        | Left hand position 16                                                                                         |
+| 54        | Left hand position 15                                                                                         |
+| 53        | Left hand position 14                                                                                         |
+| 52        | Left hand position 13                                                                                         |
+| 51        | Left hand position 12                                                                                         |
+| 50        | Left hand position 11                                                                                         |
+| 49        | Left hand position 10                                                                                         |
+| 48        | Left hand position 9                                                                                          |
+| 47        | Left hand position 8                                                                                          |
+| 46        | Left hand position 7                                                                                          |
+| 45        | Left hand position 6                                                                                          |
+| 44        | Left hand position 5                                                                                          |
+| 43        | Left hand position 4                                                                                          |
+| 42        | Left hand position 3                                                                                          |
+| 41        | Left hand position 2                                                                                          |
+| 40        | Left hand position 1 (near headstock)                                                                         |
 
 Additional information:
 
@@ -461,6 +508,135 @@ Additional information:
 - In .mid, sustains shorter than a 1/12th step should be cut off and turned into a normal note. This can be changed using the `sustain_cutoff_threshold` song.ini tag. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
 - Trill and tremolo lanes are used to make imprecise/indiscernible trills or fast strumming easier to play. They prevent overstrumming and only require you to hit faster than a certain threshold to hit the charted notes.
 - Some tracks contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band account for this and snap notes with a position difference of 10 ticks or less (480 res) to be at the position of the earliest note within the chord.
+
+#### Guitar Hero 1/2 Notes
+
+These are the notes that GH1 and 2 have in their .mid files. Track names for each are the following:
+
+Guitar Hero 1:
+
+- `T1 GEMS` - Guitar
+
+Guitar Hero 2:
+
+- `PART GUITAR` - Guitar
+- `PART GUITAR COOP` - Co-op Guitar
+- `PART RHYTHM` - Rhythm Guitar
+- `PART BASS` - Bass Guitar
+
+| MIDI Note | Description                                                                     |
+| :-------: | :----------                                                                     |
+| Markers   |                                                                                 |
+| 110       | "Big note" marker (GH2 only)<br>The crowd will react negatively to missing notes marked with this. Notes should be marked individually, not as a phrase. |
+| 108       | Vocalist mouth animation (GH1 only)<br>Note on = open, note off = closed.       |
+|           |                                                                                 |
+| Expert    |                                                                                 |
+| 106       | Expert player 2 Face-Off phrase marker<br>Can overlap with the Player 1 marker. |
+| 105       | Expert player 1 Face-Off phrase marker<br>Can overlap with the Player 2 marker. |
+| 103       | Expert Star Power marker                                                        |
+| 100       | Expert Orange (5th lane)                                                        |
+| 99        | Expert Blue (4th lane)                                                          |
+| 98        | Expert Yellow (3rd lane)                                                        |
+| 97        | Expert Red (2nd lane)                                                           |
+| 96        | Expert Green (1st lane)                                                         |
+|           |                                                                                 |
+| Hard      |                                                                                 |
+| 94        | Hard player 2 Face-Off phrase marker<br>Can overlap with the Player 1 marker.   |
+| 93        | Hard player 1 Face-Off phrase marker<br>Can overlap with the Player 2 marker.   |
+| 91        | Hard Star Power marker                                                          |
+| 88        | Hard Orange (5th lane)                                                          |
+| 87        | Hard Blue (4th lane)                                                            |
+| 86        | Hard Yellow (3rd lane)                                                          |
+| 85        | Hard Red (2nd lane)                                                             |
+| 84        | Hard Green (1st lane)                                                           |
+|           |                                                                                 |
+| Medium    |                                                                                 |
+| 82        | Medium player 2 Face-Off phrase marker<br>Can overlap with the Player 1 marker. |
+| 81        | Medium player 1 Face-Off phrase marker<br>Can overlap with the Player 2 marker. |
+| 79        | Medium Star Power marker                                                        |
+| 76        | Medium Orange (5th lane)                                                        |
+| 75        | Medium Blue (4th lane)                                                          |
+| 74        | Medium Yellow (3rd lane)                                                        |
+| 73        | Medium Red (2nd lane)                                                           |
+| 72        | Medium Green (1st lane)                                                         |
+|           |                                                                                 |
+| Easy      |                                                                                 |
+| 70        | Easy player 2 Face-Off phrase marker<br>Can overlap with the Player 1 marker.   |
+| 69        | Easy player 1 Face-Off phrase marker<br>Can overlap with the Player 2 marker.   |
+| 67        | Easy Star Power marker                                                          |
+| 64        | Easy Orange (5th lane)                                                          |
+| 63        | Easy Blue (4th lane)                                                            |
+| 62        | Easy Yellow (3rd lane)                                                          |
+| 61        | Easy Red (2nd lane)                                                             |
+| 60        | Easy Green (1st lane)                                                           |
+|           |                                                                                 |
+| (GH2) Animation |                                                                           |
+| 59        | Left hand position 20                                                           |
+| 58        | Left hand position 19                                                           |
+| 57        | Left hand position 18                                                           |
+| 56        | Left hand position 17                                                           |
+| 55        | Left hand position 16                                                           |
+| 54        | Left hand position 15                                                           |
+| 53        | Left hand position 14                                                           |
+| 52        | Left hand position 13                                                           |
+| 51        | Left hand position 12                                                           |
+| 50        | Left hand position 11                                                           |
+| 49        | Left hand position 10                                                           |
+| 48        | Left hand position 9                                                            |
+| 47        | Left hand position 8                                                            |
+| 46        | Left hand position 7                                                            |
+| 45        | Left hand position 6                                                            |
+| 44        | Left hand position 5                                                            |
+| 43        | Left hand position 4                                                            |
+| 42        | Left hand position 3                                                            |
+| 41        | Left hand position 2                                                            |
+| 40        | Left hand position 1 (near headstock)                                           |
+
+#### 5-Lane Keys Notes
+
+This is (most likely) what Rock Band 3 expects from a Keys track.
+
+In RB3 when playing with a Pro Keyboard, extended sustains/disjoint chords are allowed and HOPOs are not displayed. Playing Keys using a guitar will trim extended sustains/disjoint chords and display HOPOs.
+
+| MIDI Note | Description                                                                                            |
+| :-------: | :----------                                                                                            |
+| Markers   |                                                                                                        |
+| 127       | Trill lane marker<br>Only applies to Expert unless velocity is 50-41, then it will be on Hard as well. |
+| 124       | Big Rock Ending marker 1                                                                               |
+| 123       | Big Rock Ending marker 2                                                                               |
+| 122       | Big Rock Ending marker 3                                                                               |
+| 121       | Big Rock Ending marker 4                                                                               |
+| 120       | Big Rock Ending marker 5<br>All 5 must be used as a chord along with a `[coda]` event on the EVENTS track at the start of the chord to initiate a Big Rock Ending. |
+| 116       | Star Power/Overdrive marker                                                                            |
+| 103       | Solo marker                                                                                            |
+|           |                                                                                                        |
+| Expert    |                                                                                                        |
+| 100       | Expert Orange (5th lane)                                                                               |
+| 99        | Expert Blue (4th lane)                                                                                 |
+| 98        | Expert Yellow (3rd lane)                                                                               |
+| 97        | Expert Red (2nd lane)                                                                                  |
+| 96        | Expert Green (1st lane)                                                                                |
+|           |                                                                                                        |
+| Hard      |                                                                                                        |
+| 88        | Hard Orange (5th lane)                                                                                 |
+| 87        | Hard Blue (4th lane)                                                                                   |
+| 86        | Hard Yellow (3rd lane)                                                                                 |
+| 85        | Hard Red (2nd lane)                                                                                    |
+| 84        | Hard Green (1st lane)                                                                                  |
+|           |                                                                                                        |
+| Medium    |                                                                                                        |
+| 76        | Medium Orange (5th lane)                                                                               |
+| 75        | Medium Blue (4th lane)                                                                                 |
+| 74        | Medium Yellow (3rd lane)                                                                               |
+| 73        | Medium Red (2nd lane)                                                                                  |
+| 72        | Medium Green (1st lane)                                                                                |
+|           |                                                                                                        |
+| Easy      |                                                                                                        |
+| 64        | Easy Orange (5th lane)                                                                                 |
+| 63        | Easy Blue (4th lane)                                                                                   |
+| 62        | Easy Yellow (3rd lane)                                                                                 |
+| 61        | Easy Red (2nd lane)                                                                                    |
+| 60        | Easy Green (1st lane)                                                                                  |
 
 #### 5-Fret SysEx Events
 
@@ -475,7 +651,7 @@ Additional information:
 | :---------         | :----------                                                                           |
 | `[ENHANCED_OPENS]` | Enables note-based open note marking.<br>Can be found both with and without brackets. |
 
-### 6-Fret Tracks
+### 6-Fret
 
 - `PART GUITAR GHL` - 6-Fret Lead Guitar
 - `PART BASS GHL` - 6-Fret Bass Guitar
@@ -536,7 +712,6 @@ Additional information:
 Additional info:
 
 - 6-fret has the same HOPO and sustain cutoff threshold rules as 5-fret.
-- The `[ENHANCED_OPENS]` text event is *not* required for 6-fret note-based open notes.
 
 #### 6-Fret SysEx Events
 
@@ -547,7 +722,7 @@ These are from Phase Shift for 5-fret, and carried over to 6-fret by Clone Hero:
 | Open notes  | `50 53 00 00 <difficulty> 01 <enable/disable>` |
 | Tap notes   | `50 53 00 00 FF 04 <enable/disable>`           |
 
-### Drums Tracks
+### Drums
 
 - `PART DRUMS` - Standard 4-Lane, 4-Lane Pro, and 5-Lane Drums
 - `PART DRUM` - Alternate track to `PART DRUMS` that FoFiX supports
@@ -745,7 +920,7 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 | Y tom + B tom | R + B  |
 | B cym + G cym | Y + O  |
 
-### Vocals Tracks
+### Vocals
 
 - `PART VOCALS` - Standard vocals track
 - `HARM1` - Harmonies track 1
@@ -833,9 +1008,9 @@ There are various symbols used for specific things in lyrics:
 | Equals         | `=`    | Indicates that a syllable should be joined with the next using a literal hyphen.                          |
 | Pounds         | `#`    | In Rock Band, this marks a note as non-pitched.                                                           |
 | Carets         | `^`    | In Rock Band, this marks a note as non-pitched with a more generous scoring.<br>Typically used on short syllables or syllables without sharp attacks. |
-| Asterisks      | `*`    | In Rock Band, marks a note as non-pitched, but their differentiation is unknown.                     |
-| Percents       | `%`    | In Rock Band, marks a range division for vocals parts with large octave ranges.                 |
-| Sections       | `§`    | In Rock Band, indicates that two syllables are sung as a single syllable, used in some Spanish lyrics. Both syllables are in the same event, with the `§` used in place of a space between the two. These are displayed with a tie character `‿` in RB. |
+| Asterisks      | `*`    | In Rock Band, this marks a note as non-pitched, but their differentiation is unknown.                     |
+| Percents       | `%`    | In Rock Band, these are a range divider marker for vocals parts with large octave ranges.                 |
+| Sections       | `§`    | In Rock Band, these are used to indicate that two syllables are sung as a single syllable, used in some Spanish lyrics. These are displayed with a tie character `‿` in RB. |
 | Dollars        | `$`    | In Rock Band, these are used in harmonies to mark the syllables they are part of to be hidden.<br>In one case it is also on the standard Vocals track for some reason, it appears to not do anything in RB here. |
 | Slashes        | `/`    | These appear in some RB charts for an unknown reason, mainly The Beatles: Rock Band.<br>They are also used in a workaround to use quotation marks in global events in older versions of Clone Hero. |
 | Underscores    | `_`    | These are replaced with a space by Clone Hero for the purpose of having a character that does that.       |
@@ -852,14 +1027,12 @@ Here's how these symbols should be handled for displaying as just text:
 
 NOTE: Some charts may have more than one lyric event at the same position. While this shouldn't be common, it has happened in some charts and needs to be accounted for in some way.
 
-### Rock Band 3 Pro Keys Tracks
+### Rock Band 3 Pro Keys
 
 - `PART REAL_KEYS_X` - Pro Keys Expert
 - `PART REAL_KEYS_H` - Pro Keys Hard
 - `PART REAL_KEYS_M` - Pro Keys Medium
 - `PART REAL_KEYS_E` - Pro Keys Easy
-
-(The Pro Keys animation note tracks are detailed in [Midi_RockBand.md](../RockBand/Midi_RockBand.md))
 
 #### Pro Keys Notes
 
@@ -915,7 +1088,47 @@ Additional info:
   - These notes do not last the duration of the shift, they simply mark when the shift happens.
   - One of these shifts should be marked at the very beginning as the starting range.
 
-### Phase Shift Real Keys Tracks
+#### Pro Keys Animation Track Notes
+
+- `PART KEYS_ANIM_LH` - Character Keys Left Hand Animations
+- `PART KEYS_ANIM_RH` - Character Keys Right Hand Animations
+
+| MIDI Note | Description       |
+| :-------: | :----------       |
+| 72        | C3 (Highest note) |
+| 71        | B2                |
+| 70        | A#2/Bb2           |
+| 69        | A2                |
+| 68        | G#2/Ab2           |
+| 67        | G2                |
+| 66        | F#2/Gb2           |
+| 65        | F2                |
+| 64        | E2                |
+| 63        | D#2/Eb2           |
+| 62        | D2                |
+| 61        | C#2/Db2           |
+| 60        | C2                |
+| 59        | B1                |
+| 58        | A#1/Bb1           |
+| 57        | A1                |
+| 56        | G#1/Ab1           |
+| 55        | G1                |
+| 54        | F#1/Gb1           |
+| 53        | F1                |
+| 52        | E1                |
+| 51        | D#1/Eb1           |
+| 50        | D1                |
+| 49        | C#1/Db1           |
+| 48        | C1 (Lowest note)  |
+
+The character only gets 3 octaves on the keyboard, so the middle octave is shared between the left and right hand:
+
+```
+LLLLLLLLLLLLLLLLLLLLLLLLL
+            RRRRRRRRRRRRRRRRRRRRRRRRR
+```
+
+### Phase Shift Real Keys
 
 - `PART REAL_KEYS_PS_X` - Real Keys Expert
 - `PART REAL_KEYS_PS_M` - Real Keys Hard
@@ -926,105 +1139,105 @@ Additional info:
 
 Gems/markers:
 
-| MIDI Note | Description                                                          |
-| :-------: | :----------                                                          |
-| Markers   |                                                                      |
-| 127       | Trill marker                                                         |
-| 126       | Glissando marker                                                     |
-| 116       | Star Power/Overdrive marker                                          |
-| 115       | Solo marker                                                          |
-|           |                                                                      |
-| Notes     |                                                                      |
-| 108       | C8 (Highest Note)                                                    |
-| 107       | B7                                                                   |
-| 106       | A#7                                                                  |
-| 105       | A7                                                                   |
-| 104       | G#7                                                                  |
-| 103       | G7                                                                   |
-| 102       | F#7                                                                  |
-| 101       | F7                                                                   |
-| 100       | E7                                                                   |
-| 99        | D#7                                                                  |
-| 98        | D7                                                                   |
-| 97        | C#7                                                                  |
-| 96        | C7                                                                   |
-| 95        | B6                                                                   |
-| 94        | A#6                                                                  |
-| 93        | A6                                                                   |
-| 92        | G#6                                                                  |
-| 91        | G6                                                                   |
-| 90        | F#6                                                                  |
-| 89        | F6                                                                   |
-| 88        | E6                                                                   |
-| 87        | D#6                                                                  |
-| 86        | D6                                                                   |
-| 85        | C#6                                                                  |
-| 84        | C6                                                                   |
-| 83        | B5                                                                   |
-| 82        | A#5                                                                  |
-| 81        | A5                                                                   |
-| 80        | G#5                                                                  |
-| 79        | G5                                                                   |
-| 78        | F#5                                                                  |
-| 77        | F5                                                                   |
-| 76        | E5                                                                   |
-| 75        | D#5                                                                  |
-| 74        | D5                                                                   |
-| 73        | C#5                                                                  |
-| 72        | C5                                                                   |
-| 71        | B4                                                                   |
-| 70        | A#4                                                                  |
-| 69        | A4                                                                   |
-| 68        | G#4                                                                  |
-| 67        | G4                                                                   |
-| 66        | F#4                                                                  |
-| 65        | F4                                                                   |
-| 64        | E4                                                                   |
-| 63        | D#4                                                                  |
-| 62        | D4                                                                   |
-| 61        | C#4                                                                  |
-| 60        | C4 (Middle C)                                                        |
-| 59        | B3                                                                   |
-| 58        | A#3                                                                  |
-| 57        | A3                                                                   |
-| 56        | G#3                                                                  |
-| 55        | G3                                                                   |
-| 54        | F#3                                                                  |
-| 53        | F3                                                                   |
-| 52        | E3                                                                   |
-| 51        | D#3                                                                  |
-| 50        | D3                                                                   |
-| 49        | C#3                                                                  |
-| 48        | C3                                                                   |
-| 47        | B2                                                                   |
-| 46        | A#2                                                                  |
-| 45        | A2                                                                   |
-| 44        | G#2                                                                  |
-| 43        | G2                                                                   |
-| 42        | F#2                                                                  |
-| 41        | F2                                                                   |
-| 40        | E2                                                                   |
-| 39        | D#2                                                                  |
-| 38        | D2                                                                   |
-| 37        | C#2                                                                  |
-| 36        | C2                                                                   |
-| 35        | B1                                                                   |
-| 34        | A#1                                                                  |
-| 33        | A1                                                                   |
-| 32        | G#1                                                                  |
-| 31        | G1                                                                   |
-| 30        | F#1                                                                  |
-| 29        | F1                                                                   |
-| 28        | E1                                                                   |
-| 27        | D#1                                                                  |
-| 26        | D1                                                                   |
-| 25        | C#1                                                                  |
-| 24        | C1                                                                   |
-| 23        | B0                                                                   |
-| 22        | A#0                                                                  |
-| 21        | A0 (Lowest Note)                                                     |
-|           |                                                                      |
-| Ranges    |                                                                      |
+| MIDI Note | Description                                                        |
+| :-------: | :----------                                                        |
+| Markers   |                                                                    |
+| 127       | Trill marker                                                       |
+| 126       | Glissando marker                                                   |
+| 116       | Star Power/Overdrive marker                                        |
+| 115       | Solo marker                                                        |
+|           |                                                                    |
+| Notes     |                                                                    |
+| 108       | C8 (Highest Note)                                                  |
+| 107       | B7                                                                 |
+| 106       | A#7                                                                |
+| 105       | A7                                                                 |
+| 104       | G#7                                                                |
+| 103       | G7                                                                 |
+| 102       | F#7                                                                |
+| 101       | F7                                                                 |
+| 100       | E7                                                                 |
+| 99        | D#7                                                                |
+| 98        | D7                                                                 |
+| 97        | C#7                                                                |
+| 96        | C7                                                                 |
+| 95        | B6                                                                 |
+| 94        | A#6                                                                |
+| 93        | A6                                                                 |
+| 92        | G#6                                                                |
+| 91        | G6                                                                 |
+| 90        | F#6                                                                |
+| 89        | F6                                                                 |
+| 88        | E6                                                                 |
+| 87        | D#6                                                                |
+| 86        | D6                                                                 |
+| 85        | C#6                                                                |
+| 84        | C6                                                                 |
+| 83        | B5                                                                 |
+| 82        | A#5                                                                |
+| 81        | A5                                                                 |
+| 80        | G#5                                                                |
+| 79        | G5                                                                 |
+| 78        | F#5                                                                |
+| 77        | F5                                                                 |
+| 76        | E5                                                                 |
+| 75        | D#5                                                                |
+| 74        | D5                                                                 |
+| 73        | C#5                                                                |
+| 72        | C5                                                                 |
+| 71        | B4                                                                 |
+| 70        | A#4                                                                |
+| 69        | A4                                                                 |
+| 68        | G#4                                                                |
+| 67        | G4                                                                 |
+| 66        | F#4                                                                |
+| 65        | F4                                                                 |
+| 64        | E4                                                                 |
+| 63        | D#4                                                                |
+| 62        | D4                                                                 |
+| 61        | C#4                                                                |
+| 60        | C4 (Middle C)                                                      |
+| 59        | B3                                                                 |
+| 58        | A#3                                                                |
+| 57        | A3                                                                 |
+| 56        | G#3                                                                |
+| 55        | G3                                                                 |
+| 54        | F#3                                                                |
+| 53        | F3                                                                 |
+| 52        | E3                                                                 |
+| 51        | D#3                                                                |
+| 50        | D3                                                                 |
+| 49        | C#3                                                                |
+| 48        | C3                                                                 |
+| 47        | B2                                                                 |
+| 46        | A#2                                                                |
+| 45        | A2                                                                 |
+| 44        | G#2                                                                |
+| 43        | G2                                                                 |
+| 42        | F#2                                                                |
+| 41        | F2                                                                 |
+| 40        | E2                                                                 |
+| 39        | D#2                                                                |
+| 38        | D2                                                                 |
+| 37        | C#2                                                                |
+| 36        | C2                                                                 |
+| 35        | B1                                                                 |
+| 34        | A#1                                                                |
+| 33        | A1                                                                 |
+| 32        | G#1                                                                |
+| 31        | G1                                                                 |
+| 30        | F#1                                                                |
+| 29        | F1                                                                 |
+| 28        | E1                                                                 |
+| 27        | D#1                                                                |
+| 26        | D1                                                                 |
+| 25        | C#1                                                                |
+| 24        | C1                                                                 |
+| 23        | B0                                                                 |
+| 22        | A#0                                                                |
+| 21        | A0 (Lowest Note)                                                   |
+|           |                                                                    |
+| Ranges    |                                                                    |
 | 13        | Right hand range shift<br>Range defined using velocity, from 21-108. |
 | 12        | Left hand range shift<br>Range defined using velocity, from 21-108.  |
 
@@ -1039,7 +1252,7 @@ Other info:
 
 - Lane count for each hand is defined through the song.ini tags `real_keys_lane_count_left` and `real_keys_lane_count_right`.
 
-### Rock Band 3 Pro Guitar Tracks
+### Pro Guitar/Bass
 
 - `PART REAL_GUITAR` - Pro Guitar (17-Fret)
 - `PART REAL_GUITAR_22` - Pro Guitar (22-Fret)
@@ -1047,9 +1260,9 @@ Other info:
 - `PART REAL_BASS` - Pro Bass (17-Fret)
 - `PART REAL_BASS_22` - Pro Bass (22-Fret)
 
-Pro Guitar/Bass has some rather complicated mechanics, so some things may have been skimmed over. See [this Rhythm Gaming World post](https://rhythmgamingworld.com/forums/topic/general-thread-for-pro-guitarbass-questions/) for the source of this info.
+Pro Guitar/Bass is rather complicated, some things are going to be skimmed over here for now. See [this Rhythm Gaming World post](https://rhythmgamingworld.com/forums/topic/general-thread-for-pro-guitarbass-questions/) for details.
 
-#### Pro Guitar Notes and Channels
+#### Pro Guitar/Bass Notes and Channels
 
 Gems/markers:
 
@@ -1163,7 +1376,7 @@ Additional info:
   - At least for muted notes or muted chords, the direction can be reversed by placing the slide marker on channel 12.
 - For RB3, overdrive must match that of standard Guitar/Bass.
 
-#### Pro Guitar SysEx Events
+#### Pro Guitar/Bass SysEx Events
 
 Phase Shift:
 
@@ -1180,9 +1393,11 @@ Phase Shift:
 | Pop            | `50 53 00 00 <difficulty> 15 <enable/disable>` |
 | Slap           | `50 53 00 00 <difficulty> 16 <enable/disable>` |
 
-### Phase Shift Dance Track
+### Dance Track
 
-- `PART DANCE` - 4-lane Dance
+This track is a 4-lane Dance track from Phase Shift.
+
+- `PART DANCE` - Dance
 
 #### Dance Notes
 
@@ -1231,33 +1446,112 @@ Channels:
 
 ### Events Track
 
-The Events track contains text events that do various things, along with a few notes for practice mode drum samples (detailed in the RB .mid doc since it's not necessary for the core format).
+The Events track contains text events that do various things, along with a few notes for practice mode drum samples.
 
-Known text events specific to Rock Band or Guitar Hero 1/2 are listed in their respective .mid documents.
+Known text events specific to Rock Band or Guitar Hero 1/2 are listed
+
+#### Events Notes
+
+| MIDI Note | Description                        |
+| :-------: | :----------                        |
+| 26        | Hi-hat practice mode assist sample |
+| 25        | Snare practice mode assist sample  |
+| 24        | Kick practice mode assist sample   |
+
+These samples presumably play in Practice Mode in RB3 alongside an isolated stem when the speed is set below 100%. Needs checking. 
 
 #### Events Common Text Events
+
+These text events are notable
 
 | Event Text                        | Description                                                         |
 | :---------                        | :----------                                                         |
 | `[prc_<name>]`/`[section <name>]` | Marks a practice mode section. `<name>` is the name of the section. |
 | `[end]`                           | Marks the end point of the chart.<br>In some charts this may be present before the actual end, only trust this event if it comes after all notes. |
 
-Other text events that may be seen here but are specific to other games are documented in their respective game's MIDI documentation.
+Other text events that may be seen here are documented in [RB_Events.md](../RockBand/RB_Events.md).
 
-### Rock Band Tracks
+### Venue Track
 
-These are tracks specific to Rock Band:
+Controls camera placement/effects and venue lighting/effects in Rock Band.
 
-- `PART KEYS_ANIM_LH` - RB3 Pro Keys left-hand animations
-- `PART KEYS_ANIM_RH` - RB3 Pro Keys right-hand animations
-- `VENUE` - RB venue track
-- `BEAT` - RB upbeat/downbeat track
+Rock Band Network 1 and Rock Band Network 2 have different sets of venue notes and events, so categories are split into RB1/RB2/RBN1 and RB3/RBN2.
 
-These tracks are detailed in [Midi_RockBand.md](../GuitarHero1-2/Midi_RockBand.md), as they are specific to GH1/2 and don't particularly matter for the core format.
+Text events related to this track are detailed in [RB_Events.md](../RockBand/RB_Events.md), as there are a *lot* of them and they don't pertain to other games. The note lists here are mainly just a reference, they take up much less space than the sheer amount of text events do.
+
+#### Venue Notes (RB1/RB2/RBN1)
+
+| MIDI Note | Description                                 |
+| :-------: | :----------                                 |
+| 110       | Post-processing: Trails                     |
+| 109       | Post-processing: Security Camera            |
+| 108       | Post-processing: Black and White            |
+| 107       | Post-processing: Lines                      |
+| 106       | Post-processing: Blue Tint                  |
+| 105       | Post-processing: Mirror                     |
+| 104       | Post-processing: Bloom B                    |
+| 103       | Post-processing: Bloom A                    |
+| 102       | Post-processing: Photocopy                  |
+| 101       | Post-processing: Negative                   |
+| 100       | Post-processing: Silvertone                 |
+| 99        | Post-processing: Sepia                      |
+| 98        | Post-processing: 16mm                       |
+| 97        | Post-processing: Contrast A                 |
+| 96        | Post-processing: Default Effect             |
+|           |                                             |
+| 87        | Guitarist sing-along with vocalist          |
+| 86        | Drummer sing-along with vocalist            |
+| 85        | Bassist sing-along with vocalist            |
+|           |                                             |
+| 73        | Camera cut: No close-ups                    |
+| 72        | Camera cut: Only close-ups                  |
+| 71        | Camera cut: Only far shots                  |
+| 70        | Camera cut: No behind shots                 |
+| 64        | Camera cut: Focus on vocalist               |
+| 63        | Camera cut: Focus on guitarist              |
+| 62        | Camera cut: Focus on drummer                |
+| 61        | Camera cut: Focus on bassist                |
+| 60        | Camera cut: Random new shot<br>Works in tandem with the 8 notes above. (Speculation) Not used for directed camera cuts. |
+|           |                                             |
+| 50        | Venue lighting: First keyframe of effect    |
+| 49        | Venue lighting: Previous keyframe of effect |
+| 48        | Venue lighting: Next keyframe of effect     |
+|           |                                             |
+| 40        | Spotlight on vocals                         |
+| 39        | Spotlight on guitar                         |
+| 38        | Spotlight on drums                          |
+| 37        | Spotlight on bass                           |
+
+#### Venue Notes (RB3/RBN2)
+
+| MIDI Note | Description                                                                              |
+| :-------: | :----------                                                                              |
+| 87        | Guitarist sing-along with vocalist<br>Replaced with keyboard player if guitar is absent. |
+| 86        | Drummer sing-along with vocalist                                                         |
+| 85        | Bassist sing-along with vocalist<br>Replaced with keyboard player if bass is absent.     |
+|           |                                                                                          |
+| 41        | Spotlight on keys                                                                        |
+| 40        | Spotlight on vocals                                                                      |
+| 39        | Spotlight on guitar                                                                      |
+| 38        | Spotlight on drums                                                                       |
+| 37        | Spotlight on bass                                                                        |
+
+### Beat Track
+
+The `BEAT` track is used in Rock Band to determine where upbeats and downbeats in the song are separately from the tempo and time signature. In Rock Band, this drives character animations, lighting, the crowd, and how quickly Overdrive depletes.
+
+For Rock Band, the last note in this track must occur one beat before the `[end]` event.
+
+#### Beat Notes
+
+| MIDI Note | Description             |
+| :-------: | :----------             |
+| 13        | Other beats             |
+| 12        | First beat of a measure |
 
 ### GH1 and 2 Tracks
 
-These are tracks specific to Guitar Hero 1/2:
+These are tracks specific to Guitar Hero 1/2 that pertain to character animations and venue effects.
 
 - `TRIGGERS` - GH1/2 lighting, venue, and practice mode assist track
 - `ANIM` - GH1 guitarist animations track
@@ -1267,7 +1561,77 @@ These are tracks specific to Guitar Hero 1/2:
 - `GUITAR` - Guitar animations track
 - `BASS` - Bass animations track (identical to `GUITAR` in content)
 
-These tracks are detailed in [Midi_GuitarHero1-2.md](../GuitarHero1-2/Midi_GuitarHero1-2.md), as they are specific to GH1/2 and don't particularly matter for the core format.
+Text events for these tracks are detailed in [GH1-2_Events.md](../GuitarHero1-2/GH1-2_Events.md).
+
+#### GH1 TRIGGERS Track
+
+##### GH1 TRIGGERS Notes
+
+| MIDI Note | Description                                 |
+| :-------: | :----------                                 |
+| 61        | Unknown                                     | 
+| 60        | Unknown                                     | 
+| 52        | Special venue effect?                       | 
+| 50        | Venue lighting: First keyframe of effect    |
+| 49        | Venue lighting: Previous keyframe of effect |
+| 48        | Venue lighting: Next keyframe of effect     |
+| 26        | Hi-hat practice mode assist sample          |
+| 25        | Snare practice mode assist sample           |
+| 24        | Kick practice mode assist sample            |
+
+#### GH1 ANIM Track
+
+##### ANIM Notes
+
+| MIDI Note | Description                           |
+| :-------: | :----------                           |
+| 59        | Left hand position 20                 |
+| 58        | Left hand position 19                 |
+| 57        | Left hand position 18                 |
+| 56        | Left hand position 17                 |
+| 55        | Left hand position 16                 |
+| 54        | Left hand position 15                 |
+| 53        | Left hand position 14                 |
+| 52        | Left hand position 13                 |
+| 51        | Left hand position 12                 |
+| 50        | Left hand position 11                 |
+| 49        | Left hand position 10                 |
+| 48        | Left hand position 9                  |
+| 47        | Left hand position 8                  |
+| 46        | Left hand position 7                  |
+| 45        | Left hand position 6                  |
+| 44        | Left hand position 5                  |
+| 43        | Left hand position 4                  |
+| 42        | Left hand position 3                  |
+| 41        | Left hand position 2                  |
+| 40        | Left hand position 1 (near headstock) |
+
+#### BAND_BASS Track
+
+This track is not present if the co-op track is Bass.
+
+##### BAND_BASS Notes
+
+| MIDI Note | Description             |
+| :-------: | :----------             |
+| 36        | Strum animation trigger |
+
+#### BAND_DRUM Track
+
+##### BAND_DRUM Notes
+
+| MIDI Note | Description  |
+| :-------: | :----------  |
+| 37        | Crash cymbal |
+| 36        | Kick drum    |
+
+#### BAND_SINGER Track
+
+##### BAND_SINGER Notes
+
+| MIDI Note | Description                                            |
+| :-------: | :----------                                            |
+| 108       | Mouth open/close<br>Note on = open, note off = closed. |
 
 ## References
 

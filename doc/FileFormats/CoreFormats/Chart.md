@@ -399,15 +399,6 @@ Here's how these symbols should be handled for displaying as just text:
 - Replace `§`, `_` with a space.
 - Join together a syllable that has `-` or `=` at the end of it with the following syllable.
 
-### GH1/2 Hand Positions
-
-Some charts may contain track events here with the `H` type code. These specify a GH1/2 or Rock Band hand position for character animations, and follow this format:
-
-`<Position> = H <HandPos> <Length>`
-
-- `HandPos` is a number that corresponds to each of the .mid hand position notes, as detailed in [Midi_GuitarHero1-2.md](../GuitarHero1-2/Midi_GuitarHero1-2.md#anim-notes) and [here](../RockBand/Midi_RockBand.md#5-fret-notes). Possible values range from 0 to 19 (though Feedback only outputs up to 18 when loading a .mid file that has them)
-- `Length` is the length of the hand position in ticks.
-
 ### Events Section Example
 
 ```
@@ -478,7 +469,7 @@ Special events mark phrase-type events such as Star Power. They use the `S` type
 - `Type` is a the type number of this special phrase.
 - `Length` is the length of this phrase in ticks.
 
-A special phrase usually does not apply to the tick immediately after the length, i.e. the value of `(Position + Length)`. Any exceptions will be noted. They should also apply to their starting tick regardless of length, since, for example, some charts use 0-length Star Power phrases to mark single-note/chord phrases.
+A special phrase usually does not apply to the tick immediately after the length (i.e. the value of `(Position + Length)`). Any exceptions will be noted.
 
 #### Special Phrase Type Divisions
 
@@ -501,9 +492,11 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 
 ## Instrument Sections
 
-This section details instrument-specific note/phrase types and common local events. Legacy tracks are not detailed, as there is no reference for how they would be used.
+This section details the type codes available for each instrument, along with common local events. Legacy tracks are not detailed.
 
 ### 5-Fret Tracks
+
+Applies to these tracks:
 
 - `Single` – Lead Guitar
 - `DoubleGuitar` – Co-op Guitar
@@ -542,6 +535,8 @@ These are far from the only local events that may be seen, these are just the on
 | `soloend`  | Ends a solo.   |
 
 ### 6-Fret Tracks
+
+Applies to these tracks:
 
 - `GHLGuitar` – Guitar Hero Live Guitar
 - `GHLBass` – Guitar Hero Live Bass
@@ -583,6 +578,8 @@ These are remnants from the early days of Guitar Hero Live .chart charting:
 | `ghl_6_forced` | Marks a note as a forced 6-fret 6th fret note. |
 
 ### Drums Track
+
+Applies to these tracks:
 
 - `Drums` – Drums/Pro Drums/5-Lane Drums
 
@@ -759,7 +756,7 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 }
 ```
 
-## References
+## Resources
 
 A large part of this info comes from [FireFox's .chart specifications](https://docs.google.com/document/d/1v2v0U-9HQ5qHeccpExDOLJ5CMPZZ3QytPmAG5WF0Kzs/edit?usp=sharing).
 
