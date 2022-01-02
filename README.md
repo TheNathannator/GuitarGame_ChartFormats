@@ -22,3 +22,4 @@ These are not strict guidelines, but they help to make referencing and adding to
 ## License
 
 This project is licensed under Creative Commons Zero 1.0 Universal. See [LICENSE](LICENSE) for details.
+- Separate most game-specific stuff from core format documentation
