@@ -30,29 +30,29 @@ This document will be split up later into multiple documents, with one being a r
   - [Basic Info](#basic-info)
   - [Metadata](#metadata)
   - [SysEx Event Details](#sysex-event-details)
-  - [5-Fret](#5-fret)
+  - [5-Fret Tracks](#5-fret-tracks)
     - [5-Fret Notes](#5-fret-notes)
     - [5-Fret SysEx Events](#5-fret-sysex-events)
     - [5-Fret Text Events](#5-fret-text-events)
-  - [6-Fret](#6-fret)
+  - [6-Fret Tracks](#6-fret-tracks)
     - [6-Fret Notes](#6-fret-notes)
     - [6-Fret SysEx Events](#6-fret-sysex-events)
-  - [Drums](#drums)
+  - [Drums Tracks](#drums-tracks)
     - [Drums Notes](#drums-notes)
     - [Phase Shift Real Drums SysEx Events](#phase-shift-real-drums-sysex-events)
     - [Drums Text Events](#drums-text-events)
     - [Drums Track Type Determining](#drums-track-type-determining)
-  - [Vocals](#vocals)
+  - [Vocals Tracks](#vocals-tracks)
     - [Vocals Notes](#vocals-notes)
     - [Vocals Lyrics](#vocals-lyrics)
-  - [Rock Band 3 Pro Keys](#rock-band-3-pro-keys)
+  - [Rock Band 3 Pro Keys Tracks](#rock-band-3-pro-keys-tracks)
     - [Pro Keys Notes](#pro-keys-notes)
-  - [Phase Shift Real Keys](#phase-shift-real-keys)
+  - [Phase Shift Real Keys Tracks](#phase-shift-real-keys-tracks)
     - [Real Keys Notes](#real-keys-notes)
-  - [Pro Guitar/Bass](#pro-guitarbass)
+  - [Rock Band 3 Pro Guitar/Bass Tracks](#rock-band-3-pro-guitarbass-tracks)
     - [Pro Guitar/Bass Notes and Channels](#pro-guitarbass-notes-and-channels)
-    - [Pro Guitar/Bass SysEx Events](#pro-guitarbass-sysex-events)
-  - [Dance Track](#dance-track)
+    - [Phase Shift Pro Guitar/Bass SysEx Events](#phase-shift-pro-guitarbass-sysex-events)
+  - [Phase Shift Dance Track](#phase-shift-dance-track)
     - [Dance Notes](#dance-notes)
   - [Events Track](#events-track)
     - [Events Common Text Events](#events-common-text-events)
@@ -263,7 +263,7 @@ Please note that these should not be used as a comprehensive technical documenta
 
 There may also be some things missing here and there, but the core functionality for each track should be fully documented. Given the nature of .mid files being able to contain tracks and events far beyond the ones listed, unexpected tracks, notes, and other events should be ignored.
 
-## Track Names
+### Track Names
 
 Tracks are identified by their track name meta event.
 
@@ -340,11 +340,11 @@ Each track consists of various MIDI notes that serve some purpose, along with te
   - Phrase markers typically do not include notes on the same tick as their Note Off, meaning that if a Star Power phrase ends on tick 4800, it will not affect notes that start on tick 4800.
   - Note markers typically will affect all notes under their range, not just ones that start at the same time or match their length. They also typically do not include the Note Off in their affected range.
 
-## Metadata
+### Metadata
 
 Metadata for .mid charts is not stored within the .mid file itself; rather, it is contained in an accompanying song.ini file, documented in [Song_ini.md](Song_ini.md).
 
-## SysEx Event Details
+### SysEx Event Details
 
 SysEx events are used in some chart files to specify modifications to notes. These originate from Phase Shift, and follow this format:
 
@@ -390,7 +390,7 @@ SysEx events are used in some chart files to specify modifications to notes. The
 - `value` is the value for this event.
   - For phrase messages, this is either `00` to end the phrase, or `01` to enable the phrase.
 
-### 5-Fret
+### 5-Fret Tracks
 
 - `T1 GEMS` - GH1 Lead Guitar
 - `PART GUITAR` - Lead Guitar
@@ -475,7 +475,7 @@ Additional information:
 | :---------         | :----------                                                                           |
 | `[ENHANCED_OPENS]` | Enables note-based open note marking.<br>Can be found both with and without brackets. |
 
-### 6-Fret
+### 6-Fret Tracks
 
 - `PART GUITAR GHL` - 6-Fret Lead Guitar
 - `PART BASS GHL` - 6-Fret Bass Guitar
@@ -546,7 +546,7 @@ These are from Phase Shift for 5-fret, and carried over to 6-fret by Clone Hero:
 | Open notes  | `50 53 00 00 <difficulty> 01 <enable/disable>` |
 | Tap notes   | `50 53 00 00 FF 04 <enable/disable>`           |
 
-### Drums
+### Drums Tracks
 
 - `PART DRUMS` - Standard 4-Lane, 4-Lane Pro, and 5-Lane Drums
 - `PART DRUM` - Alternate track to `PART DRUMS` that FoFiX supports
@@ -713,7 +713,7 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 | Y tom + B tom | R + B  |
 | B cym + G cym | Y + O  |
 
-### Vocals
+### Vocals Tracks
 
 - `PART VOCALS` - Standard vocals track
 - `HARM1` - Harmonies track 1
@@ -820,7 +820,7 @@ Here's how these symbols should be handled for displaying as just text:
 
 NOTE: Some charts may have more than one lyric event at the same position. While this shouldn't be common, it has happened in some charts and needs to be accounted for in some way.
 
-### Rock Band 3 Pro Keys
+### Rock Band 3 Pro Keys Tracks
 
 - `PART REAL_KEYS_X` - Pro Keys Expert
 - `PART REAL_KEYS_H` - Pro Keys Hard
@@ -882,7 +882,7 @@ Additional info:
   - These notes do not last the duration of the shift, they simply mark when the shift happens.
   - One of these shifts should be marked at the very beginning as the starting range.
 
-### Phase Shift Real Keys
+### Phase Shift Real Keys Tracks
 
 - `PART REAL_KEYS_PS_X` - Real Keys Expert
 - `PART REAL_KEYS_PS_M` - Real Keys Hard
@@ -1006,7 +1006,7 @@ Other info:
 
 - Lane count for each hand is defined through the song.ini tags `real_keys_lane_count_left` and `real_keys_lane_count_right`.
 
-### Pro Guitar/Bass
+### Rock Band 3 Pro Guitar/Bass Tracks
 
 - `PART REAL_GUITAR` - Pro Guitar (17-Fret)
 - `PART REAL_GUITAR_22` - Pro Guitar (22-Fret)
@@ -1130,9 +1130,7 @@ Additional info:
   - At least for muted notes or muted chords, the direction can be reversed by placing the slide marker on channel 12.
 - For RB3, overdrive must match that of standard Guitar/Bass.
 
-#### Pro Guitar/Bass SysEx Events
-
-Phase Shift:
+#### Phase Shift Pro Guitar/Bass SysEx Events
 
 | Description    | SysEx data                                     |
 | :----------    | :---------                                     |
@@ -1147,9 +1145,7 @@ Phase Shift:
 | Pop            | `50 53 00 00 <difficulty> 15 <enable/disable>` |
 | Slap           | `50 53 00 00 <difficulty> 16 <enable/disable>` |
 
-### Dance Track
-
-This track is a 4-lane Dance track from Phase Shift.
+### Phase Shift Dance Track
 
 - `PART DANCE` - Dance
 
