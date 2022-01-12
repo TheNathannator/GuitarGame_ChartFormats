@@ -255,7 +255,7 @@ Meta events are events that store non-MIDI data such as text. They follow this f
 
 Typically, a type 1 MIDI file dedicates its first track to tempo map data and other things that affect all tracks, with the rest of the tracks being normal tracks.
 
-## Chart Format Details
+## Implementation Details
 
 The following sections detail per-track tables and lists of MIDI notes, text events, and SysEx events that lay out charts.
 
