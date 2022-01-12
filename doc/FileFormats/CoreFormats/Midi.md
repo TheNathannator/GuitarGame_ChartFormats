@@ -25,7 +25,7 @@ This document will be split up later into multiple documents, with one being a r
       - [Warning For SysEx](#warning-for-sysex)
     - [Meta Events](#meta-events)
       - [Type 1 MIDI Tempo Map Track](#type-1-midi-tempo-map-track)
-- [Chart Format Details](#chart-format-details)
+- [Implementation Details](#implementation-details)
   - [Track Names](#track-names)
   - [Basic Info](#basic-info)
   - [Metadata](#metadata)
