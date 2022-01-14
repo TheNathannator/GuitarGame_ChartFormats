@@ -46,9 +46,6 @@
     - [Drums Special Phrase Types](#drums-special-phrase-types)
     - [Drums Local Events](#drums-local-events)
     - [Drums Track Type Determining](#drums-track-type-determining)
-  - [BME Conversion Track](#bme-conversion-track)
-    - [BME Event Types](#bme-event-types)
-    - [BME Conversion Note and Modifier Types](#bme-conversion-note-and-modifier-types)
   - [Instrument Section Examples](#instrument-section-examples)
 - [Resources](#resources)
 
