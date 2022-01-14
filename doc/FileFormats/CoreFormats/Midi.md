@@ -1249,8 +1249,6 @@ These are tracks specific to Guitar Hero 1/2:
 - `BAND_DRUM` - Drummer animations track
 - `BAND_BASS` - Bassist animations track
 - `BAND_SINGER` - Vocalist animations track
-- `GUITAR` - Guitar animations track
-- `BASS` - Bass animations track (identical to `GUITAR` in content)
 
 These tracks are detailed in [Midi_GuitarHero1-2.md](../GuitarHero1-2/Midi_GuitarHero1-2.md), as they are specific to GH1/2 and don't particularly matter for the core format.
 
