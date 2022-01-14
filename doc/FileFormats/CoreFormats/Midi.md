@@ -421,7 +421,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 98        | Expert Yellow (3rd lane)                                                                                      |
 | 97        | Expert Red (2nd lane)                                                                                         |
 | 96        | Expert Green (1st lane)                                                                                       |
-| 95        | Expert Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.      |
+| 95        | Expert Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event on the track.      |
 |           |                                                                                                               |
 | Hard      |                                                                                                               |
 | 90        | Hard force strum                                                                                              |
@@ -431,7 +431,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 86        | Hard Yellow (3rd lane)                                                                                        |
 | 85        | Hard Red (2nd lane)                                                                                           |
 | 84        | Hard Green (1st lane)                                                                                         |
-| 83        | Hard Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.        |
+| 83        | Hard Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event on the track.        |
 |           |                                                                                                               |
 | Medium    |                                                                                                               |
 | 78        | Medium force strum                                                                                            |
@@ -441,7 +441,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 74        | Medium Yellow (3rd lane)                                                                                      |
 | 73        | Medium Red (2nd lane)                                                                                         |
 | 72        | Medium Green (1st lane)                                                                                       |
-| 71        | Medium Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start.      |
+| 71        | Medium Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event on the track.      |
 |           |                                                                                                               |
 | Easy      |                                                                                                               |
 | 66        | Easy force strum                                                                                              |
@@ -451,7 +451,7 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 | 62        | Easy Yellow (3rd lane)                                                                                        |
 | 61        | Easy Red (2nd lane)                                                                                           |
 | 60        | Easy Green (1st lane)                                                                                         |
-| 59        | Easy Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event at the start. Otherwise, part of the Rock Band/GH2 left hand position animation data. |
+| 59        | Easy Open<br>Only available if there's an `[ENHANCED_OPENS]`/`ENHANCED_OPENS` text event on the track. Otherwise, part of the RB/GH2 left hand position animation data. |
 
 Additional information:
 
@@ -471,9 +471,9 @@ Additional information:
 
 #### 5-Fret Text Events
 
-| Event Text         | Description                                                                           |
-| :---------         | :----------                                                                           |
-| `[ENHANCED_OPENS]` | Enables note-based open note marking.<br>Can be found both with and without brackets. |
+| Event Text                          | Description                           |
+| :---------                          | :----------                           |
+| `[ENHANCED_OPENS]`/`ENHANCED_OPENS` | Enables note-based open note marking. |
 
 ### 6-Fret Tracks
 
@@ -535,7 +535,7 @@ Additional information:
 
 Additional info:
 
-- 6-fret has the same HOPO and sustain cutoff threshold rules as 5-fret.
+- The `[ENHANCED_OPENS]` text event is *not* required for 6-fret note-based open notes.
 
 #### 6-Fret SysEx Events
 
