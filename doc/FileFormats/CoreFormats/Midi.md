@@ -560,11 +560,11 @@ These are from Phase Shift for 5-fret, and carried over to 6-fret by Clone Hero:
 | Markers   |                                                                                                         |
 | 127       | 2-lane roll marker<br>Only applies to Expert unless velocity is 50-41, then it will be on Hard as well. |
 | 126       | 1-lane roll marker<br>Only applies to Expert unless velocity is 50-41, then it will be on Hard as well. |
-| 124       | Big Rock Ending/Fill marker 1                                                                           |
-| 123       | Big Rock Ending/Fill marker 2                                                                           |
-| 122       | Big Rock Ending/Fill marker 3                                                                           |
-| 121       | Big Rock Ending/Fill marker 4                                                                           |
-| 120       | Big Rock Ending/Fill marker 5<br>All 5 must be used as a chord to mark an SP activation fill; for a Big Rock Ending, there should be a `[coda]` event on the EVENTS track at the start of this chord. |
+| 124       | Fill marker 1                                                                                           |
+| 123       | Fill marker 2                                                                                           |
+| 122       | Fill marker 3                                                                                           |
+| 121       | Fill marker 4                                                                                           |
+| 120       | Fill marker 5<br>All 5 must be used as a chord to mark an SP activation fill.                           |
 | 116       | Star Power/Overdrive marker                                                                             |
 | 112       | Green tom marker                                                                                        |
 | 111       | Blue tom marker                                                                                         |
@@ -1025,12 +1025,6 @@ Gems/markers:
 | Markers    |                                                           |
 | 127        | Trill marker                                              |
 | 126        | Tremolo marker                                            |
-| 125        | Big Rock Ending marker 1                                  |
-| 124        | Big Rock Ending marker 2                                  |
-| 123        | Big Rock Ending marker 3                                  |
-| 122        | Big Rock Ending marker 4                                  |
-| 121        | Big Rock Ending marker 5                                  |
-| 120        | Big Rock Ending marker 6                                  |
 | 116        | Star Power/Overdrive marker                               |
 | 115        | Solo marker                                               |
 | 108        | Player's hand position marker<br>Marks where the player's left hand should be from this point forward and determines how fret numbers get positioned on top of the note. Fret number determined by note velocity, from 101 to 114 for 17-fret, 119 for 22-fret. |
