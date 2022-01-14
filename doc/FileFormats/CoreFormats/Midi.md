@@ -1222,9 +1222,9 @@ Known text events specific to Rock Band or Guitar Hero 1/2 are listed in their r
 
 #### Events Common Text Events
 
-| Event Text                        | Description                                                         |
-| :---------                        | :----------                                                         |
-| `[prc_<name>]`/`[section <name>]` | Marks a practice mode section. `<name>` is the name of the section. |
+| Event Text                        | Description |
+| :---------                        | :---------- |
+| `[prc_<name>]`/`[section <name>]` | Marks a practice mode section. `<name>` is the name of the section.<br>Note that some `section` events may have an underscore `_` instead of a space. |
 | `[end]`                           | Marks the end point of the chart.<br>In some charts this may be present before the actual end, only trust this event if it comes after all notes. |
 
 Other text events specific to other games may be seen in this track. Those are documented in their respective game's MIDI documentation in this repo.
