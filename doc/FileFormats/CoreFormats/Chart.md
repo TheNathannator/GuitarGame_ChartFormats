@@ -24,6 +24,7 @@
   - [Global Events](#global-events)
     - [Common Global Events](#common-global-events)
     - [Lyrics](#lyrics)
+  - [Hand Positions](#hand-positions)
   - [Events Section Example](#events-section-example)
 - [Instrument Section Details](#instrument-section-details)
   - [Notes and Modifiers](#notes-and-modifiers)
@@ -398,6 +399,17 @@ Here's how these symbols should be handled for displaying as just text:
 - Replace `=` with a hyphen `-`. Make sure to not strip out hyphens added as replacement for equals.
 - Replace `§`, `_` with a space.
 - Join together a syllable that has `-` or `=` at the end of it with the following syllable.
+
+### Hand Positions
+
+Some charts may contain track events here with the `H` type code. These specify a GH1/2 or Rock Band hand position for character animations, and follow this format:
+
+`<Position> = H <HandPos> <Length>`
+
+- `HandPos` is a number that corresponds to each of the .mid hand position notes, as detailed in [Midi_GuitarHero1-2.md](../GuitarHero1-2/Midi_GuitarHero1-2.md#anim-notes) and [Midi_RockBand.md](../RockBand/Midi_RockBand.md#5-fret-notes). Possible values range from 0 to 19 (though Feedback only outputs up to 18 when loading a .mid file that has them).
+- `Length` is how long this hand position should be held, in ticks.
+
+As a result of these being in the Events track, they are not specific to an instrument track, and can't really be used outside of converting to a Guitar Hero 1/2 .mid chart. However, it is very much possible that some charts may have these in instrument tracks instead, though no currently known examples exist, it just seems reasonable that it might have happened or will happen.
 
 ### Events Section Example
 
