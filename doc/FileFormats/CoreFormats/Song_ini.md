@@ -152,8 +152,8 @@ These tags affect the parsing or configuration of a chart.
 | `five_lane_drums`            | Forces the Drums track to be 5-lane.                                                     | boolean   |
 | `drum_fallback_blue`         | (PS) "Sets 5 to 4 Lane Drums Fallback Note" (No solid idea what this means lol)          | boolean   |
 |                              |                                                                                          |           |
-| `sustain_cutoff_threshold`   | Overrides the default sustain cutoff threshold with the specified number of ticks.       | number    |
-| `hopo_frequency`             | Overrides the natural HOPO threshold with the specified number of ticks.                 | number    |
+| `sustain_cutoff_threshold`   | Overrides the default sustain cutoff threshold with the specified number of ticks.<br>Mainly meant for game rips; not supported in most games. | number    |
+| `hopo_frequency`             | Overrides the natural HOPO threshold with the specified number of ticks.<br>Should override `hopofreq` and `eighthnote_hopo`. | number    |
 | `hopofreq`                   | (FoFiX) Overrides the natural HOPO threshold using [numbers from 0 to 5](https://github.com/fofix/fofix/blob/7730d1503c66562b901f62b33a5bd46c3d5e5c34/fofix/game/song/song.py#L1309).<br>0 = 1/24th, 1 = 1/16th, 2 = 1/12th, 3 = calculates to 1/9th but 1/8th is more reasonable, 4 = 1/6th, 5 = 1/4th<br>Not recommended for new charts, use `hopo_frequency` instead. | number |
 | `eighthnote_hopo`            | (FoFiX) Overrides the natural HOPO threshold to be a 1/8th step.<br>Not recommended for new charts, use `hopo_frequency` instead. | boolean |
 | `multiplier_note`            | Overrides the Star Power phrase MIDI note for .mid charts.                               | MIDI note |
@@ -188,7 +188,7 @@ These tags affect the parsing or configuration of a chart.
 
 | Tag Name        | Description                                | Data type |
 | :-------        | :----------                                | :-------: |
-| `icon`          | Name of an icon to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://gitlab.com/clonehero/sources). | string |
+| `icon`          | Name of an icon to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://gitlab.com/clonehero/sources).<br>Note that Moonscraper Chart Editor likes to set this to `0` as its default value for this tag. | string |
 |                 |                                            |           |
 | `background`    | Name/path for a background image file.     | file path |
 | `video`         | Name/path for a background video file.     | file path |
