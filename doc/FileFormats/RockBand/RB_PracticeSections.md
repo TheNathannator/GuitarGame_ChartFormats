@@ -8,6 +8,12 @@ For best usability, these section names should be checked for in both `[section 
 
 This document is likely missing some section names here and there, feel free to add any that are missing.
 
+Format of this document:
+
+- `event_name_without_brackets_or_prc/section` - "In-game name"
+
+## The List
+
 - `a` - "A section"
 - `a1` - "A section 1"
 - `a2` - "A section 2"

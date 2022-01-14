@@ -6,7 +6,11 @@ Most of these sections are also present in Guitar Hero: Rocks the 80's. (No GH1,
 
 For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game. Also note that some of these events have the same event names as ones from Rock Band, but have different in-game names.
 
-- `event_name` - "In-game name"
+Format of this document:
+
+- `event_name_without_brackets_or_section` - "In-game name"
+
+## The List
 
 - `ah_ah_1` - "Ah ah!"
 - `ah_ah_2` - "Ah ah!!"
