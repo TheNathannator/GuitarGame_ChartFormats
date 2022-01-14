@@ -57,12 +57,15 @@ Song Name [N].chart
 
 ## Audio
 
-### Common Formats
+### Common Audio Formats
 
 - .mp3
 - .ogg
-- .wav (maybe not *common*, but is supported by some games/programs)
-- .opus
+
+Other formats supported by programs/games:
+
+- .wav
+- .opus (not particularly common yet, but may be fairly common after Clone Hero's v1.0 release)
 
 ### Stem Names
 
@@ -110,7 +113,7 @@ Custom names may be used for some things, see the `icon`, `banner`, and `cover` 
 - .mp4 (x264 or x265)
 - .webm (VP8)
 
-Other formats supported by games:
+Other formats supported by programs/games:
 
 - .mpeg
 - .avi
