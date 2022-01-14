@@ -259,13 +259,27 @@ Typically, a type 1 MIDI file dedicates its first track to tempo map data and ot
 
 The following sections detail per-track tables and lists of MIDI notes, text events, and SysEx events that lay out charts.
 
+Notes are listed in descending order to match how a piano roll view typically lays notes out. Channels and SysEx events are listed in ascending order. Note and channel lists are 0-indexed.
+
 Please note that these should not be used as a comprehensive technical documentation for how charts should be made for Rock Band or Guitar Hero 1/2, this document is focused on the format itself and does not include most game-specific events, limitations, or technicalities. Other documents are included in this repo for that purpose.
 
 There may also be some things missing here and there, but the core functionality for each track should be fully documented. Given the nature of .mid files being able to contain tracks and events far beyond the ones listed, unexpected tracks, notes, and other events should be ignored.
 
+If adding new functionality to existing tracks is desired, make sure to check the other game documents to check that the notes/events to be used are not already occupied by those games. Also consider documenting those additions and submitting them here so others are aware of them.
+
+Abbreviations that refer to specific games or entities may be found throughout this document:
+
+- RB - Rock Band
+- RBN - Rock Band Network
+- GH - Guitar Hero
+- PS - Phase Shift
+- CH - Clone Hero
+- C3 - Custom Creators Collective
+- RGW - Rhythm Gaming World
+
 ### Track Names
 
-Tracks are identified by their track name meta event.
+Tracks are identified by a track name meta event at the start of the track.
 
 Some of the tracks listed here are not documented in this particular document, rather they are game-specific and documented in that game's .mid document.
 
@@ -288,7 +302,7 @@ Additional tracks (from either Rock Band or Phase Shift):
 
 | Track Name                                                                         | Track Description                      |
 | :---------                                                                         | :----------------                      |
-| [`PART DRUMS_2X`]                                                                  | RBN 2x Kick Drums chart<br>Meant for generating separate 1x and 2x kick CON files for Rock Band. Probably won't ever be seen in a publicly-available chart, but worth noting. |
+| [`PART DRUMS_2X`]                                                                  | RBN 2x Kick Drums chart<br>Meant for generating separate 1x and 2x kick files for Rock Band. Probably won't ever be seen in a publicly-available chart, but worth noting. |
 | [`PART REAL_GUITAR`](#rock-band-3-pro-guitar-tracks)                               | RB3 Pro Guitar (17-fret)               |
 | [`PART REAL_GUITAR_22`](#rock-band-3-pro-guitar-tracks)                            | RB3 Pro Guitar (22-fret)               |
 | [`PART REAL_GUITAR_BONUS`](#rock-band-3-pro-guitar-tracks)                         | Some Pro Guitar track, details unknown |
@@ -330,11 +344,11 @@ Legacy tracks:
 | [`PART REAL BASS`]                                                        | `PART REAL_BASS` as it appears in FoFiX's code       |
 | [`PART REAL DRUM`]                                                        | Pro Drums as it appears in FoFiX's code              |
 
-([FoFiX tracks reference](https://github.com/fofix/fofix/blob/7730d1503c66562b901f62b33a5bd46c3d5e5c34/fofix/game/song/song.py#L154))
-
 ### Basic Info
 
-Each track consists of various MIDI notes that serve some purpose, along with text events and possibly SysEx events. This section defines some nomenclature common in each section, and some specifics on how some things work.
+This section defines some nomenclature common in each section, and some specifics on how some things work.
+
+Each track consists of various MIDI notes that serve some purpose, along with text events and possibly SysEx events. Unknown MIDI events should be ignored.
 
 - Markers refer to a note that marks either a phrase or a modification to a note.
   - Phrase markers typically do not include notes on the same tick as their Note Off, meaning that if a Star Power phrase ends on tick 4800, it will not affect notes that start on tick 4800.
@@ -388,7 +402,7 @@ SysEx events are used in some chart files to specify modifications to notes. The
 | `13`  | Real Drums green cymbal+tom     |
 
 - `value` is the value for this event.
-  - For phrase messages, this is either `00` to end the phrase, or `01` to enable the phrase.
+  - For phrase messages, this is either `01` to start the phrase, or `01` to end the phrase.
 
 ### 5-Fret Tracks
 
@@ -455,12 +469,16 @@ This list excludes some notes that only matter for Rock Band or Guitar Hero 1/2.
 
 Additional information:
 
-- Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord.
-  - In .mid, the default threshold is a 1/12th step (though sources elsewhere say the threshold is, assuming a 480 tick resolution, a 1/16th (120 ticks) step or 170 ticks instead of 160, but the currently accepted threshold is a 1/12th step (160 ticks)). This can be changed through the song.ini tag `hopo_frequency`.
+- Notes must get set as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord.
+  - In .mid, the default threshold is a 1/12th step (though sources elsewhere say the threshold is, assuming a 480 tick resolution, a 1/16th (120 ticks) step or 170 ticks instead of 160, but the currently accepted threshold is a 1/12th step). This can be changed through the song.ini tag `hopo_frequency`.
   - Notes can be forced as either strums or HOPOs using the Force Strum and Force HOPO markers. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
-- In .mid, sustains shorter than a 1/12th step should be cut off and turned into a normal note. This can be changed using the `sustain_cutoff_threshold` song.ini tag. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
+    - (TODO: Figure out which gets precedence and note it here) 
+- Sustains shorter than a 1/12th step must be cut off and turned into a normal note. This allows charters using a DAW to not have to make their notes 1 tick long in order for it to not be a sustain.
+  - This can be changed using the `sustain_cutoff_threshold` song.ini tag, though this is mainly meant for game rips where some notes that should be sustains get cut off due to being too short.
 - Trill and tremolo lanes are used to make imprecise/indiscernible trills or fast strumming easier to play. They prevent overstrumming and only require you to hit faster than a certain threshold to hit the charted notes.
-- As a note: Some older .mid charts contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band have a mechanism to snap notes with a position difference of 10 ticks or less (regardless of resolution) together as a chord, with the position to snap to being the start position of the earliest note within the chord. __This is only noted here in the core document as a note/warning, doing this snapping is not particularly recommended for games since it'll rarely be an issue and sloppy charting should not be encouraged.__
+- Chords can have individual notes with different lengths. These are referred to as extended sustains (start at different times, end at same or different times) and disjoint chords (start at the same time, end at different times)
+- As a note: Some older .mid charts contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band have a mechanism to snap notes with a position difference of 10 ticks or less (regardless of resolution) together as a chord, with the position to snap to being the start position of the earliest note within the chord. __This is only noted here in the core document as a note/warning, doing this snapping is not particularly recommended for games since it'll rarely be an issue and sloppy charting should not be encouraged, since not all games support this.__
+- For maximum compatibility with programs, the SysEx-based markers for tap notes and open notes should be used when writing charts instead of the note-based markers, as the note-based markers are relatively newer and not supported by much yet.
 
 #### 5-Fret SysEx Events
 
@@ -533,9 +551,11 @@ Additional information:
 | 59        | Easy White 1 (4th lane)     |
 | 58        | Easy Open                   |
 
-Additional info:
+Additional information:
 
-- The `[ENHANCED_OPENS]` text event is *not* required for 6-fret note-based open notes.
+- 6-fret follows all of the same rules as 5-fret, with the following exclusions:
+  - The `[ENHANCED_OPENS]` text event is *not* required for 6-fret note-based open notes.
+  - Chord snapping is not observed as a mechanism in Guitar Hero Live.
 
 #### 6-Fret SysEx Events
 
@@ -683,10 +703,10 @@ The Drums track doesn't have any way of specifying which kind of drums track it 
 The type can be determined using a process such as the following:
 
 - Check if an accompanying song.ini has either the `pro_drums` or `five_lane_drums` tags. If it does, then force the drums track to be parsed as if it were that type.
-- If there is no song.ini, or if the tags to force a type do not exist, check the chart for 5-lane green (type 5) and cymbal markers (types 66, 67, and 68).
+- If there is no song.ini, or if the tags to force a type do not exist, check the chart for 5-lane green and cymbal markers.
 - If both 5-lane and Pro are detected, it may be preferable to prioritize Pro over 5-lane.
 
-Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here are some suggested conversions:
+Additionally, if converting 5-lane to 4-lane Pro or vice versa is desired, here are some suggested conversions:
 
 - 5-lane to 4-lane Pro:
 
@@ -877,7 +897,9 @@ NOTE: Some charts may have more than one lyric event at the same position. While
 Additional info:
 
 - For RB3, up to 4 notes are allowed at a time, and extended sustains/disjoint chords are allowed.
-- Trill and glissando lanes are used to make imprecise/indiscernible trills and glissandi easier to play. They prevent overhitting, and for trill markers, only require you to alternate faster than a certain threshold to hit the charted notes.
+- Trill and glissando lanes are used to make imprecise/indiscernible trills and glissandi easier to play.
+  - Trill markers prevent overhitting and only require the player to alternate faster than a certain threshold to hit the charted notes.
+  - Glissando markers, as the Rock Band Network docs describe it, disable the scoring system for the notes between the start and end of the glissando.
 - The range shift notes will shift the range of the keys shown on the track. In RB3, 17 keys out of the 25 keys are shown at a time, so if there are notes that go beyond the current range, the range must be shifted to show those notes.
   - These notes do not last the duration of the shift, they simply mark when the shift happens.
   - One of these shifts should be marked at the very beginning as the starting range.
@@ -891,7 +913,7 @@ Additional info:
 
 #### Real Keys Notes
 
-Gems/markers:
+Notes/markers:
 
 | MIDI Note | Description                                                          |
 | :-------: | :----------                                                          |
@@ -997,10 +1019,10 @@ Gems/markers:
 
 Channels:
 
-| MIDI Channel | Description |
-| :----------: | :---------- |
-| 0            | Right hand  |
-| 1            | Left hand   |
+| MIDI Channel | Description       |
+| :----------: | :----------       |
+| 0            | Right hand notes  |
+| 1            | Left hand notes   |
 
 Other info:
 
@@ -1014,11 +1036,11 @@ Other info:
 - `PART REAL_BASS` - Pro Bass (17-Fret)
 - `PART REAL_BASS_22` - Pro Bass (22-Fret)
 
-Pro Guitar/Bass is rather complicated, some things are going to be skimmed over here for now. See [this Rhythm Gaming World post](https://rhythmgamingworld.com/forums/topic/general-thread-for-pro-guitarbass-questions/) for details.
+Pro Guitar/Bass has some rather complicated mechanics, so some things may have been missed. There are also some observed unknowns in some chart files documented here.
 
 #### Pro Guitar/Bass Notes and Channels
 
-Gems/markers:
+Notes/markers:
 
 | MIDI Note  | Description                                               |
 | :-------:  | :----------                                               |
@@ -1069,7 +1091,7 @@ Gems/markers:
 | 48         | Medium Red (E string)                                     |
 |            |                                                           |
 | Easy       |                                                           |
-| 34         | Easy Unknown                                              | 
+| 34         | (Unobserved) Easy Unknown                                 | 
 | 32         | Easy Arpeggio marker                                      |
 | 31         | Easy slide marker                                         |
 | 30         | Easy force HOPO                                           |
@@ -1141,7 +1163,7 @@ Additional info:
 
 ### Phase Shift Dance Track
 
-- `PART DANCE` - Dance
+- `PART DANCE` - 4-lane Dance
 
 #### Dance Notes
 
@@ -1187,6 +1209,10 @@ Channels:
 | 1            | Mine        |
 | 2            | Lift        |
 | 3            | Roll        |
+
+Additional notes:
+
+- Phase Shift's specifications specify that notes on this track should be placed with a velocity of 127. No other note velocities are defined, so this was probably for future-proofing in case velocities were used for extensions to the format.
 
 ### Events Track
 
@@ -1246,3 +1272,5 @@ Chart format info comes from these sources:
 - [ScoreHero forums: "Lighting/Band/Crowd Events & Notes (New lighting ideas.)"](https://www.scorehero.com/forum/viewtopic.php?t=20179).
 - [ScoreHero forums: "Guitar Hero MIDI and VGS File Details"](https://www.scorehero.com/forum/viewtopic.php?t=1179)
 - [ScoreHero forums: "GH2 Midi Encyclopedia / Dictionary"](https://www.scorehero.com/forum/viewtopic.php?t=5523)
+- [FoFiX source code](https://github.com/fofix/fofix/blob/7730d1503c66562b901f62b33a5bd46c3d5e5c34/fofix/game/song/song.py)
+- [Editor on Fire source code](https://github.com/raynebc/editor-on-fire/blob/3c385f0d668b3dfdc7c648377cf422b4e2671db5/src/midi.c)
