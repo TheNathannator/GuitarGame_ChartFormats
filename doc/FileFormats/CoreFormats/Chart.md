@@ -47,7 +47,7 @@
     - [Drums Local Events](#drums-local-events)
     - [Drums Track Type Determining](#drums-track-type-determining)
   - [Instrument Section Examples](#instrument-section-examples)
-- [Resources](#resources)
+- [References](#references)
 
 ## Brief History
 
@@ -478,7 +478,7 @@ Special events mark phrase-type events such as Star Power. They use the `S` type
 - `Type` is a the type number of this special phrase.
 - `Length` is the length of this phrase in ticks.
 
-A special phrase usually does not apply to the tick immediately after the length (i.e. the value of `(Position + Length)`). Any exceptions will be noted.
+A special phrase usually does not apply to the tick immediately after the length, i.e. the value of `(Position + Length)`. Any exceptions will be noted. They should also apply to their starting tick regardless of length, since, for example, some charts use 0-length Star Power phrases to mark single-note/chord phrases.
 
 #### Special Phrase Type Divisions
 
@@ -501,11 +501,9 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 
 ## Instrument Sections
 
-This section details the type codes available for each instrument, along with common local events. Legacy tracks are not detailed.
+This section details instrument-specific note/phrase types and common local events. Legacy tracks are not detailed, as there is no reference for how they would be used.
 
 ### 5-Fret Tracks
-
-Applies to these tracks:
 
 - `Single` – Lead Guitar
 - `DoubleGuitar` – Co-op Guitar
@@ -544,8 +542,6 @@ These are far from the only local events that may be seen, these are just the on
 | `soloend`  | Ends a solo.   |
 
 ### 6-Fret Tracks
-
-Applies to these tracks:
 
 - `GHLGuitar` – Guitar Hero Live Guitar
 - `GHLBass` – Guitar Hero Live Bass
@@ -587,8 +583,6 @@ These are remnants from the early days of Guitar Hero Live .chart charting:
 | `ghl_6_forced` | Marks a note as a forced 6-fret 6th fret note. |
 
 ### Drums Track
-
-Applies to these tracks:
 
 - `Drums` – Drums/Pro Drums/5-Lane Drums
 
@@ -686,7 +680,7 @@ The Drums track doesn't have any way of specifying which kind of drums track it 
 The type can be determined using a process such as the following:
 
 - Check if an accompanying song.ini has either the `pro_drums` or `five_lane_drums` tags. If it does, then force the drums track to be parsed as if it were that type.
-- If there is no song.ini, or if the tags to force a type do not exist, check the chart for 5-lane green (type 5) and cymbal markers (types 66, 67, and 68).
+- If there is no song.ini, or if the tags to force a type do not exist, check the chart for 5-lane green and cymbal markers.
 - If both 5-lane and Pro are detected, it may be preferable to prioritize Pro over 5-lane.
 
 Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here are some suggested conversions:
@@ -765,7 +759,7 @@ Additionally, if you wish to convert 5-lane to 4-lane Pro, or vice versa, here a
 }
 ```
 
-## Resources
+## References
 
 A large part of this info comes from [FireFox's .chart specifications](https://docs.google.com/document/d/1v2v0U-9HQ5qHeccpExDOLJ5CMPZZ3QytPmAG5WF0Kzs/edit?usp=sharing).
 
