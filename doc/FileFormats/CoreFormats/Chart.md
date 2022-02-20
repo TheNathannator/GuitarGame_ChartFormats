@@ -127,7 +127,7 @@ Difficulty names:
 - `Medium`
 - `Easy`
   
-Common instrument names:
+Standard instrument names:
 
 - `Single` – Lead Guitar
 - `DoubleGuitar` – Co-op Guitar
@@ -471,7 +471,7 @@ Any games/programs that want to add custom note/modifier types should reserve th
 
 ### Special Phrases
 
-Special events mark phrase-type events such as Star Power. They use the `S` type code and are written like this:
+Special phrase events mark phrase-type events such as Star Power. They use the `S` type code and are written like this:
 
 `<Position> = S <Type> <Length>`
 
