@@ -2,6 +2,8 @@
 
 This document details a proposal for adding DJ Hero tracks to the .chart format.
 
+For specifications on the .chart format itself, see the [CoreFormats .chart document.](../CoreFormats/Chart.md)
+
 ## Table of Contents
 
 - [Section Names](#section-names)
@@ -16,7 +18,7 @@ This document details a proposal for adding DJ Hero tracks to the .chart format.
 
 ## Section Names
 
-Difficulties:
+Added difficulties:
 
 - `Beginner`
 
@@ -56,12 +58,12 @@ These tracks use different type divisions than the standard .chart tracks:
 
 - Note/modifier types:
 
-| Note Type   | Description               |
-| :--------   | :----------               |
-| 0 thru 31   | 1st table notes/scratches |
-| 32 thru 63  | 2nd table notes/scratches |
-| 64 thru 95  | Crossfade markers         |
-| 96 thru 127 | Miscellaneous             |
+| Note Type   | Description                        |
+| :--------   | :----------                        |
+| 0 thru 31   | 1st table taps/scratches/freestyle |
+| 32 thru 63  | 2nd table taps/scratches/freestyle |
+| 64 thru 95  | Crossfade markers                  |
+| 96 thru 127 | Miscellaneous                      |
 
 - Special phrase types:
 
@@ -149,11 +151,13 @@ Note that this section specifies types for both tracks in a single section. Type
 | 96            | Effect dial spin left                                                                    |
 | 97            | Effect dial spin right                                                                   |
 
+Crossfades will automatically become spike crossfades if their length is a 1/16th note or less. These spikes can be forced as regular crossfades by using the spike/non-spike swap note. Regular fades can also be forced as spikes regardless of their length
+
 #### Turntable Special Phrase Types
 
 | Special Type  | Description                                                                           |
 | :----------:  | :----------                                                                           |
-| 0             | Euphoria phrase                                                                       |
+| 2             | Euphoria phrase                                                                       |
 |               |                                                                                       |
 | First table   |                                                                                       |
 | 32            | Table 1: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
@@ -175,4 +179,4 @@ Note that this section specifies types for both tracks in a single section. Type
 | Event Text                | Description |
 | :--------:                | :---------- |
 | `dj_effect <name>`        | Specifies the audio effect to be used by a corresponding effect zone.<br>`name` is the name of the effect to be used:<br>`BeatRoll`, `BeatRoll_AutoAdvance`, `BitReduction` (bitcrush), `Delay`, `Filter` (low/hi-pass), `Flanger`, `RingMod`, `Robot`, `Stutter`, `Wah` |
-| `dj_sample <number>` | Specifies a sample number to be used by a corresponding freestyle zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section. |
+| `dj_sample <number> [lane]` | Specifies a sample number to be used by a corresponding tap, scratch, or freestyle zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section.<br>`lane` is an optional parameter that specifies the lane a sample should apply to, for cases where multiple lanes are in use.<br>The engine playing the chart may choose whether or not to support samples on taps and scratches (i.e. as hitsounds). |
