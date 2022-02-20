@@ -2,9 +2,7 @@
 
 A repository of documentation for chart files of guitar- or band-centric rhythm games such as Guitar Hero and Rock Band.
 
-## Work In Progress
-
-This documentation project is a work in progress. Some documents may need to be split or restructured/duplicated for variations in other games.
+This repo focuses around the customs formats used in games such as Clone Hero, Phase Shift, and FoFiX, but some game-specific/internal formats may be documented as well. There's also documentation for some adjacent game formats such as DJ Hero customs, as well as some oddities found here and there that either are guitar/band-related, or use these formats.
 
 ## Contributing
 
@@ -23,8 +21,8 @@ These are not strict guidelines, but they help to make referencing and adding to
 
 This list will be updated with things that need to be done.
 
-- Create GitHub wiki pages for easier navigation and reading
-- Separate most game-specific stuff from core format documentation
+- [ ] Create GitHub wiki pages for easier navigation and reading
+- [x] ~~Separate most game-specific stuff from core format documentation~~
 
 ## License
 
