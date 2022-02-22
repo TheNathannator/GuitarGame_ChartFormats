@@ -175,15 +175,18 @@ Open notes are notes that require no buttons to be pressed.
 
 #### Turntable Special Phrase Types
 
+Special types marked with an asterisk (\*) are required for full compatibility with the DJ Hero 2 feature set.
+<br>All other special phrase types are extensions of the the DJ Hero 2 feature set, and are defined in order to give an engine the option to use them.
+
 | Special Type  | Description                                                                           |
 | :----------:  | :----------                                                                           |
-| 2             | Euphoria phrase                                                                       |
+| 2\*           | Euphoria phrase                                                                       |
 |               |                                                                                       |
 | First table   |                                                                                       |
-| 32            | Table 1: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
-| 33            | Table 1: Red effect zone<br>Effect type determined by a `dj_effect` local event.      |
-| 34            | Table 1: Blue effect zone<br>Effect type determined by a `dj_effect` local event.     |
-| 35            | Table 1: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
+| 32\*          | Table 1: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
+| 33\*          | Table 1: Red effect zone<br>Effect type determined by a `dj_effect` local event.      |
+| 34\*          | Table 1: Blue effect zone<br>Effect type determined by a `dj_effect` local event.     |
+| 35\*          | Table 1: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
 |               |                                                                                       |
 | Second table  | These note types are only used in the `DJDualTurntable` track.                        |
 | 64            | Table 2: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
@@ -192,11 +195,11 @@ Open notes are notes that require no buttons to be pressed.
 | 67            | Table 2: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
 |               |                                                                                       |
 | Miscellaneous |                                                                                       |
-| 96            | Nullify crossfades and force center crossfade                                         |
+| 96\*          | Nullify crossfades and force center crossfade                                         |
 
 #### Turntable Local Events
 
 | Event Text                | Description |
 | :--------:                | :---------- |
 | `dj_effect <name>`        | Specifies the audio effect to be used by a corresponding effect zone.<br>`name` is the name of the effect to be used:<br>Effects originally from DJ Hero 2 are `BeatRoll`, `BeatRoll_AutoAdvance`, `BitReduction` (bitcrush), `Delay`, `Filter` (low/hi-pass), `Flanger`, `RingMod`, `Robot`, `Stutter`, `Wah`<br>The engine may choose to implement additional effects. |
-| `dj_sample <number> [lane]` | Specifies a sample number to be used by a corresponding tap, scratch, or freestyle zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section.<br>`lane` is an optional parameter to implement & use that specifies the lane a sample should apply to, for cases where multiple lanes are in use.<br>The engine playing the chart may choose whether or not to support samples on taps and scratches (i.e. as hitsounds). |
+| `dj_sample <number> [lane]` | Specifies a sample number to be used by a corresponding freestyle sample/scratch zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section.<br>`lane` is an optional parameter to implement & use that specifies the lane a sample should apply to, for cases where multiple lanes are in use.<br>The engine playing the chart may extend this event to apply to other notes, e.g. use samples as tap/scratch hitsounds. |
