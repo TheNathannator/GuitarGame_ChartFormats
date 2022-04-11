@@ -35,10 +35,10 @@ Some charts may contain track events in the `[Events]` section with the `H` type
 
 `<Position> = H <HandPos> <Length>`
 
-- `HandPos` is a number that corresponds to each of the .mid hand position notes, as detailed in [Midi_GuitarHero1-2.md](../GuitarHero1-2/Midi_GuitarHero1-2.md#anim-notes) and [Midi_RockBand.md](../RockBand/Midi_RockBand.md#5-fret-notes). Possible values range from 0 to 19 (though Feedback only outputs up to 18 when loading a .mid file that has them).
+- `HandPos` is a number that corresponds to each of the .mid hand position notes, as detailed in the .mid docs. Possible values range from 0 to 19 (though Feedback, the only editor to make use of them, only outputs up to 18 when loading a .mid file that has them).
 - `Length` is how long this hand position should be held, in ticks.
 
-As a result of these being in the Events track, they are not specific to an instrument track, and can't really be used outside of converting to a Guitar Hero 1/2 .mid chart. However, it is very much possible that some charts may have these in instrument tracks instead, though no currently known examples exist, it just seems reasonable that it might have happened or will happen.
+As a result of these being in the Events track, they are not specific to an instrument track, and can't really be used outside of converting to a Guitar Hero 1/2 .mid chart. However, it would be safe to assume that some charts may have these in instrument tracks instead, though no currently known examples exist.
 
 ## Instrument Sections
 
@@ -90,7 +90,7 @@ Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close
 
 Notes can have their natural forcing flipped using the strum/HOPO flip modifier, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
-In .chart, sustains do not get cut off if they are shorter than a certain threshold, unlike .mid.
+Sustains do not get cut off if they are shorter than a certain threshold, unlike .mid.
 
 ### Special Phrase Types
 

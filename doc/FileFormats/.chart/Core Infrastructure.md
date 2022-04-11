@@ -62,9 +62,15 @@ The ultimate fate of the .chart format remains to be seen.
 
 ## Basic Infrastructure
 
+This section details how .chart files are structured.
+
+Note that the usage of C-style comments in examples throughout this document is not reflective of the actual format, comments are not officially supported.
+
 ### Sections
 
-.chart files are segmented into sections. Sections start with their name in square brackets, and follow with their contents encapsulated by curly brackets. Section names are written in PascalCase. Sections do not have to be separated with line breaks, and can show up in any order, at least for instrument tracks.
+.chart files are segmented into sections. Sections start with their name in square brackets, which is usually written in PascalCase. The contents of sections are encapsulated by curly brackets.
+
+Sections do not have to be separated with line breaks, and can show up in any order, at least for instrument tracks.
 
 ```
 [SectionOne]
@@ -77,13 +83,14 @@ The ultimate fate of the .chart format remains to be seen.
 }
 ```
 
-(Note that comment marking is not explicitly supported by the format. Any cases where it works are purely coincidental.)
-
 #### Section Data
 
 Section data is comprised of key-value pairs, each one separated by a line break and typically indented by a couple spaces or a tab, stored in this general format:
 
 `<Key> = <Value[]>`
+
+- `Key` is the identifier to use to access this value. It may or may not need to be unique, depending on the specific type of data that the key-value pair holds.
+- `Value[]` is one or more space-separated values that hold the data for the key. Quotation marks are used for string values, which allow for spaces.
 
 ```
 [SectionOne]
@@ -93,15 +100,47 @@ Section data is comprised of key-value pairs, each one separated by a line break
 }
 ```
 
-The value type of both the key and the value, as well as the number of values, depends on the section. Whether or not a key must be unique also depends on the section.
+Each section has different data, and a data entry in one section may mean something different in another, but there are common structures shared between sections.
 
-Value type info:
+#### Value Types
 
-- `number` fields are whole numbers written in base 10.
-- `float` fields allow decimal places and are also written in base 10.
-- `string` fields typically, but don't always, use quotes. Strings that don't use quotes will be marked as such.
-- `boolean` fields are either `true` or `false`.
-- `file path` fields use quotes and can be either relative to the chart file, or absolute to the file system.
+Value types used throughout these .chart documents are as follows:
+
+| Value type    | Description                                                                                                         |
+| :---------    | :----------                                                                                                         |
+| `number`      | An integer number written in base 10.                                                                               |
+| `decimal`     | A decimal-allowing number written in base 10.                                                                       |
+| `string`      | Any amount of text surrounded by quotes.                                                                            |
+| `bare string` | Any amount of text *not* surrounded by quotes.                                                                      |
+| `boolean`     | Either `true` or `false`.                                                                                           |
+| `file path`   | A file path surrounded by quotes.<br>Can be either relative to the chart file, or absolute to the OS's file system. |
+
+#### Named Entries
+
+Named entries contain data that should be referred to by name.
+
+`<Name> = <Value>`
+
+- `Name` is the name of the entry, typically written in PascalCase (though their casing may vary).
+- `Value` is the value of the entry. The value type depends on which entry it is paired to.
+
+Named entries should be unique relative to the section they are in, and their order/position within a section may vary.
+
+#### Track Events
+
+Track events contain data for a note, phrase, or other event that happens at a certain tick within the chart.
+
+`<Position> = <Type Code> <Value[]>`
+
+- `Position` is a number indicating which tick this event is located at.
+- `Type Code` is a bare string (typically one or two characters) which marks the type of event.
+- `Value[]` is a set of one or more individual values. The amount of values and type of each value varies per event type.
+
+More than one event may occur at the same tick. Some events may modify other events at the same tick. Some events are phrases that modify multiple events throughout a provided length value, usually not including the very last tick (i.e. the tick at the position of `(start position + length value)`).
+
+Events within the same section should be written in increasing order of tick position. Out-of-order events may cause issues in or be rejected by some games/programs.
+
+Track events in the same section should be written in increasing order of tick position. Some charts have some events out of order, these charts may cause issues in or be rejected by some games/programs.
 
 ### Section Names
 
@@ -111,78 +150,68 @@ Typically, the first few sections are:
 - `[SyncTrack]` – Time signatures and tempo markers
 - `[Events]` – Global events and practice mode sections
 
-Following these are the instrument tracks. Each difficulty of every instrument is its own section. The nomenclature of these sections' names is the name of the difficulty followed by a code name for the instrument:
+Following these are the instrument tracks. Typically, each difficulty of every instrument is its own section, with the standard nomenclature of these sections' names being the name of the difficulty followed by a code name for the instrument:
 
 `[<Difficulty><Instrument>]`
 
 For example, Hard on Drums is written as `[HardDrums]`.
 
+Following this nomenclature for new specifications is recommended.
+
 Available instrument section names can be found in each game type's respective document. Any unrecognized/unknown sections should be ignored.
 
 Any other unrecognized/unknown sections should be ignored.
 
-All sections aside from `Song` (for chart resolution) and `SyncTrack` are optional, and instrument sections may show up in any order. A missing section is equivalent to a section with no data.
+All sections aside from `Song` (for chart resolution, and name/artist if not using an accompanying song.ini) and `SyncTrack` are optional. Instrument sections may show up in any order. A missing section is equivalent to a section with no data.
 
 ## Song Section Details
 
-The `[Song]` section contains metadata about the song and chart.
+The `[Song]` section contains metadata about the song and chart. It uses named entries to store the metadata.
 
-Its data follows this format:
+The order of metadata tags may vary, and they must be unique.
 
-`<Name> = <Value>`
+This list only covers basic metadata. Other metadata is covered in other documents. Unknown/unexpected tags should be ignored.
 
 ### Basic Metadata
 
-| Key            | Description                                                                                      | Data type |
-| :---           | :----------                                                                                      | :-------- |
-| `Name`         | (Required) Title of the song.                                                                    | string    |
-| `Artist`       | (Required) Artist(s) or band(s) behind the song.                                                 | string    |
-| `Charter`      | Community member who charted the song.                                                           | string    |
-| `Album`        | Title of the album the song is featured in.                                                      | string    |
-| `Genre`        | Genre of the song.                                                                               | string    |
+| Entry Name     | Description                                                                          | Value type |
+| :---------     | :----------                                                                          | :--------- |
+| `Name`         | (Required) Title of the song.                                                        | string     |
+| `Artist`       | (Required) Artist(s) or band(s) behind the song.                                     | string     |
+| `Album`        | Title of the album the song is featured in.                                          | string     |
+| `Genre`        | Genre of the song.                                                                   | string     |
 | `Year`         | Year of the song’s release.<br>Typically preceded by a comma and space, for example `, 2002`, to make importing into GHTCP quicker. | string |
-| `Offset`       | Start time of the audio in seconds.<br>A higher value makes the audio start sooner.              | float (seconds.milliseconds) |
-| `Resolution`   | (Required) Number of positional ticks between the start of one beat and the start of the next.   | number    |
-| `Difficulty`   | Estimated difficulty of the song.                                                                | number    |
-| `PreviewStart` | Time of the song in seconds where the song preview should start.                                 | float (seconds.milliseconds) |
-| `PreviewEnd`   | Time of the song in seconds where the song preview should end.                                   | float (seconds.milliseconds) |
-| `MusicStream`  | The main audio stream.<br>When other audio stems are present, this is background audio not in the other tracks and/or instruments not charted. | file path  |
+| `Charter`      | Community member who charted the song.                                               | string     |
+| `Resolution`   | (Required) Number of positional ticks between each 1/4th note in the chart.          | number     |
+| `Difficulty`   | Estimated difficulty of the song.                                                    | number     |
+| `Offset`       | Start time of the audio, in seconds.<br>A higher value makes the audio start sooner. | decimal    |
+| `PreviewStart` | Time of the song, in seconds, where the song preview should start.                   | decimal    |
+| `PreviewEnd`   | Time of the song, in seconds, where the song preview should end.                     | decimal    |
+| `MusicStream`  | The main audio stream.<br>When other audio stems are present, this is background audio not in the other tracks and/or instruments not charted. | file path |
+
+### song.ini
+
+Most modern .chart files use an accompanying song.ini file, carried over from the .mid format, instead of the `[Song]` section. The metadata in the song.ini should be prioritized over the metadata in the .chart in cases such as these, as this is what's typically used in modern .chart files. See [Song_ini.md](Song_ini.md) for details on the song.ini file.
 
 ### Song Section Example
 
 ```
 [Song]
 {
-  Name = "Example .chart"
+  Name = "Example Song"
   Artist = "Example Artist"
-  Charter = "Example Charter"
   Album = "Example Album"
-  Year = ", 2021"
-  Offset = 0
-  Resolution = 192
-  Player2 = bass
-  Difficulty = 4
-  PreviewStart = 0
-  PreviewEnd = 0
   Genre = "Example Genre"
-  MediaType = "Example Media Type"
-  MusicStream = "song.ogg"
+  Year = ", 2021"
+  Charter = "Example Charter"
+  Resolution = 192
+  Difficulty = 4
+  Offset = 0.56
+  PreviewStart = 45.28
+  PreviewEnd = 75.28
+  MusicStream = "Example Song.ogg"
 }
 ```
-
----
-
-## Track Events
-
-Track events contain data for the SyncTrack, Events, and instrument sections, and follow this format:
-
-`<Position> = <Type Code> <Value[]>`
-
-- `Position` is a number indicating which tick this event is located at.
-- `Type Code` is a string (typically one or two characters, no quotation marks) which indicates the type of event.
-- `Value[]` is a set of one or more individual values. The amount of values and type of each value varies per event type.
-
-Track events in the same section should be written in increasing order of tick position. Some charts have some events out of order, these charts may cause issues in or be rejected by some games/programs.
 
 ## SyncTrack Section Details
 
@@ -199,11 +228,16 @@ Time signature markers use the `TS` type code, and are written like this:
   - Defaults to 2 (`x/4`) if unspecified.
   - This value is limited to a minimum of 0, for a resulting denominator of `x/1`.
 
+A time signature marker must exist at tick 0 in the chart to set the initial time signature.
+
 Examples:
 
-- 4/4 is `TS 4` or `TS 4 2`.
-- 7/16 is `TS 7 4`.
-- 3/8 is `TS 3 3`.
+```
+0 = TS 4       // 4/4
+0 = TS 4 2     // Also 4/4
+768 = TS 7 4   // 7/16
+1104 = TS 3 3  // 3/8
+```
 
 ### Tempos
 
@@ -213,29 +247,31 @@ Tempo markers use the `B` type code, and are written like this:
 
 - `Tempo` is a whole number representation of the desired tempo. The first 3 digits starting from the right are the decimals, giving tempos a maximum of 3 decimal places.
 
+A tempo marker must exist at tick 0 in the chart to set the initial tempo.
+
 Examples:
 
-- 120 BPM = `B 120000`
-- 60 BPM = `B 60000`
-- 150.325 BPM = `B 150325`
+```
+0 = B 120000     // 120 BPM
+768 = B 60000    // 60 BPM
+1104 = B 150325  // 150.325 BPM
+```
 
 ### Tempo Anchors
 
-Tempo anchors lock a tempo marker's tick position to a time position relative to the audio. They use the `A` type code, and are written like this:
+Tempo anchors lock an accompanying tempo marker to a time position relative to the audio. They use the `A` type code, and are written like this:
 
 `<Position> = A <Audio time position>`
 
 - `Audio time position` is the time relative to the audio that the associated tempo marker should be set to, in microseconds.
 
-This event is typically only used for chart editing. A chart editor should adjust the tempo of the preceding tempo marker to maintain this lock if any of the preceding tempo markers are adjusted.
+This event is typically only used for chart editing, and should be ignored otherwise. A chart editor should adjust the tempo of the preceding tempo marker to maintain this lock if any of the preceding tempo markers are adjusted.
 
 Example:
 
-This will anchor a 120 BPM tempo marker at tick position 864 to the time position at 2.25 seconds.
-
 ```
-864 = A 2250000
-864 = B 120000
+768 = A 2250000 // 2.25 seconds
+768 = B 60000  // 60 BPM
 ```
 
 ### SyncTrack Section Example
@@ -243,13 +279,13 @@ This will anchor a 120 BPM tempo marker at tick position 864 to the time positio
 ```
 [SyncTrack]
 {
-  0 = TS 3
-  0 = B 120000
-  384 = A 1000000
-  384 = B 150000
-  576 = TS 2 3
-  768 = TS 4
-  768 = B 120000
+  0 = TS 4         // 4/4
+  0 = B 120000     // 120 BPM
+  768 = TS 7 4     // 7/16
+  768 = A 2250000  // 2.25 seconds
+  768 = B 60000    // 60 BPM
+  1104 = TS 3 3    // 3/8
+  1104 = B 150325  // 150.325 BPM
 }
 ```
 
@@ -263,20 +299,20 @@ Global events are events that apply to the chart as a whole. They use the `E` ty
 
 `<Position> = E "<Text>"`
 
-- `Text` is a quote-delimited string containing event data.
+- `Text` is a string containing event data.
 
-Some notes:
+Some events may have \[square brackets\] surrounding them (such as `[end]`), and some may be found in either square bracketed or plain versions.
 
-- Some events may have \[square brackets\] surrounding them (such as `[end]`), and some may be found in either square bracketed or plain versions. It would be a good idea to check for square brackets for all events.
-- As a result of the event data being surrounded by quotation marks, global events should not have quotation marks in their data. However, charters found workarounds to this (namely, `/"` or `"/"` for the start of the string, and `"/` for the end) that necessitate the ability to parse events that contain quotation marks in the data. These were likely *not* intentional, they just so happened to work in Clone Hero. (This workaround is no longer necessary, the CH public test build can handle & display quotation marks as-is.)
-- Local events also use the `E` type code, but local events are found in instrument sections, whereas global events are only in the `Events` section.
+Quotation marks are not allowed in global events, as these are used to open and close strings, and there are no escape characters available to escape them. However, there have been workarounds in the past to get quotation marks in global events to work in certain games for things like lyrics. This necessitates the ability to parse quotation marks inside of global events properly, or at least be aware of them and not break when they happen.
+
+Local events also use the `E` type code, but local events are only in instrument sections, whereas global events are only in the `Events` section.
 
 #### Basic Global Events
 
 | Name               | Description                                                                                                     |
 | :---               | :----------                                                                                                     |
 | `section <name>`   | Marks the start point of a section, used by Practice mode and post-game summary.                                |
-| `prc_<name>`       | Same as the above. Introduced in Rock Band 3; added to .chart for compatibility with .mid charts that use this. |
+| `prc_<name>`       | Same as the above. Introduced in Rock Band 3; will be present in mid-to-chart conversions of these charts.      |
 | `end`              | Marks the end of a song.                                                                                        |
 
 ### Events Section Example
@@ -303,7 +339,7 @@ Notes and modifiers use the `N` type code, and are written like this:
 - `Type` is the type number of this note/modifier.
 - `Length` is the length of this note in ticks. This value typically doesn't do anything for modifiers.
 
-Modifiers are applied to existing notes but are listed as separate events. A modifier applies to all notes on the same tick, so different notes on the same tick cannot have different modifiers unless the modifier specifically targets a single color/type.
+Modifiers are applied to existing notes, but listed as separate events. A modifier applies to all notes on the same tick, so different notes on the same tick cannot have different modifiers unless the modifier specifically targets a single color/type.
 
 ### Special Phrases
 
@@ -313,6 +349,10 @@ Special phrase events mark phrase or phrase-like events. They use the `S` type c
 
 - `Type` is the type number of this special phrase.
 - `Length` is the length of this phrase in ticks.
+
+More than one event may occur at the same tick. Some events may modify other events at the same tick. Some events are phrases that modify multiple events throughout their length, usually not including the very last tick (i.e. the tick at the position of `(start position + event length)`).
+
+As specified in the [Track Events](#track-events) section,
 
 A special phrase usually does not apply to the tick immediately after the length, i.e. the value of `(Position + Length)`. Any exceptions will be noted. They should also apply to their starting tick regardless of length.
 
@@ -326,4 +366,25 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 
 `<Position> = E <Text>`
 
-`Text` is a string *without* quotes that contains the event data. Spaces are disallowed in these events by some programs, but there are likely charts with spaces in local events out there somewhere.
+- `Text` is a *bare* string that contains the event data.
+
+Much like how global events disallow quotation marks in their text due to track event format reasons, spaces are not allowed in local events since values in section data are space-separated. However, there are likely charts with spaces in local events out there somewhere that necessitate allowing these spaces in parsing, or at the very least rejecting charts with them when encountered.
+
+## References
+
+A large part of the info for .chart comes from [FireFox's .chart specifications](https://docs.google.com/document/d/1v2v0U-9HQ5qHeccpExDOLJ5CMPZZ3QytPmAG5WF0Kzs/edit?usp=sharing).
+
+Other info comes from:
+
+- Feedback Editor:
+  - [GitHub](https://github.com/TurkeyMan/feedback-editor)
+  - [ScoreHero page](https://www.scorehero.com/forum/viewtopic.php?t=7466)
+- Some ScoreHero posts:
+  - [Guitar Hero Three Control Panel page](https://www.scorehero.com/forum/viewtopic.php?t=72367)
+    - [GHTCP song properties window](https://www.scorehero.com/forum/viewtopic.php?t=72367#songproperties)
+    - [HoPo metadata tag format](https://www.scorehero.com/forum/viewtopic.php?t=72367#common_06)
+- Open GHTCP:
+  - [some .chart metadata tags](https://github.com/szymmirr/Open-GHTCP-2021/blob/b42b060bc6074be395243ebcb785bba65793ed20/GHNamespace8/ChartParser.cs#L84)
+  - Data types for those tags:
+    - [its .chart file output](https://github.com/szymmirr/Open-GHTCP-2021/blob/b42b060bc6074be395243ebcb785bba65793ed20/GHNamespace8/ChartParser.cs#L398)
+    - [internal data types](https://github.com/szymmirr/Open-GHTCP-2021/blob/b42b060bc6074be395243ebcb785bba65793ed20/GuitarHero.Songlist/GH3Song.cs)

@@ -70,7 +70,7 @@ Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close
 
 Notes can have their natural forcing flipped using the strum/HOPO flip modifier, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
-In .chart, sustains do not get cut off if they are shorter than a certain threshold, unlike .mid.
+Sustains do not get cut off if they are shorter than a certain threshold, unlike .mid.
 
 ### Special Phrase Types
 
@@ -87,14 +87,12 @@ These are far from the only local events that may be seen, these are just the on
 | `solo`     | Starts a solo. |
 | `soloend`  | Ends a solo.   |
 
-These are remnants from the early days of Guitar Hero Live .chart charting:
+These are remnants from the early days of Guitar Hero Live .chart charting. They are deprecated and were only used to be able to export to the .mid 6-fret format before .chart got its own 6-fret format. They should not be used for new charts.
 
 | Event Name     | Description                                    |
 | :---------     | :----------                                    |
 | `ghl_6`        | Marks a note as a 6-fret 6th fret note.        |
 | `ghl_6_forced` | Marks a note as a forced 6-fret 6th fret note. |
-
-They are deprecated and should only be supported for legacy purposes. They should not be used for new charts.
 
 ## Example
 

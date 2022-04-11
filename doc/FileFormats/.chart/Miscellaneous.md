@@ -57,23 +57,33 @@ Some definitions:
 | `Singer`       | (GHTCP) Indicates which singer should be used in-game.                                                       | string    |
 | `Bassist`      | (GHTCP) Indicates which bassist should be used in-game.                                                      | string    |
 | `Boss`         | (GHTCP) Indicates whether or not this is a boss song?<br>Unsure what data is valid for this tag.             | string    |
-| `Player2`      | (GHTCP) Instrument to use for player 2.<br>Valid values are `Bass`/`bass` and `Rhythm`/`rhythm`.             | string (no quotes) |
+| `Player2`      | (GHTCP) Instrument to use for player 2.<br>Valid values are `Bass`/`bass` and `Rhythm`/`rhythm`.             | bare string |
 | `CountOff`     | (GHTCP) The countoff sample to use in-game.                                                                  | string    |
-| `GuitarVolume` | (GHTCP) Sets the volume for the guitar audio track.                                                          | float     |
-| `GuitarVol`    | (GHTCP) Alias for the above.                                                                                 | float     |
-| `BandVolume`   | (GHTCP) Sets the volume for the band audio track.                                                            | float     |
-| `BandVol`      | (GHTCP) Alias for the above.                                                                                 | float     |
-| `HoPo`         | (GHTCP) The HOPO threshold that should be used for this chart.<br>This value is equal to `(<step size denominator>) / 4` (1/4 step = 1.00, 1/8 = 2.00, 1/2 = 0.50, etc.). | float |
+| `GuitarVolume` | (GHTCP) Sets the volume for the guitar audio track.                                                          | decimal   |
+| `GuitarVol`    | (GHTCP) Alias for the above.                                                                                 | decimal   |
+| `BandVolume`   | (GHTCP) Sets the volume for the band audio track.                                                            | decimal   |
+| `BandVol`      | (GHTCP) Alias for the above.                                                                                 | decimal   |
+| `HoPo`         | (GHTCP) The HOPO threshold that should be used for this chart.<br>This value is equal to `(<step size denominator>) / 4` (1/4 step = 1.00, 1/8 = 2.00, 1/2 = 0.50, etc.). | decimal |
 | `Fretboard`    | (Feedback) File path to a fretboard image for this song.<br>At least with how Feedback saves it, the file extension is not included. | file path |
-| `MediaType`    | (Unknown origins) Type of media the song released on?                                                        | string    |
+| `MediaType`    | (Unknown origins) Type of media to display in-game?                                                          | string    |
 
 ## Obscure and Odd Formats
 
 ### Beatmania Track
 
-- `Beatmania` - BME format converted to .chart
+This track seems to come from a couple BME/BMS to .chart converters:
 
-This track seems to come from [a BME to .chart converter](https://github.com/iDestyKK/bme2chart/). Said converter is the reference for the format to this track.
+- https://github.com/iDestyKK/bme2chart
+- https://github.com/iDestyKK/bme2chart_rx
+
+The instrument name for this track is `Beatmania`.
+
+The difficulty names are as follows:
+
+- `Expert` - Equivalent to `ANOTHER` difficulty
+- `Hard` - Equivalent to `HYPER` difficulty
+- `Medium` - Equivalent to `NORMAL` difficulty
+- `Easy` - Equivalent to `BEGINNER` difficulty
 
 #### Beatmania Event Types
 
@@ -87,20 +97,22 @@ This track uses the `A` type code to mark auto-play notes (equivalent to BME cha
 
 #### Beatmania Note and Modifier Types
 
-| Note Type | Description                              |
-| :-------: | :----------                              |
-| 0         | Key 1<br>Equivalent to BME channel 11.   |
-| 1         | Key 2<br>Equivalent to BME channel 12.   |
-| 2         | Key 3<br>Equivalent to BME channel 13.   |
-| 3         | Key 4<br>Equivalent to BME channel 14.   |
-| 4         | Key 5<br>Equivalent to BME channel 15.   |
-| 5         | Key 6<br>Equivalent to BME channel 18.   |
-| 6         | Key 7<br>Equivalent to BME channel 19.   |
-| 7         | Scratch<br>Equivalent to BME channel 16. |
+| Note Type | Description                                 |
+| :-------: | :----------                                 |
+| 0         | Key 1<br>Equivalent to BME channel 11/51.   |
+| 1         | Key 2<br>Equivalent to BME channel 12/52.   |
+| 2         | Key 3<br>Equivalent to BME channel 13/53.   |
+| 3         | Key 4<br>Equivalent to BME channel 14/54.   |
+| 4         | Key 5<br>Equivalent to BME channel 15/55.   |
+| 5         | Key 6<br>Equivalent to BME channel 18/58.   |
+| 6         | Key 7<br>Equivalent to BME channel 19/59.   |
+| 7         | Scratch<br>Equivalent to BME channel 16/56. |
 
 ### MIDI Track Names as Instrument Tracks
 
-Some .chart files may have section names that match those of some .mid tracks. These appear to just be MIDI notes translated into .chart notes, though only the note number and length are converted.
+Some .chart files may have section names that match those of some .mid tracks. These appear to just be MIDI notes translated into .chart notes, though only the note number and length are converted, so they aren't that useful for the converted Pro Guitar tracks since those use velocity and channel data as well.
+
+There is no lead as to what these charts may have been generated with.
 
 Example (truncated from an existing chart that has this):
 

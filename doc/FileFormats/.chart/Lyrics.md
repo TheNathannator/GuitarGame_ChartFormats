@@ -10,11 +10,9 @@ This document details the format for lyrics in .chart files.
 
 ## Events Section
 
-Lyrics are charted as global events in the `[Events]` section.
-
 ### Lyrics
 
-Lyrics are laid out as `phrase_start`, `phrase_end`, and `lyric` events throughout the `Events` section.
+Lyrics are charted as global events in the `[Events]` section. They are laid out as `phrase_start`, `phrase_end`, and `lyric` events throughout.
 
 | Event Name         | Description                                                                                                     |
 | :---               | :----------                                                                                                     |
@@ -22,35 +20,37 @@ Lyrics are laid out as `phrase_start`, `phrase_end`, and `lyric` events througho
 | `phrase_end`       | Marks the end of the current lyrics phrase.                                                                     |
 | `lyric <syllable>` | Contains a syllable of a lyrics phrase.                                                                         |
 
-- `phrase_start` marks the start of a phrase of lyrics A preceding `phrase_end` is not required to start a new phrase from an existing one.
+- `phrase_start` marks the start of a phrase of lyrics. A preceding `phrase_end` is not required to start a new phrase from an existing one.
 - `phrase_end` marks the end of a phrase.
 - Any `lyric` events between a `phrase_start` and either a `phrase_end` event or a new `phrase_start` event should be concatenated into a single line. The text of this phrase may be highlighted one syllable at a time as `lyric` events are passed.
 
-There are various symbols used for specific things in lyrics:
+Various symbols are used as markup in lyrics, to do things like join syllables together or stand in for a syllable that's reserved as markup. Most of these originate from .mid and don't strictly apply to .chart functionality, and are listed for completeness, since .mid charts converted to .chart may have those symbols.
 
-| Name           | Symbol | Description                                                                                               |
-| :---           | :----: | :----------                                                                                               |
-| Hyphens        | `-`    | Indicates that this syllable should be combined with the next.                                            |
-| Pluses         | `+`    | In Rock Band, will connect the previous note and the current note into a slide. Usually found standalone. |
-| Equals         | `=`    | Indicates that a syllable should be joined with the next using a literal hyphen.                          |
-| Pounds         | `#`    | In Rock Band, this marks a note as non-pitched.                                                           |
-| Carets         | `^`    | In Rock Band, this marks a note as non-pitched with a more generous scoring.<br>Typically used on short syllables or syllables without sharp attacks. |
-| Asterisks      | `*`    | In Rock Band, this marks a note as non-pitched, but their differentiation is unknown.                     |
-| Percents       | `%`    | In Rock Band, these are a range divider marker for vocals parts with large octave ranges.                 |
-| Sections       | `§`    | In Rock Band, these are used to indicate that two syllables are sung as a single syllable, used in some Spanish lyrics. These are displayed with a tie character `‿` in RB. |
-| Dollars        | `$`    | In Rock Band, these are used in harmonies to mark the syllables they are part of to be hidden.<br>In one case it is also on the standard Vocals track for some reason, it appears to not do anything in RB here. |
-| Slashes        | `/`    | These appear in some RB charts for an unknown reason, mainly The Beatles: Rock Band.<br>They are also used in a workaround to use quotation marks in global events in older versions of Clone Hero. |
-| Underscores    | `_`    | These are replaced with a space by Clone Hero for the purpose of having a character that does that.       |
-| Angle brackets | `<>`   | In Clone Hero's public test build, some [formatting tags](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) are supported in lyrics. For other games that don't use these tags, they need to be stripped out. |
+| Name           | Symbol | Description                                                                                      |
+| :---           | :----: | :----------                                                                                      |
+| Hyphens        | `-`    | Joins this syllable with the next.                                                               |
+| Pluses         | `+`    | In .mid, connects the previous note and the current note into a slide. Usually found standalone. |
+| Equals         | `=`    | Stands in for a literal hyphen, and joins this syllable with the next if placed at the end.      |
+| Pounds         | `#`    | In .mid, marks a note as non-pitched.                                                            |
+| Carets         | `^`    | In .mid, marks a note as non-pitched with a more lenient scoring.<br>Typically used on short syllables or syllables without sharp attacks. |
+| Asterisks      | `*`    | In .mid, marks a note as non-pitched. Its exact function is unknown.                             |
+| Percents       | `%`    | In .mid, marks a range division for vocals parts with large octave ranges.                       |
+| Sections       | `§`    | Indicates that the text before and after in the syllable event are two different syllables sung as one.<br>Replaced by a space when displayed as just lyrics, or, in .mid, with a tie character `‿`. |
+| Dollars        | `$`    | In .mid, marks syllables in harmony parts as hidden.<br>In one case these are also on the standard Vocals track for some reason, its purpose is not known (likely a charting error, as there are also harmony parts on that song). |
+| Slashes        | `/`    | Unknown. These appear in some Rock Band charts, mainly The Beatles: Rock Band.                   |
+| Underscores    | `_`    | Stands in for a space.                                                                           |
+| Angle brackets | `<>`   | Either marks a vocal action such as `<whistle>`, or holds a [Unity](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/StyledText.html#supported-tags)/[TextMeshPro](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) text formatting tag (in particular, [these ones](https://strikeline.myjetbrains.com/youtrack/issue/CH-226)). |
 
 Syllables not joined together through any symbols should be separated by a space during parsing.
 
-Here's how these symbols should be handled for displaying as just text:
+To display lyric phrases as just text, follow these steps:
 
-- Strip out `-`, `+`, `#`, `^`, `*`, `%`, `$`, `/`, `<>`, and anything between `<>`.
-- Replace `=` with a hyphen `-`. Make sure to not strip out hyphens added as replacement for equals.
-- Replace `§`, `_` with a space.
-- Join together a syllable that has `-` or `=` at the end of it with the following syllable.
+1. Strip out `-`, `+`, `#`, `^`, `*`, `%`, `$`, and `/`.
+2. Join together a syllable that has `-` at the end of it with the following syllable with a space between.
+3. Replace `=` with a hyphen `-`, and join the syllable containing it with the following syllable without a space between. Make sure to not strip out hyphens added as replacement for equals.
+4. Replace `§` and `_` with a space.
+5. For `<>`, either display as-is (Rock Band 3 and earlier), replace `<>` with asterisks `**` (e.g. `<whistle>` -> `*whistle*`) (Rock Band 4), or strip out both `<>` and the text within (Clone Hero).
+   - It may be possible to combine the first or second with the third, as there are a set amount of Unity/TextMeshPro text formatting tags, and none of them could be confused with verbs.
 
 ## Example
 
@@ -75,4 +75,12 @@ Here's how these symbols should be handled for displaying as just text:
   3552 = E "lyric test"
   3840 = E "phrase_end"
 }
+```
+
+When concatenated:
+
+```
+This is a lyrics test
+This is a
+Lyrics test
 ```
