@@ -191,7 +191,9 @@ This list only covers basic metadata. Other metadata is covered in other documen
 
 ### song.ini
 
-Most modern .chart files use an accompanying song.ini file, carried over from the .mid format, instead of the `[Song]` section. The metadata in the song.ini should be prioritized over the metadata in the .chart in cases such as these, as this is what's typically used in modern .chart files. See [Song_ini.md](Song_ini.md) for details on the song.ini file.
+Most modern .chart files use an accompanying song.ini file, carried over from the .mid format, instead of deliberately using the `[Song]` section. The metadata in the song.ini should be prioritized over the metadata in the .chart, as often times in these chart files the .chart metadata is not properly filled out.
+
+See the song.ini docs for info on song.ini data.
 
 ### Song Section Example
 
