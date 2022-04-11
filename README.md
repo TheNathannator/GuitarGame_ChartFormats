@@ -21,8 +21,18 @@ These are not strict guidelines, but they help to make referencing and adding to
 
 This list will be updated with things that need to be done.
 
-- [ ] Create GitHub wiki pages for easier navigation and reading
+- [ ] Figure out GitHub wiki pages for easier navigation and reading
 - [x] ~~Separate most game-specific stuff from core format documentation~~
+- [ ] Separate things out further into track-specific documents for each track type
+  - [x] .chart
+  - [ ] .mid
+  - [ ] song.ini
+  - [ ] Audio files
+- [ ] Organize things by file type rather than by game/program
+  - [x] .chart
+  - [ ] .mid
+  - [ ] song.ini
+  - [ ] Audio files
 
 ## License
 
