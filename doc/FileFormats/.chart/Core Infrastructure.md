@@ -392,6 +392,8 @@ Much like how global events disallow quotation marks in their text due to track 
 
 ## References
 
+These are the references for all of the .chart docs.
+
 A large part of the info for .chart comes from [FireFox's .chart specifications](https://docs.google.com/document/d/1v2v0U-9HQ5qHeccpExDOLJ5CMPZZ3QytPmAG5WF0Kzs/edit?usp=sharing).
 
 Other info comes from:
