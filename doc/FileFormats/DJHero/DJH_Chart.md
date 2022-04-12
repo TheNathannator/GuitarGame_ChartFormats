@@ -83,87 +83,110 @@ Note that this section specifies types for both tracks in a single section. Type
 
 #### Turntable Note Types
 
+Note types marked with an asterisk (\*) are required for full compatibility with the DJ Hero 2 feature set.
+<br>All other note types are extensions of the the DJ Hero 2 feature set, and are defined in order to give an engine the option to use them.
+
 | Note Type     | Description                                                                              |
 | :-------:     | :----------                                                                              |
 | First table   |                                                                                          |
-| 0             | Table 1: Green (1st lane) tap                                                            |
-| 1             | Table 1: Red (2nd lane) tap                                                              |
-| 2             | Table 1: Blue (3rd lane) tap                                                             |
+| 0\*           | Table 1: Green (1st lane) tap                                                            |
+| 1\*           | Table 1: Red (2nd lane) tap                                                              |
+| 2\*           | Table 1: Blue (3rd lane) tap                                                             |
+| 3             | Table 1: Open tap / Lift                                                                 |
 |               |                                                                                          |
-| 3             | Table 1: Green scratch up                                                                |
-| 4             | Table 1: Red scratch up                                                                  |
-| 5             | Table 1: Blue scratch up                                                                 |
-| 6             | Table 1: Green scratch down                                                              |
-| 7             | Table 1: Red scratch down                                                                |
-| 8             | Table 1: Blue scratch down                                                               |
-| 9             | Table 1: Green scratch any direction                                                     |
-| 10            | Table 1: Red scratch any direction                                                       |
-| 11            | Table 1: Blue scratch any direction                                                      |
-| 12            | Table 1: Green scratch zone                                                              |
-| 13            | Table 1: Red scratch zone                                                                |
-| 14            | Table 1: Blue scratch zone                                                               |
+| 4\*           | Table 1: Green scratch up                                                                |
+| 5             | Table 1: Red scratch up                                                                  |
+| 6\*           | Table 1: Blue scratch up                                                                 |
+| 7             | Table 1: Open scratch up                                                                 |
 |               |                                                                                          |
-| 15            | Table 1: Green freestyle scratch zone<br>Sample determined by a `dj_sample` local event. |
-| 16            | Table 1: Red freestyle scratch zone<br>Sample determined by a `dj_sample` local event.   |
-| 17            | Table 1: Blue freestyle scratch zone<br>Sample determined by a `dj_sample` local event.  |
+| 8\*           | Table 1: Green scratch down                                                              |
+| 9             | Table 1: Red scratch down                                                                |
+| 10\*          | Table 1: Blue scratch down                                                               |
+| 11            | Table 1: Open scratch down                                                               |
 |               |                                                                                          |
-| 18            | Table 1: Green freestyle sample zone<br>Sample determined by a `dj_sample` local event.  |
-| 19            | Table 1: Red freestyle sample zone<br>Sample determined by a `dj_sample` local event.    |
-| 20            | Table 1: Blue freestyle sample zone<br>Sample determined by a `dj_sample` local event.   |
+| 12\*          | Table 1: Green scratch any direction                                                     |
+| 13            | Table 1: Red scratch any direction                                                       |
+| 14\*          | Table 1: Blue scratch any direction                                                      |
+| 15            | Table 1: Open scratch any direction                                                      |
+|               |                                                                                          |
+| 16\*          | Table 1: Green scratch zone                                                              |
+| 17            | Table 1: Red scratch zone                                                                |
+| 18\*          | Table 1: Blue scratch zone                                                               |
+| 19            | Table 1: Open scratch zone                                                               |
+|               |                                                                                          |
+| 20            | Table 1: Green freestyle sample zone<br>Sample determined by a `dj_sample` local event.  |
+| 21\*          | Table 1: Red freestyle sample zone<br>Sample determined by a `dj_sample` local event.    |
+| 22            | Table 1: Blue freestyle sample zone<br>Sample determined by a `dj_sample` local event.   |
+|               |                                                                                          |
+| 24\*          | Table 1: Green freestyle scratch zone<br>Sample determined by a `dj_sample` local event. |
+| 25            | Table 1: Red freestyle scratch zone<br>Sample determined by a `dj_sample` local event.   |
+| 26\*          | Table 1: Blue freestyle scratch zone<br>Sample determined by a `dj_sample` local event.  |
 |               |                                                                                          |
 | Second table  | These note types are only used in the `DJDualTurntable` track.                           |
 | 32            | Table 2: Green (1st lane) tap                                                            |
 | 33            | Table 2: Red (2nd lane) tap                                                              |
 | 34            | Table 2: Blue (3rd lane) tap                                                             |
+| 35            | Table 2: Open tap / Lift                                                                 |
 |               |                                                                                          |
-| 35            | Table 2: Green scratch up                                                                |
-| 36            | Table 2: Red scratch up                                                                  |
-| 37            | Table 2: Blue scratch up                                                                 |
-| 38            | Table 2: Green scratch down                                                              |
-| 39            | Table 2: Red scratch down                                                                |
-| 40            | Table 2: Blue scratch down                                                               |
-| 41            | Table 2: Green scratch any direction                                                     |
-| 42            | Table 2: Red scratch any direction                                                       |
-| 43            | Table 2: Blue scratch any direction                                                      |
-| 44            | Table 2: Green scratch zone                                                              |
-| 45            | Table 2: Red scratch zone                                                                |
-| 46            | Table 2: Blue scratch zone                                                               |
+| 36            | Table 2: Green scratch up                                                                |
+| 37            | Table 2: Red scratch up                                                                  |
+| 38            | Table 2: Blue scratch up                                                                 |
+| 39            | Table 2: Open scratch up                                                                 |
 |               |                                                                                          |
-| 47            | Table 2: Green freestyle scratch zone<br>Sample determined by a `dj_sample` local event. |
-| 48            | Table 2: Red freestyle scratch zone<br>Sample determined by a `dj_sample` local event.   |
-| 49            | Table 2: Blue freestyle scratch zone<br>Sample determined by a `dj_sample` local event.  |
+| 40            | Table 2: Green scratch down                                                              |
+| 41            | Table 2: Red scratch down                                                                |
+| 42            | Table 2: Blue scratch down                                                               |
+| 43            | Table 2: Open scratch down                                                               |
 |               |                                                                                          |
-| 50            | Table 2: Green freestyle sample zone<br>Sample determined by a `dj_sample` local event.  |
-| 51            | Table 2: Red freestyle sample zone<br>Sample determined by a `dj_sample` local event.    |
-| 52            | Table 2: Blue freestyle sample zone<br>Sample determined by a `dj_sample` local event.   |
+| 44            | Table 2: Green scratch any direction                                                     |
+| 45            | Table 2: Red scratch any direction                                                       |
+| 46            | Table 2: Blue scratch any direction                                                      |
+| 47            | Table 2: Open scratch any direction                                                      |
+|               |                                                                                          |
+| 48            | Table 2: Green scratch zone                                                              |
+| 49            | Table 2: Red scratch zone                                                                |
+| 50            | Table 2: Blue scratch zone                                                               |
+| 51            | Table 2: Open scratch zone                                                               |
+|               |                                                                                          |
+| 52            | Table 2: Green freestyle sample zone<br>Sample determined by a `dj_sample` local event.  |
+| 53            | Table 2: Red freestyle sample zone<br>Sample determined by a `dj_sample` local event.    |
+| 54            | Table 2: Blue freestyle sample zone<br>Sample determined by a `dj_sample` local event.   |
+|               |                                                                                          |
+| 56            | Table 2: Green freestyle scratch zone<br>Sample determined by a `dj_sample` local event. |
+| 57            | Table 2: Red freestyle scratch zone<br>Sample determined by a `dj_sample` local event.   |
+| 58            | Table 2: Blue freestyle scratch zone<br>Sample determined by a `dj_sample` local event.  |
 |               |                                                                                          |
 | Crossfades    |                                                                                          |
-| 64            | Green crossfade                                                                          |
-| 65            | Center crossfade                                                                         |
-| 66            | Blue crossfade                                                                           |
-| 67            | Crossfade force spike/non-spike swap                                                     |
+| 64\*          | Green crossfade                                                                          |
+| 65\*          | Center crossfade                                                                         |
+| 66\*          | Blue crossfade                                                                           |
+| 67\*          | Crossfade force spike/non-spike swap                                                     |
 |               |                                                                                          |
-| 68            | All-lane freestyle crossfade                                                             |
-| 69            | Freestyle crossfade Green guideline markers                                              |
-| 70            | Freestyle crossfade Blue guideline markers                                               |
+| 68\*          | All-lane freestyle crossfade                                                             |
+| 69\*          | Freestyle crossfade Green guideline markers                                              |
+| 70\*          | Freestyle crossfade Blue guideline markers                                               |
 |               |                                                                                          |
 | Miscellaneous |                                                                                          |
 | 96            | Effect dial spin left                                                                    |
 | 97            | Effect dial spin right                                                                   |
 
-Crossfades will automatically become spike crossfades if their length is a 1/16th note or less. These spikes can be forced as regular crossfades by using the spike/non-spike swap note. Regular fades can also be forced as spikes regardless of their length
+Open notes are notes that require no buttons to be pressed.
+<br>Crossfades will automatically become spike crossfades if their length is a 1/16th note or less. These spikes can be forced as regular crossfades by using the spike/non-spike swap note. Regular fades can also be forced as spikes regardless of their length
 
 #### Turntable Special Phrase Types
 
+Special types marked with an asterisk (\*) are required for full compatibility with the DJ Hero 2 feature set.
+<br>All other special phrase types are extensions of the the DJ Hero 2 feature set, and are defined in order to give an engine the option to use them.
+
 | Special Type  | Description                                                                           |
 | :----------:  | :----------                                                                           |
-| 2             | Euphoria phrase                                                                       |
+| 2\*           | Euphoria phrase                                                                       |
 |               |                                                                                       |
 | First table   |                                                                                       |
-| 32            | Table 1: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
-| 33            | Table 1: Red effect zone<br>Effect type determined by a `dj_effect` local event.      |
-| 34            | Table 1: Blue effect zone<br>Effect type determined by a `dj_effect` local event.     |
-| 35            | Table 1: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
+| 32\*          | Table 1: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
+| 33\*          | Table 1: Red effect zone<br>Effect type determined by a `dj_effect` local event.      |
+| 34\*          | Table 1: Blue effect zone<br>Effect type determined by a `dj_effect` local event.     |
+| 35\*          | Table 1: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
 |               |                                                                                       |
 | Second table  | These note types are only used in the `DJDualTurntable` track.                        |
 | 64            | Table 2: Green effect zone<br>Effect type determined by a `dj_effect` local event.    |
@@ -172,11 +195,11 @@ Crossfades will automatically become spike crossfades if their length is a 1/16t
 | 67            | Table 2: All-lane effect zone<br>Effect type determined by a `dj_effect` local event. |
 |               |                                                                                       |
 | Miscellaneous |                                                                                       |
-| 96            | Nullify crossfades and force center crossfade                                         |
+| 96\*          | Nullify crossfades and force center crossfade                                         |
 
 #### Turntable Local Events
 
 | Event Text                | Description |
 | :--------:                | :---------- |
-| `dj_effect <name>`        | Specifies the audio effect to be used by a corresponding effect zone.<br>`name` is the name of the effect to be used:<br>`BeatRoll`, `BeatRoll_AutoAdvance`, `BitReduction` (bitcrush), `Delay`, `Filter` (low/hi-pass), `Flanger`, `RingMod`, `Robot`, `Stutter`, `Wah` |
-| `dj_sample <number> [lane]` | Specifies a sample number to be used by a corresponding tap, scratch, or freestyle zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section.<br>`lane` is an optional parameter that specifies the lane a sample should apply to, for cases where multiple lanes are in use.<br>The engine playing the chart may choose whether or not to support samples on taps and scratches (i.e. as hitsounds). |
+| `dj_effect <name>`        | Specifies the audio effect to be used by a corresponding effect zone.<br>`name` is the name of the effect to be used:<br>Effects originally from DJ Hero 2 are `BeatRoll`, `BeatRoll_AutoAdvance`, `BitReduction` (bitcrush), `Delay`, `Filter` (low/hi-pass), `Flanger`, `RingMod`, `Robot`, `Stutter`, `Wah`<br>The engine may choose to implement additional effects. |
+| `dj_sample <number> [lane]` | Specifies a sample number to be used by a corresponding freestyle sample/scratch zone.<br>`number` is the number of the sample to use, as specified in the `[Song]` section.<br>`lane` is an optional parameter to implement & use that specifies the lane a sample should apply to, for cases where multiple lanes are in use.<br>The engine playing the chart may extend this event to apply to other notes, e.g. use samples as tap/scratch hitsounds. |
