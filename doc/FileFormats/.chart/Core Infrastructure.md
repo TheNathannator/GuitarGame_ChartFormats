@@ -60,6 +60,24 @@ There are still features to add to reach full drums parity with the .mid chart f
 Despite all this though, others have gripes with the format, and some want to create a new format free of the burdens of past mistakes, both of the format itself, and of specifications made for some of the tracks.
 The ultimate fate of the .chart format remains to be seen.
 
+## File Names
+
+.chart files may be found either with a custom name (usually the song name), or with a name of `notes`.
+
+Some charts have multiple .chart files whose names are suffixed with one of the following:
+
+- `[Y]`/`[F]` - Chart has forced notes
+- `[N]` - Chart does not have forced notes
+
+`[Y]` and `[F]` should be preferred over `[N]` or another .chart file in the same folder with no suffix. These suffixes may also be found in lowercase.
+
+Example:
+
+```
+Song Name [Y].chart
+Song Name [N].chart
+```
+
 ## Basic Infrastructure
 
 This section details how .chart files are structured.
