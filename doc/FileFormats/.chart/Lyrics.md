@@ -35,7 +35,7 @@ Various symbols are used as markup in lyrics, to do things like join syllables t
 | Carets         | `^`    | In .mid, marks a note as non-pitched with a more lenient scoring.<br>Typically used on short syllables or syllables without sharp attacks. |
 | Asterisks      | `*`    | In .mid, marks a note as non-pitched. Its exact function is unknown.                             |
 | Percents       | `%`    | In .mid, marks a range division for vocals parts with large octave ranges.                       |
-| Sections       | `§`    | Indicates that the text before and after in the syllable event are two different syllables sung as one.<br>Replaced by a space when displayed as just lyrics, or, in .mid, with a tie character `‿`. |
+| Sections       | `§`    | Indicates that the text before and after in the syllable event are two different syllables sung as one.<br>Replaced by a space when displayed as just lyrics, or, in .mid when played as vocals, with a tie character `‿`. |
 | Dollars        | `$`    | In .mid, marks syllables in harmony parts as hidden.<br>In one case these are also on the standard Vocals track for some reason, its purpose is not known (likely a charting error, as there are also harmony parts on that song). |
 | Slashes        | `/`    | Unknown. These appear in some Rock Band charts, mainly The Beatles: Rock Band.                   |
 | Underscores    | `_`    | Stands in for a space.                                                                           |
