@@ -4,7 +4,7 @@ Here is a list of practice mode section names, along with the in-game names they
 
 Most of these sections are also present in Guitar Hero: Rocks the 80's. (No GH1, that didn't have practice mode.)
 
-For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game. Also note that some of these events have the same event names as ones from Rock Band, but have different in-game names.
+For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game, indicated by `(sic)` next to the name. Also note that some of these events have the same event names as ones from Rock Band, but have different in-game names.
 
 Format of this document:
 
@@ -300,8 +300,8 @@ Format of this document:
 - `solo_j` - "Solo j"
 - `solo_k` - "Solo k"
 - `solo_l` - "Solo l"
-- `solo_m` - "Solo n"
-- `solo_n` - "Solo m"
+- `solo_m` - "Solo n" (sic)
+- `solo_n` - "Solo m" (sic)
 - `solo_part_1` - "Solo pt1"
 - `solo_part_2` - "Solo pt2"
 - `solo_part_3` - "Solo pt3"
