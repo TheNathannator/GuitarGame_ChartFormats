@@ -7,15 +7,18 @@ This document lays out the core infrastructure of the .chart format. To keep the
 ## Table of Contents
 
 - [Brief History](#brief-history)
+- [File Names](#file-names)
 - [Basic Infrastructure](#basic-infrastructure)
   - [Sections](#sections)
     - [Section Data](#section-data)
+    - [Value Types](#value-types)
+    - [Named Entries](#named-entries)
+    - [Track Events](#track-events)
   - [Section Names](#section-names)
 - [Song Section Details](#song-section-details)
   - [Basic Metadata](#basic-metadata)
-    - [Audio Streams](#audio-streams)
+  - [song.ini](#songini)
   - [Song Section Example](#song-section-example)
-- [Track Events](#track-events)
 - [SyncTrack Section Details](#synctrack-section-details)
   - [Time Signatures](#time-signatures)
   - [Tempos](#tempos)
@@ -28,8 +31,9 @@ This document lays out the core infrastructure of the .chart format. To keep the
 - [Instrument Section Details](#instrument-section-details)
   - [Notes and Modifiers](#notes-and-modifiers)
   - [Special Phrases](#special-phrases)
-    - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
+  - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Local Events](#local-events)
+- [References](#references)
 
 ## Brief History
 
