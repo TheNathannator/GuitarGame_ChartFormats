@@ -158,6 +158,14 @@ Track events contain data for a note, phrase, or other event that happens at a c
 
 - `Position` is a number indicating which tick this event is located at.
 - `Type Code` is a bare string (typically one or two characters) which marks the type of event.
+  - Summary of available type codes:
+  - `A`: Tempo position anchor
+  - `B`: Tempo change
+  - `E`: Text event
+  - `H`: (Legacy) Guitar Hero 1 hand animation position. Specified in the [5-Fret Guitar document](5-Fret%20Guitar.md).
+  - `N`: Note event
+  - `S`: Special phrase
+  - `TS`: Time signature change
 - `Value[]` is a set of one or more individual values. The amount of values and type of each value varies per event type.
 
 More than one event may occur at the same tick. Some events may modify other events at the same tick. Some events are phrases that modify multiple events throughout a provided length value, usually not including the very last tick (i.e. the tick at the position of `(start position + length value)`).
