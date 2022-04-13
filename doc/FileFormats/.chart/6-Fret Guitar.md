@@ -66,7 +66,9 @@ Any games/programs that want to add custom types should reserve the next set of 
 | 7         | Open note                                      |
 | 8         | Black 3 (3rd fret) note                        |
 
-Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .chart, the default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold).
+#### Note Mechanics
+
+Notes are strum notes by default. They get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .chart, the default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold).
 
 Notes can have their natural forcing flipped using the strum/HOPO flip modifier, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
@@ -76,7 +78,11 @@ Sustains do not get cut off if they are shorter than a certain threshold, unlike
 
 | Special Type | Description       |
 | :----------: | :----------       |
-| 2            | Star power phrase |
+| 2            | Star Power phrase |
+
+#### Special Phrase Mechanics
+
+Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
 
 ### Local Events
 

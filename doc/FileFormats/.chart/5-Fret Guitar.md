@@ -86,7 +86,9 @@ Any games/programs that want to add custom types should reserve the next set of 
 | 6         | Tap modifier<br>Overrides the HOPO flip modifier. |
 | 7         | Open note                                         |
 
-Notes get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .chart, the default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold).
+#### Note Mechanics
+
+Notes are strum notes by default. They get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .chart, the default threshold is `(65/192) * <chart resolution>` ticks, rounded down (192 res = 65 tick threshold, 480 res = 162.5 -> 162 tick threshold).
 
 Notes can have their natural forcing flipped using the strum/HOPO flip modifier, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
@@ -98,7 +100,13 @@ Sustains do not get cut off if they are shorter than a certain threshold, unlike
 | :----------: | :----------                    |
 | 0            | GH1/2 Face-Off player 1 phrase |
 | 1            | GH1/2 Face-Off player 2 phrase |
-| 2            | Star power phrase              |
+| 2            | Star Power phrase              |
+
+#### Special Phrase Mechanics
+
+Face-Off phrases designate a section of the chart to be played in a face-off/versus mode by one or both players. In this mode, players play against each other, trading off between sections or playing at the same time.
+
+Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
 
 ### Local Events
 

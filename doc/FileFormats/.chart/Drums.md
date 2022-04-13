@@ -125,35 +125,57 @@ Any games/programs that want to add custom types should reserve the next set of 
 | 3         | Blue                        |
 | 4         | 5-lane Orange, 4-lane Green |
 | 5         | 5-lane Green                |
-| 32        | 2x kick                     |
+| 32        | Expert+ kick / 2x kick      |
 | 66        | Yellow cymbal modifier      |
 | 67        | Blue cymbal modifier        |
 | 68        | Green cymbal modifier       |
+| ??        | Accent and ghost modifiers  |
 
-Additional info:
+#### 4-Lane Note Mechanics
 
-- 4-Lane:
-  - Notes are toms by default in .chart. Cymbals are marked using note types 66-68, excluding red which is always a tom note.
-    - This makes it impossible to have a tom and cymbal of the same color at the same position.
-  - Roll lanes are not implemented in .chart yet, they are currently only available in .mid.<!-- Roll lanes are used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes (in Rock Band, presumably 160 ms like the other lane types, though this is not specified in the RBN docs like the other lanes are). -->
-    <!-- - During parsing, if a 1-lane roll starts on a chord (excluding kicks), the lane should be marked on the lane matching the next non-chord note. -->
-    <!-- - Roll lanes cannot be applied to kicks. -->
-- 5-lane:
-  - Red, blue, and green are toms, yellow and orange are cymbals.
-  - Drum sustains are used for imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells. They prevent overhitting and require you to hit faster than a certain threshold (around 4 hits per second in GH) to maintain the sustain.
-    - Unlike 4-lane roll lanes, kicks can be drum sustains.
-- Expert+ kicks are used for double-kick sections or kicks faster than around 5-6 kicks per second, alternating these faster kicks between normal and Expert+ to make these sections playable with a single pedal.
-  - In gameplay, they are equivalent to normal kicks, but they should only be visible if the user enables them.
-- Accent and ghost notes are not implemented in .chart yet, they are currently only available in .mid.<!-- Accent and ghost notes are notes that need to be hit either hard or soft, respectively. -->
-  <!-- - (Preemptive assumption) These are marked with their respective note modifiers. -->
-  <!-- - (May be unnecessary for .chart, as there's nothing that would conflict with how accents/ghosts would theoretically be marked) Clone Hero requires an `[ENABLE_CHART_DYNAMICS]`/`ENABLE_CHART_DYNAMICS` text event to be present to enable ghosts/accents, in order to preserve compatibility with charts that weren't charted with velocity in mind. Using this approach is recommended. -->
+4-lane notes are toms by default in .chart. Cymbals are marked using the cymbal modifiers. It is impossible to have a cymbal and tom of the same color on the same tick, and red notes do not have cymbal markers and are always toms.
+
+Expert+ / 2x kick notes are carried over from 5-lane. They are used for kicks faster than around 5-6 kicks per second (most commonly double-kick pedal sections), though there is some nuance to this regarding how long the kick sections last. These are used by alternating these faster kicks between normal kick notes and 2x Kick notes, to make double-kick notes opt-in and allow charts to be feasibly playable on kicks with only a single pedal.
+
+Accent and ghost notes are also carried over from 5-lane. They are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points. They have not been added to .chart yet, but they are planned.
+
+#### 5-Lane Note Mechanics
+
+In 5-lane, Red, blue, and green are toms, and yellow and orange are cymbals. While in Guitar Hero games they were not distinguished visually in-game, on the drum kit peripheral this is how they are laid out, and this is how the were charted.
+
+Drum sustains are used for imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells. They prevent overhitting and require you to hit faster than a certain threshold (around 4 hits per second in GH) to maintain the sustain. Unlike 4-lane roll lanes, kicks can be drum sustains.
+
+Expert+ / 2x kick notes are used for kicks faster than around 5-6 kicks per second (most commonly double-kick pedal sections), though there is some nuance to this regarding how long the kick sections last. These are used by alternating these faster kicks between normal kick notes and 2x Kick notes, to make double-kick notes opt-in and allow charts to be feasibly playable on kicks with only a single pedal.
+
+Accent and ghost notes are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points. They have not been added to .chart yet, but they are planned.
 
 ### Special Phrase Types
 
-| Special Type | Description       |
-| :----------: | :----------       |
-| 2            | Star power phrase |
-| 64           | Drums SP activation phrase<br>Applies to the tick after the length. The note closest to the end of the phrase that is also within the phrase should be marked as the activation note. |
+| Special Type | Description                        |
+| :----------: | :----------                        |
+| 2            | Star Power phrase                  |
+| 64           | Drums Star Power activation phrase |
+| ??           | Drum roll markers                  |
+
+### Special Phrase Mechanics
+
+Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
+
+Star Power activation phrases mark a section of a song as an activation point, to allow drummers to activate Star Power without using a pad/cymbal combination or a dedicated button.
+
+- Unlike other special phrases, this phrase includes the very last tick (that is, the tick at the position of `<start tick> + <phrase length>`).
+- The length of the phrase is not important in its base functionality, rather, the end of the phrase is used to mark a note as an activation note that when hit will activate Star Power, and when missed will not break combo.
+  - The note can either be generated at the exact end-point (overriding the existing notes), or can be an existing note in the chart which is both within the phrase, and closest to the end of the phrase (heed the note about the inclusion of the last tick as part of the phrase, as this phrase is usually marked across an entire measure or two without going slightly into the measure ahead of it).
+- Optionally, the length of the phrase may also be used to replicate the original freestyle fill feature from Rock Band that this phrase emulates.
+
+Roll lanes are a 4-lane mechanic used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes. This threshold can be either a static time threshold, or it can be based off of the actual charted notes. They have not been added to .chart yet, but they are planned.
+
+- Roll lanes are not specific to any lanes, rather they are applied dynamically to a lane based on the notes that are present.
+- There are two variants of roll lanes: single-lane, and double-lane.
+  - Single-lane rolls are used for drum or cymbal rolls that only apply to a single lane at a time.
+  - Double-lane rolls are used for cymbal swells that alternate between two different lanes.
+- Roll lanes cannot be applied to kicks.
+- If a single-lane roll starts on a chord (excluding kicks), the lane should be marked on the lane matching the next non-chord note.
 
 ### Local Events
 
