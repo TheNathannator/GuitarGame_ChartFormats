@@ -74,6 +74,8 @@ Notes can have their natural forcing flipped using the strum/HOPO flip modifier,
 
 Sustains do not get cut off if they are shorter than a certain threshold, unlike .mid.
 
+Chords may have individual notes with different lengths. These are referred to as extended sustains (start at different times, end at same or different times) and disjoint chords (start at the same time, end at different times).
+
 ### Special Phrase Types
 
 | Special Type | Description       |
