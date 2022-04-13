@@ -108,7 +108,9 @@ Section data is comprised of key-value pairs, each one separated by a line break
 `<Key> = <Value[]>`
 
 - `Key` is the identifier to use to access this value. It may or may not need to be unique, depending on the specific type of data that the key-value pair holds.
-- `Value[]` is one or more space-separated values that hold the data for the key. Quotation marks are used for string values, which allow for spaces.
+- `Value[]` is one or more values that hold the data for the key.
+  - Values are separated by spaces.
+  - If a value might contain spaces in it, quotation marks are used to encapsulate that value (much like using quotation marks in a console/terminal if a file path has spaces in it). This is most often done for string values. There isn't a way to escape the quotation mark character however, so values cannot have quotation marks in them.
 
 ```
 [SectionOne]
@@ -323,7 +325,7 @@ Global events are events that apply to the chart as a whole. They use the `E` ty
 
 Some events may have \[square brackets\] surrounding them (such as `[end]`), and some may be found in either square bracketed or plain versions.
 
-Quotation marks are not allowed in global events, as these are used to open and close strings, and there are no escape characters available to escape them. However, there have been workarounds in the past to get quotation marks in global events to work in certain games for things like lyrics. This necessitates the ability to parse quotation marks inside of global events properly, or at least be aware of them and not break when they happen.
+As mentioned in the [Section Data](#section-data) section, quotation marks are not allowed in data values, as there are no escape characters available to escape them. However, there have been workarounds in the past to get quotation marks in global events to work in certain games for things like lyrics. This necessitates the ability to parse quotation marks inside of global events properly, or at least reject the chart when it occurs.
 
 Local events also use the `E` type code, but local events are only in instrument sections, whereas global events are only in the `Events` section.
 
@@ -388,7 +390,7 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 
 - `Text` is a *bare* string that contains the event data.
 
-Much like how global events disallow quotation marks in their text due to track event format reasons, spaces are not allowed in local events since values in section data are space-separated. However, there are likely charts with spaces in local events out there somewhere that necessitate allowing these spaces in parsing, or at the very least rejecting charts with them when encountered.
+Much like how global events disallow quotation marks in their text, spaces are not allowed in local events since values in section data are space-separated. However, there are likely charts with spaces in local events out there somewhere that necessitate the ability to parse these events properly, or at least reject the chart when it occurs.
 
 ## References
 
