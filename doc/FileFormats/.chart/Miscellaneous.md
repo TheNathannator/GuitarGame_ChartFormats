@@ -112,7 +112,7 @@ This track uses the `A` type code to mark auto-play notes (equivalent to BME cha
 
 Some .chart files may have section names that match those of some .mid tracks. These appear to just be MIDI notes translated into .chart notes, though only the note number and length are converted, so they aren't that useful for the converted Pro Guitar tracks since those use velocity and channel data as well.
 
-There is no lead as to what these charts may have been generated with.
+This appears to be [a behavior of Moonscraper](https://github.com/FireFox2000000/Moonscraper-Chart-Editor/blob/c240a72ec78011e2a38453a4d2f85f2f6275c052/Moonscraper%20Chart%20Editor/Assets/Scripts/Game/Charts/IO/Chart/ChartWriter.cs#L229), done in an attempt to preserve unknown track data as best as possible.
 
 Example (truncated from an existing chart that has this):
 
