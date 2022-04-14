@@ -343,11 +343,11 @@ Local events also use the `E` type code, but local events are only in instrument
 
 #### Basic Global Events
 
-| Name               | Description              |
-| :---               | :----------              |
-| `section <name>`   | Marks the start point of a section, used by Practice mode and post-game summary.<br>Note that some of these events may have an underscore `_` instead of a space before the section name. |
-| `prc_<name>`       | Same as the above.       |
-| `end`              | Marks the end of a song. |
+| Name             | Description              |
+| :---             | :----------              |
+| `section <name>` | Marks the start point of a section, used by Practice mode and post-game summary.<br>Note that some of these events may have an underscore `_` instead of a space before the section name. |
+| `prc_<name>`     | Same as the above.       |
+| `end`            | Marks the end of a song. |
 
 ### Events Section Example
 
