@@ -12,7 +12,10 @@ This document details the format for drums in .chart files.
     - [Determining Track Type](#determining-track-type)
   - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Note and Modifier Types](#note-and-modifier-types)
+    - [4-Lane Note Mechanics](#4-lane-note-mechanics)
+    - [5-Lane Note Mechanics](#5-lane-note-mechanics)
   - [Special Phrase Types](#special-phrase-types)
+    - [Special Phrase Mechanics](#special-phrase-mechanics)
   - [Local Events](#local-events)
 - [Example](#example)
 
@@ -157,7 +160,7 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 | 64           | Drums Star Power activation phrase |
 | ??           | Drum roll markers                  |
 
-### Special Phrase Mechanics
+#### Special Phrase Mechanics
 
 Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
 

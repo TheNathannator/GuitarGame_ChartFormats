@@ -12,7 +12,9 @@ This document details the format for 5-fret guitar in .chart files.
   - [Section Names](#section-names)
   - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Note and Modifier Types](#note-and-modifier-types)
+    - [Note Mechanics](#note-mechanics)
   - [Special Phrase Types](#special-phrase-types)
+    - [Special Phrase Mechanics](#special-phrase-mechanics)
   - [Local Events](#local-events)
 - [Example](#example)
 
