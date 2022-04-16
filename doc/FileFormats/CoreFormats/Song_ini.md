@@ -212,7 +212,7 @@ These tags affect the parsing or configuration of a chart.
 | `tutorial`         | (FoF(iX)) Indicates if is a tutorial song and should be hidden from quickplay.          | boolean       |
 | `boss_battle`      | (FoF(iX)?) Indicates if this song is a boss battle.                                     | boolean?      |
 |                    |                                                                                         |               |
-| `unlock_id`        | (FoF(iX)) Career ID of this song. See [FoFiX_Careers.md](FoFiX_Careers.md) for details. | string        |
+| `unlock_id`        | (FoF(iX)) Career ID of this song. See [FoFiX_Careers.md](../Other/Frets%20on%20Fire%20X/FoFiX_Careers.md) for details. | string        |
 | `unlock_require`   | (FoF(iX)) The career ID that must be completed to unlock this song.                     | string        |
 | `unlock_text`      | (FoF(iX)) Text to display if the song is locked.                                        | string        |
 | `unlock_completed` | (FoF(iX)) Indicates if the song is unlocked. (*not* a boolean value)                    | number        |
