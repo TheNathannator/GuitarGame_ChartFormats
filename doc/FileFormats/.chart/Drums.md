@@ -144,7 +144,7 @@ Accent and ghost notes are also carried over from 5-lane. They are notes that no
 
 #### 5-Lane Note Mechanics
 
-In 5-lane, Red, blue, and green are toms, and yellow and orange are cymbals. While in Guitar Hero games they were not distinguished visually in-game, on the drum kit peripheral this is how they are laid out, and this is how the were charted.
+In 5-lane, Red, blue, and green are toms, and yellow and orange are cymbals. While in Guitar Hero games they were not distinguished visually in-game, on the drum kit peripheral this is how they are laid out, and this is how they were charted.
 
 Drum sustains are used for imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells. They prevent overhitting and require you to hit faster than a certain threshold (around 4 hits per second in GH) to maintain the sustain. Unlike 4-lane roll lanes, kicks can be drum sustains.
 
