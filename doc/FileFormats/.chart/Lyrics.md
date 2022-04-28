@@ -45,12 +45,13 @@ Syllables not joined together through any symbols should be separated by a space
 
 To display lyric phrases as just text, follow these steps:
 
-1. Strip out `-`, `+`, `#`, `^`, `*`, `%`, `$`, and `/`.
-2. Join together a syllable that has `-` at the end of it with the following syllable with a space between.
-3. Replace `=` with a hyphen `-`, and join the syllable containing it with the following syllable without a space between. Make sure to not strip out hyphens added as replacement for equals.
+1. Strip out `+`, `#`, `^`, `*`, `%`, `$`, and `/`.
+2. Join a syllable that has `-` at the end of it with the following syllable, and remove the `-`.
+3. Join a syllable that ends with `=` with the following syllable, and replace the `=` with a `-`. Make sure to not strip out hyphens added as replacement for equals.
 4. Replace `§` and `_` with a space.
 5. For `<>`, either display as-is (Rock Band 3 and earlier), replace `<>` with asterisks `**` (e.g. `<whistle>` -> `*whistle*`) (Rock Band 4), or strip out both `<>` and the text within (Clone Hero).
    - It may be possible to combine the first or second with the third, as there are a set amount of Unity/TextMeshPro text formatting tags, and none of them could be confused with verbs.
+6. Separate any remaining syllables with spaces.
 
 ## Example
 
