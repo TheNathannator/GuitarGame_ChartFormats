@@ -78,12 +78,12 @@ The notes listed here are not the only ones with meaning that may be seen. Notes
 
 ### Note Mechanics
 
-Notes are strum notes by default. They get forced as HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .mid, the default threshold is `(<chart resolution> / 3) + 1` ticks, rounded down (the additional tick is for leniency, since some charts work better with it).
+Notes are strum notes by default. They get turned into HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .mid, the default threshold is `(<chart resolution> / 3) + 1` ticks, rounded down (the additional tick is for leniency, since some charts work better with it).
 
 - Some sources say the threshold is, assuming a 480 tick resolution, either a 1/16th note (120 ticks), or 170 ticks instead of 160, but the modern threshold is the above formula.
 - This threshold can be changed using the `hopo_frequency`, `hopofreq`, or `eighthnote_hopo` song.ini tags. The `hopo_frequency` tag is recommended above the others.
 
-Notes can have their natural forcing overridden using the force strum/HOPO markers, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
+Notes can have their natural state overridden using the force strum/HOPO markers, referred to as forcing. Both single notes and chords can be forced, and it is possible to create same-fret consecutive HOPOs (both single and chord) through forcing.
 
 Notes can be marked as tap notes by using either the tap note SysEx event, or the tap marker note. The latter is a newer method and is not supported by many games yet.
 
