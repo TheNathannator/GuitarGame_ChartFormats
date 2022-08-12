@@ -5,53 +5,60 @@ This document details the format for lyrics in .chart files.
 ## Table of Contents
 
 - [Events Section](#events-section)
-  - [Lyrics](#lyrics)
+  - [Lyric Events](#lyric-events)
+  - [Lyrics Markup](#lyrics-markup)
+  - [Displaying as Plain Text](#displaying-as-plain-text)
 - [Example](#example)
 
 ## Events Section
 
-### Lyrics
+### Lyric Events
 
 Lyrics are charted as global events in the `[Events]` section. They are laid out as `phrase_start`, `phrase_end`, and `lyric` events throughout.
 
-| Event Name         | Description                                                                                                     |
-| :---               | :----------                                                                                                     |
-| `phrase_start`     | Marks the start of a new lyrics phrase.<br>Can be used to mark a new phrase without using a prior `phrase_end`. |
-| `phrase_end`       | Marks the end of the current lyrics phrase.                                                                     |
-| `lyric <syllable>` | Contains a syllable of a lyrics phrase.                                                                         |
+| Event Name         | Description                                                                                                |
+| :---               | :----------                                                                                                |
+| `phrase_start`     | Marks the start of a new lyrics phrase.<br>A preceding `phrase_end` is not required to start a new phrase. |
+| `phrase_end`       | Marks the end of the current lyrics phrase.                                                                |
+| `lyric <syllable>` | Contains a syllable of a lyrics phrase.                                                                    |
 
-- `phrase_start` marks the start of a phrase of lyrics. A preceding `phrase_end` is not required to start a new phrase from an existing one.
-- `phrase_end` marks the end of a phrase.
-- Any `lyric` events between a `phrase_start` and either a `phrase_end` event or a new `phrase_start` event should be concatenated into a single line. The text of this phrase may be highlighted one syllable at a time as `lyric` events are passed.
+### Lyrics Markup
 
-Various symbols are used as markup in lyrics, to do things like join syllables together or stand in for a syllable that's reserved as markup. Most of these originate from .mid and don't strictly apply to .chart functionality, and are listed for completeness, since .mid charts converted to .chart may have those symbols.
+Various symbols are used as markup in lyrics, to do things like join syllables together or stand in for a syllable that's reserved as markup. Most of these originate from .mid and don't strictly apply to .chart functionality, and are listed for completeness, since .mid charts converted to .chart may have these symbols.
 
-| Name           | Symbol | Description                                                                                      |
-| :---           | :----: | :----------                                                                                      |
-| Hyphens        | `-`    | Joins this syllable with the next.                                                               |
-| Pluses         | `+`    | In .mid, connects the previous note and the current note into a slide. Usually found standalone. |
-| Equals         | `=`    | Stands in for a literal hyphen, and joins this syllable with the next if placed at the end.      |
-| Pounds         | `#`    | In .mid, marks a note as non-pitched.                                                            |
-| Carets         | `^`    | In .mid, marks a note as non-pitched with a more lenient scoring.<br>Typically used on short syllables or syllables without sharp attacks. |
-| Asterisks      | `*`    | In .mid, marks a note as non-pitched. Its exact function is unknown.                             |
-| Percents       | `%`    | In .mid, marks a range division for vocals parts with large octave ranges.                       |
-| Sections       | `§`    | Indicates that the text before and after in the syllable event are two different syllables sung as one.<br>Replaced by a space when displayed as just lyrics, or, in .mid when played as vocals, with a tie character `‿`. |
-| Dollars        | `$`    | In .mid, marks syllables in harmony parts as hidden.<br>In one case these are also on the standard Vocals track for some reason, its purpose is not known (likely a charting error, as there are also harmony parts on that song). |
-| Slashes        | `/`    | Unknown. These appear in some Rock Band charts, mainly The Beatles: Rock Band.                   |
-| Underscores    | `_`    | Stands in for a space.                                                                           |
-| Angle brackets | `<>`   | Either marks a vocal action such as `<whistle>`, or holds a [Unity](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/StyledText.html#supported-tags)/[TextMeshPro](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) text formatting tag (in particular, [these ones](https://strikeline.myjetbrains.com/youtrack/issue/CH-226)). |
+| Name           | Symbol | Description                                                                                       |
+| :---           | :----: | :----------                                                                                       |
+| Hyphen         | `-`    | Joins this syllable with the next syllable in the phrase.                                         |
+| Plus           | `+`    | Connects the previous note and the current note into a slide. Usually found standalone.           |
+| Equals         | `=`    | Stands in for a literal hyphen, and joins this syllable with the next in the phrase.              |
+| Pound          | `#`    | Marks a note as non-pitched.                                                                      |
+| Caret          | `^`    | Marks a note as a more lenient non-pitched note. Typically used on short syllables or syllables without sharp attacks. |
+| Asterisk       | `*`    | Marks a note as non-pitched, but its exact function is unknown.                                   |
+| Percent        | `%`    | Marks a point at the end of a phrase where the note display should re-calculate the range of notes it displays. |
+| Section        | `§`    | Used in a single syllable to indicate that two syllables (typically part of two different words) are being sung as a single syllable. |
+| Dollar         | `$`    | Marks syllables in harmony parts 2 and 3 as hidden. Does nothing on part 1 or on standard Vocals. |
+| Slash          | `/`    | Marks a point at which a static lyric display should divide the current phrase into another segment that can be scrolled to, as if it were a separate phrase. |
+| Underscore     | `_`    | Stands in for a space.<br>Some games allow spaces to exist normally within lyric events, this symbol exists for cases where doing so may not be desirable. |
+| Angle brackets | `<>`   | Either notates an action such as whistling (`<whistle>`), or holds a [Unity](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/StyledText.html#supported-tags)/[TextMeshPro](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) rich text formatting tag. |
 
-Syllables not joined together through any symbols should be separated by a space during parsing.
+### Displaying as Plain Text
 
-To display lyric phrases as just text, follow these steps:
+| Name           | Symbol | Action                                                                         |
+| :---           | :----: | :----------                                                                    |
+| Hyphen         | `-`    | Remove, and concatenate the next syllable into the current one.                |
+| Plus           | `+`    | Remove.                                                                        |
+| Equals         | `=`    | Replace with a hyphen, and concatenate the next syllable into the current one. |
+| Pound          | `#`    | Remove.                                                                        |
+| Caret          | `^`    | Remove.                                                                        |
+| Asterisk       | `*`    | Remove.                                                                        |
+| Percent        | `%`    | Remove.                                                                        |
+| Section        | `§`    | Replace with a tie character `‿` or with a space.                             |
+| Dollar         | `$`    | Remove.                                                                        |
+| Slash          | `/`    | Either remove, or split the phrase at this point.                              |
+| Underscore     | `_`    | Replace with a space.                                                          |
+| Angle brackets | `<>`   | Remove any that are text formatting tags, and either leave the rest as-is, or replace the brackets with asterisks. |
 
-1. Strip out `+`, `#`, `^`, `*`, `%`, `$`, and `/`.
-2. Join a syllable that has `-` at the end of it with the following syllable, and remove the `-`.
-3. Join a syllable that ends with `=` with the following syllable, and replace the `=` with a `-`. Make sure to not strip out hyphens added as replacement for equals.
-4. Replace `§` and `_` with a space.
-5. For `<>`, either display as-is (Rock Band 3 and earlier), replace `<>` with asterisks `**` (e.g. `<whistle>` -> `*whistle*`) (Rock Band 4), or strip out both `<>` and the text within (Clone Hero).
-   - It may be possible to combine the first or second with the third, as there are a set amount of Unity/TextMeshPro text formatting tags, and none of them could be confused with verbs.
-6. Separate any remaining syllables with spaces.
+Syllables not joined together by anything should be separated with a space.
 
 ## Example
 
