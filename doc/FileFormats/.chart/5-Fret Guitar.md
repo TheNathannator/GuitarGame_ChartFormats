@@ -53,7 +53,7 @@ Instrument names:
 - `DoubleBass` – Bass Guitar
 - `DoubleRhythm` – Rhythm Guitar
 - `Keyboard` – 5-lane Keys
-  - While this track is not named for a guitar-type part, it uses the same note/phrase types and may be parsed as one.
+  - While this track is not named for a guitar-type instrument, the game it comes from allows for playing it as if it were one.
 
 Difficulties:
 

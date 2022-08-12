@@ -21,7 +21,7 @@ Not all 5-fret guitar mechanics are documented here, as not everything is strict
 - `PART BASS` - Bass Guitar
 - `PART RHYTHM` - Rhythm Guitar
 - `PART KEYS` - 5-Lane Keys
-  - This track was not originally intended as a guitar-type part, but it uses the same note/phrase types and may be parsed as one.
+  - While this track is not named for a guitar-type instrument, the game it comes from allows for playing it as if it were one.
 
 ## Track Notes
 
