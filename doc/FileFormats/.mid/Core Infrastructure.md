@@ -19,8 +19,8 @@ Modern .mid charts follow a format originating from Rock Band's .mid chart forma
     - [Channel Mode](#channel-mode)
     - [System Events](#system-events)
     - [System Exclusive Events](#system-exclusive-events)
-      - [Warning For SysEx](#warning-for-sysex)
     - [Meta Events](#meta-events)
+  - [Notable Specification Violations](#notable-specification-violations)
 - [Chart Format Infrastructure](#chart-format-infrastructure)
   - [Nomenclature](#nomenclature)
   - [Track Names](#track-names)
@@ -28,9 +28,10 @@ Modern .mid charts follow a format originating from Rock Band's .mid chart forma
   - [Track Difficulties](#track-difficulties)
   - [Other Track Data](#other-track-data)
   - [Metadata](#metadata)
-  - [Global Events](#global-events)
+  - [Text Events](#text-events)
+  - [Global and Local Events](#global-and-local-events)
     - [Basic Global Events](#basic-global-events)
-  - [SysEx Event Specification](#sysex-event-specification)
+  - [Phase Shift SysEx Event Specification](#phase-shift-sysex-event-specification)
 - [References](#references)
 
 ## Basic Infrastructure of MIDI Files
@@ -128,7 +129,7 @@ Some events may contain data bytes greater than `0x7F`. While this is technicall
 
 Events may leave out the `Status` byte and just provide the data bytes if the prior event has the same status byte. This is referred to as running status.
 
-Per the specs, running status resets after a System Exclusive or meta event, and does not apply to those event types. However, some charts violate this and continue the running status of prior non-Exclusive/meta events, which may break some MIDI parsers.<!-- Thanks, Phase Shift. -->
+Running status resets after a System Exclusive or meta event, and does not apply to those event types.
 
 ### Event Types
 
@@ -180,9 +181,9 @@ System Exclusive (often shortened as SysEx) events are flexible, and aside from 
 | `F0 <len> <byte[]> F7` | Standard SysEx      | Sends a SysEx event.<br>`F0` starts a SysEx event, `F7` ends a SysEx event. `len` is the number of bytes in the event including the `F7`, stored as a variable-length number. `byte[]` is one or more bytes.<br>The first 1 or 3 bytes are typically a numeric ID. If the first byte is 0, the next two are the ID, otherwise just the first is. |
 | `F7 <len> <byte[]>`    | SysEx (No end byte) | Sends a SysEx event without using an ending byte. This can be used to escape events that would otherwise be invalid. |
 
-There are some Universal SysEx events defined in the MIDI Association's documentation, but for simplicity's sake these will not be documented here.
+Data bytes above `0x7F` that are not System Real-Time status bytes (`0xF8`-`0xFF`) are not allowed, and are defined to be interpreted as an end-of-exclusive marker.
 
-NOTE: Per the spec, data bytes above `0x7F` that are not System Real-Time status bytes (`0xF8`-`0xFF`) are not allowed, and are defined to be interpreted as an end-of-exclusive marker. Charts commonly make use of a `0xFF` byte in SysEx events, so they barely skirt by this detail, but some MIDI parsers may have issues with this regardless.
+There are some Universal SysEx events defined in the MIDI Association's documentation, but for simplicity's sake these will not be documented here.
 
 #### Meta Events
 
@@ -211,6 +212,12 @@ Meta events are events that store non-MIDI data such as text. They follow this f
 | `0xFF 0x58 0x04 <num> <den> <clk> <base>`     | Time signature      | Sets a new time signature.<br>`num` is the numerator, `den` is a power-of-2 exponent for the denominator, `clk` is the number of MIDI clocks in a metronome click, `base` is the number of notated 32nd notes per MIDI quarter note.<br>If a time signature is not specified by a chart, it is assumed to be 4/4. |
 | `0xFF 0x59 0x02 <shp/flt> <maj/min>`          | Key signature       | Sets a new key signature.<br>`shp/flat` is the number of sharps or flats from -7 to 7 (positive is sharps, negative is flats, 0 is none), `maj/min` is 0 for major, 1 for minor. |
 | `0xFF 0x7F <len> <data[]>`                    | Sequencer-specific  | Stores a sequencer-specific meta event. |
+
+### Notable Specification Violations
+
+Some charts don't reset running status after a System Exclusive or meta event and continue the running status of prior non-Exclusive/meta events, which breaks some MIDI parsers (notably NAudio).<!-- Thanks, Phase Shift. -->
+
+Charts commonly make use of a `0xFF` byte in SysEx events. This is *barely* technically spec-compliant, but some MIDI parsers might have issues with this regardless.
 
 ## Chart Format Infrastructure
 
@@ -256,7 +263,7 @@ The common difficulty note ranges are as follows:
 - Medium: 72-83
 - Easy: 60-71
 
-Some instruments don't adhere to these ranges though, and may use more ranges, different ranges, or even dedicated tracks for each difficulty (or a single track for all of them). Some may also specify all-difficulty markers within the range of a specific difficulty, but these never conflict with notes.
+Some instruments don't adhere to these ranges though, and may use more ranges, different ranges, or even dedicated tracks for each difficulty. Some may also specify all-difficulty markers within the range of a specific difficulty, but these never conflict with notes.
 
 ### Other Track Data
 
@@ -266,13 +273,19 @@ Typically, the top two octaves plus the few notes above it (notes 109-127) are r
 
 ### Metadata
 
-Song metadata is not stored within any tracks. Instead, an accompanying song.ini file is used, the infrastructure for which is detailed in another area of this repo.
+Song metadata is not stored within any tracks. Instead, an accompanying song.ini file is used, the infrastructure for which is detailed [here](../song.ini/Core%20Infrastructure.md).
 
 Note that some song.ini tags affect how chart files should be parsed. These will be noted where relevant.
 
-### Global Events
+### Text Events
 
-Global events are marked in an `EVENTS` track. They are marked as meta events (typically just regular text events), whose text define the event. Typically, the text is surrounded by \[square brackets\].
+Text events refer to any meta events on a track. They are used to markup things that would be impractical to use notes for, such as venue parameters or character animation triggers. Typically, the text of these events are surrounded by \[square brackets\].
+
+### Global and Local Events
+
+Global events are text events placed on an `EVENTS` track. These events affect all tracks or define things that don't pertain to any specific instrument, such as practice mode sections.
+
+Local events are text events placed on an instrument track. These events affect only the track they're placed on.
 
 #### Basic Global Events
 
