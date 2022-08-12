@@ -2,7 +2,7 @@
 
 A repository of documentation for chart files of guitar- or band-centric rhythm games such as Guitar Hero and Rock Band.
 
-This repo focuses around the customs formats used in games such as Clone Hero, Phase Shift, and FoFiX, but some game-specific/internal formats may be documented as well. There's also documentation for some adjacent game formats such as DJ Hero customs, as well as some oddities found here and there that either are guitar/band-related, or use these formats.
+These documents focus on the customs formats used in games such as Clone Hero, Phase Shift, and FoFiX, as well as programs such as Moonscraper and FeedBack Editor, but some game-specific/internal formats may be documented as well. There's also documentation for some adjacent game formats such as DJ Hero customs, as well as some oddities found here and there that either are related to these games, or use these formats.
 
 ## Contributing
 
@@ -11,8 +11,8 @@ Contributions are welcome! Feel free to fork this repository and add your own ch
 Some general recommendations:
 
 - Start with the basics, then elaborate further as you go down.
-- Try to keep things organized on a track-by-track basis. If event types are shared between tracks, document them in a higher section that indicates that.
-- Make uncertainty in your documentation clear. If you don't understand something fully, note it down as such.
+- Try to keep things organized on a track-type basis.
+- Make uncertainty in your documentation clear, so others know not to take it at face value and so that it can be better researched later.
 - If you used external references, link them as sources in a References section so others can reference those as well.
 
 These are not strict guidelines, but they help to make referencing and adding to easier.
