@@ -25,13 +25,13 @@ This list will be updated with things that need to be done.
 - [x] ~~Separate most game-specific stuff from core format documentation~~
 - [ ] Separate things out further into track-specific documents for each track type
   - [x] .chart
-  - [ ] .mid
-  - [ ] song.ini
+  - [x] .mid
+  - [x] song.ini
   - [ ] Audio files
 - [ ] Organize things by file type rather than by game/program
   - [x] .chart
-  - [ ] .mid
-  - [ ] song.ini
+  - [x] .mid
+  - [x] song.ini
   - [ ] Audio files
 
 ## License
