@@ -84,7 +84,23 @@
 | 1          | Lyric Shift              |
 | 0          | Range Shift              |
 
-## Vocals Lyrics
+## Vocals Phrase Mechanics
+
+Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained are doubled (this applies on top of the standard combo multiplier), and health gained drastically increases.
+
+- Standard Vocals and Harmonies have independent Star Power. `HARM2` and `HARM3` get their Star Power from `HARM1`.
+
+Lyric shift markers set points at which a static lyric display should divide the current phrase into another segment that can be scrolled to, as if it were a separate phrase.
+
+Range shift markers set points at which the note display should re-calculate the range it displays and gradually shift towards the new range. The length of these markers determine the speed of the shift, not how long it stays shifted for.
+
+## Vocals Text Events
+
+| Event Text      | Description                                                                                    |
+| :---------      | :----------                                                                                    |
+| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
+
+### Vocals Lyrics
 
 Lyrics are stored as meta events (usually text or lyric), usually paired up with notes in the 36 to 84 range to determine pitch.
 
@@ -152,19 +168,3 @@ Syllables should not be joined together when using scrolling lyrics, but should 
 | Angle brackets | `<>`   | Remove any that are text formatting tags, and either leave the rest as-is, or replace the brackets with asterisks. |
 
 Syllables not joined together by anything should be separated with a space.
-
-## Vocals Phrase Mechanics
-
-Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained are doubled (this applies on top of the standard combo multiplier), and health gained drastically increases.
-
-- Standard Vocals and Harmonies have independent Star Power. `HARM2` and `HARM3` get their Star Power from `HARM1`.
-
-Lyric shift markers set points at which a static lyric display should divide the current phrase into another segment that can be scrolled to, as if it were a separate phrase.
-
-Range shift markers set points at which the note display should re-calculate the range it displays and gradually shift towards the new range. The length of these markers determine the speed of the shift, not how long it stays shifted for.
-
-## Vocals Text Events
-
-| Event Text      | Description                                                                                    |
-| :---------      | :----------                                                                                    |
-| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
