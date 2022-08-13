@@ -1,4 +1,4 @@
-# GH1/2 Practice Sections
+# GH2 Practice Sections
 
 Here is a list of practice mode section names, along with the in-game names they get converted to, from Guitar Hero 2 (both full release and late '06 demo), sorted alphabetically by event name.
 
@@ -10,10 +10,14 @@ Format of this document:
 
 - `event_name_without_brackets_or_section` - "In-game name"
 
-## The List
+## Table of Contents
+
+## A
 
 - `ah_ah_1` - "Ah ah!"
 - `ah_ah_2` - "Ah ah!!"
+
+## B
 
 - `band_enters` - "Band enters"
 - `bass_enters` - "Bass enters"
@@ -33,6 +37,10 @@ Format of this document:
 - `break` - "Break"
 - `break_1` - "Break 1"
 - `break_2` - "Break 2"
+- `break_a` - "Break a"
+- `break_b` - "Break b"
+- `break_c` - "Break c"
+- `break_d` - "Break d"
 - `break_main_riff` - "Break Main Riff"
 - `breakdown` - "Breakdown"
 - `bridge` - "Bridge"
@@ -52,12 +60,14 @@ Format of this document:
 - `burninating` - "Burninating..."
 - `burninating_2` - "Burninating 2"
 
+## C
+
 - `chorus` - "Chorus"
 - `chorus_1` - "Chorus 1"
+- `chorus1` - "Chorus 1"
 - `chorus_1a` - "Chorus 1a"
 - `chorus_1b` - "Chorus 1b"
 - `chorus_1c` - "Chorus 1c"
-- `chorus_1d` - "Chorus 1d"
 - `chorus_2` - "Chorus 2"
 - `chorus_2a` - "Chorus 2a"
 - `chorus_2b` - "Chorus 2b"
@@ -69,7 +79,6 @@ Format of this document:
 - `chorus_4` - "Chorus 4"
 - `chorus_4a` - "Chorus 4a"
 - `chorus_4b` - "Chorus 4b"
-- `chorus_4c` - "Chorus 4c"
 - `chorus_5` - "Chorus 5"
 - `chorus_5a` - "Chorus 5a"
 - `chorus_5b` - "Chorus 5b"
@@ -79,17 +88,25 @@ Format of this document:
 - `chunky_riff_1` - "Chunk riff 1"
 - `chunky_riff_2` - "Chunk riff 2"
 
+## D
+
 - `drum_solo` - "Drum solo"
 - `drum_solo_1` - "Drum solo 1"
 - `drum_solo_2` - "Drum solo 2"
 - `drum_solo_3` - "Drum solo 3"
 
+## E
+
 - `end` - "End"
 - `end_wankery` - "End wankery"
 - `ending` - "Ending"
 
+## F
+
 - `fast_bridge` - "Fast Bridge"
 - `fast_part` - "Fast part"
+
+## G
 
 - `gtr_break` - "Gtr break"
 - `gtr_break_1` - "Gtr break 1"
@@ -113,8 +130,6 @@ Format of this document:
 - `gtr_lead_2` - "Gtr lead 2"
 - `gtr_lead_3` - "Gtr lead 3"
 - `gtr_line_1` - "Guitar Line 1"
-- `gtr_line_2` - "Guitar Line 2"
-- `gtr_line_3` - "Guitar Line 3"
 - `gtr_mel_1` - "Melody 1"
 - `gtr_mel_2` - "Melody 2"
 - `gtr_mel_3` - "Melody 3"
@@ -173,6 +188,8 @@ Format of this document:
 - `guitar_melody_intro` - "Intro Guitar Melody"
 - `guitar_melody_end` - "End Guitar Melody"
 
+## H
+
 - `heavy_chords_1` - "Heavy Chords 1"
 - `heavy_chords_2` - "Heavy Chords 2"
 - `heavy_chords_3` - "Heavy Chords 3"
@@ -184,29 +201,39 @@ Format of this document:
 - `high_gtr_3` - "High gtr 3"
 - `high_gtr_4` - "High gtr 4"
 
+## I
+
+- `i bridge` - "Bridge"
 - `intro` - "Intro"
 - `intro_a` - "Intro a"
 - `intro_and_verse1` - "Intro & Verse 1"
 - `intro_b` - "Intro b"
-- `intro_band` - "Band Enters"
 - `intro_c` - "Intro c"
 - `intro_chorus` - "Intro Chorus"
-- `intro_gtr` - "Guitar Intro"
 - `intro_main_riffs` - "Intro Main Riff"
 - `intro_melody` - "Melody 1"
 - `intro_riff` - "Intro riff"
 - `intro_riff_1` - "Intro Riff 1"
 - `intro_riff_2` - "Intro Riff 2"
 
+## J
+
 - `jam` - "Jam"
 
+## K
+
 - `kick_it` - "Kick It!"
+
+## L
 
 - `lead_1` - "Lead 1"
 - `lead_2` - "Lead 2"
 - `lead_3` - "Lead 3"
 - `lo_melody` - "Low melody"
 
+## M
+
+- `main_riff` - "Main riff"
 - `main_riff_1` - "Main riff 1"
 - `main_riff_2` - "Main riff 2"
 - `main_riff_3` - "Main riff 3"
@@ -220,10 +247,14 @@ Format of this document:
 - `melody_2` - "Melody 2"
 - `melody_3` - "Melody 3"
 
+## N
+
 - `noise_build` - "Noise build"
 - `noise_intro` - "Noise intro"
 - `noise_solo` - "Noise solo"
 - `noisesolo` - "Noise Solo"
+
+## O
 
 - `odd_melody` - "Odd Melody"
 - `odd_riff_1` - "Odd riff 1"
@@ -236,6 +267,9 @@ Format of this document:
 - `outro` - "Outro"
 - `outro_a` - "Outro a"
 - `outro_b` - "Outro b"
+- `outro_melody` - "Outro Melody"
+
+## P
 
 - `postbridge_1` - "Post-Bridge 1"
 - `postbridge_2` - "Post-Bridge 2"
@@ -256,12 +290,18 @@ Format of this document:
 - `preverse_solo_1` - "PreVerse Solo 1"
 - `preverse_solo_2` - "PreVerse Solo 2"
 
+## Q
+
 - `quiet_intro` - "Quiet intro"
+
+## R
 
 - `release` - "Release"
 - `rhy_enters` - "Gtr2 enters"
 - `riff_1` - "Riff 1"
 - `riff_2` - "Riff 2"
+
+## S
 
 - `slide_solo_1` - "Slide solo 1"
 - `slide_solo_2` - "Slide solo 2"
@@ -318,6 +358,8 @@ Format of this document:
 - `swing_riff_3` - "Swing riff 3"
 - `swing_riff_4` - "Swing riff 4"
 
+## T
+
 - `Thatched_roof_cottages!` - "Thatched-roof cottages..."
 - `transistion` - "Transition"
 - `trc` - "T-R-C!!"
@@ -331,8 +373,11 @@ Format of this document:
 - `trogdor_3` - "TROGDOR!!!"
 - `trogdor_was_a_man` - "Trogdor was a man..."
 
+## V
+
 - `verse_1` - "Verse 1"
 - `verse_1a` - "Verse 1a"
+- `verse_1A` - "Verse 1a"
 - `verse_1b` - "Verse 1b"
 - `verse_1c` - "Verse 1c"
 - `verse_1d` - "Verse 1d"
@@ -340,11 +385,11 @@ Format of this document:
 - `verse_1f` - "Verse 1f"
 - `verse_2` - "Verse 2"
 - `verse_2a` - "Verse 2a"
+- `verse_2A` - "Verse 2a"
 - `verse_2b` - "Verse 2b"
 - `verse_2c` - "Verse 2c"
 - `verse_2d` - "Verse 2d"
 - `verse_2e` - "Verse 2e"
-- `verse_2f` - "Verse 2f"
 - `verse_3` - "Verse 3"
 - `verse_3_breakdown` - "Breakdown"
 - `verse_3a` - "Verse 3a"
@@ -356,13 +401,12 @@ Format of this document:
 - `verse_4` - "Verse 4"
 - `verse_4a` - "Verse 4a"
 - `verse_4b` - "Verse 4b"
-- `verse_4c` - "Verse 4c"
-- `verse_4d` - "Verse 4d"
 - `verse_5` - "Verse 5"
 - `verse_5a` - "Verse 5a"
 - `verse_5b` - "Verse 5b"
 - `verse_5c` - "Verse 5c"
-- `verse_5d` - "Verse 5d"
+- `verse_a` - "Verse a"
+- `verse_b` - "Verse b"
 - `verse_melody1` - "Verse Melody 1"
 - `verse_melody2` - "Verse Melody 2"
 - `verse_riff` - "Verse riff"
