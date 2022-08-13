@@ -1,7 +1,5 @@
 # 5-Fret Guitar in .mid
 
-Not all 5-fret guitar mechanics are documented here, as not everything is strictly necessary for common support, and there are some legacy differences best explained on their own.
-
 ## Table of Contents
 
 - [Track Names](#track-names)
