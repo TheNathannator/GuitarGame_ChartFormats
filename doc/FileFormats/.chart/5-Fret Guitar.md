@@ -79,14 +79,17 @@ Any games/programs that want to add custom types should reserve the next set of 
 
 | Note Type | Description                                       |
 | :-------: | :----------                                       |
+| Notes     |                                                   |
 | 0         | Green (1st fret) note                             |
 | 1         | Red (2nd fret) note                               |
 | 2         | Yellow (3rd fret) note                            |
 | 3         | Blue (4th fret) note                              |
 | 4         | Orange (5th fret) note                            |
+| 7         | Open note                                         |
+|           |                                                   |
+| Modifiers |                                                   |
 | 5         | Strum/HOPO flip modifier                          |
 | 6         | Tap modifier<br>Overrides the HOPO flip modifier. |
-| 7         | Open note                                         |
 
 #### Note Mechanics
 
@@ -102,8 +105,11 @@ Chords may have individual notes with different lengths. These are referred to a
 
 | Special Type | Description                    |
 | :----------: | :----------                    |
+| Face-Off     |                                |
 | 0            | GH1/2 Face-Off player 1 phrase |
 | 1            | GH1/2 Face-Off player 2 phrase |
+|              |                                |
+| Star Power   |                                |
 | 2            | Star Power phrase              |
 
 #### Special Phrase Mechanics

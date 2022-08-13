@@ -122,6 +122,7 @@ Any games/programs that want to add custom types should reserve the next set of 
 
 | Note Type | Description                 |
 | :-------: | :----------                 |
+| Notes     |                             |
 | 0         | Kick                        |
 | 1         | Red                         |
 | 2         | Yellow                      |
@@ -129,9 +130,12 @@ Any games/programs that want to add custom types should reserve the next set of 
 | 4         | 5-lane Orange, 4-lane Green |
 | 5         | 5-lane Green                |
 | 32        | Expert+ kick / 2x kick      |
+|           |                             |
+| Cymbals   |                             |
 | 66        | Yellow cymbal modifier      |
 | 67        | Blue cymbal modifier        |
 | 68        | Green cymbal modifier       |
+|           |                             |
 | ??        | Accent and ghost modifiers  |
 
 #### 4-Lane Note Mechanics
@@ -156,8 +160,11 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 
 | Special Type | Description                        |
 | :----------: | :----------                        |
+| Star Power   |                                    |
 | 2            | Star Power phrase                  |
 | 64           | Drums Star Power activation phrase |
+|              |                                    |
+| Roll lanes   |                                    |
 | ??           | Drum roll markers                  |
 
 #### Special Phrase Mechanics

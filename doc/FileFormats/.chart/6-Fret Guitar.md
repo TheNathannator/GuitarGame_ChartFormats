@@ -58,15 +58,18 @@ Any games/programs that want to add custom types should reserve the next set of 
 
 | Note Type | Description                                    |
 | :-------: | :----------                                    |
+| Notes     |                                                |
 | 0         | White 1 (4th fret) note                        |
 | 1         | White 2 (5th fret) note                        |
 | 2         | White 3 (6th fret) note                        |
 | 3         | Black 1 (1st fret) note                        |
 | 4         | Black 2 (2nd fret) note                        |
+| 8         | Black 3 (3rd fret) note                        |
+| 7         | Open note                                      |
+|           |                                                |
+| Modifiers |                                                |
 | 5         | Strum/HOPO flip modifier                       |
 | 6         | Tap modifier, overrides the HOPO flip modifier |
-| 7         | Open note                                      |
-| 8         | Black 3 (3rd fret) note                        |
 
 #### Note Mechanics
 
@@ -82,6 +85,7 @@ Chords may have individual notes with different lengths. These are referred to a
 
 | Special Type | Description       |
 | :----------: | :----------       |
+| Star Power   |                   |
 | 2            | Star Power phrase |
 
 #### Special Phrase Mechanics
