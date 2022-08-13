@@ -22,8 +22,8 @@
 | :-------:  | :----------              |
 | Markers    |                          |
 | 116        | Star Power marker        |
-| 106        | Lyrics phrase marker 2   |
-| 105        | Lyrics phrase marker 1   |
+| 106        | Player 2 lyrics phrase marker |
+| 105        | Player 1 lyrics phrase marker |
 |            |                          |
 | Percussion |                          |
 | 97         | Not displayed percussion |
@@ -93,6 +93,8 @@ Star Power phrases mark sections of the chart where the player may gain Star Pow
 Lyric shift markers set points at which a static lyric display should divide the current phrase into another segment that can be scrolled to, as if it were a separate phrase.
 
 Range shift markers set points at which the note display should re-calculate the range it displays and gradually shift towards the new range. The length of these markers determine the speed of the shift, not how long it stays shifted for.
+
+The player 1 and 2 phrases designate a section of the song to be sung by a specific player in certain 2-player versus modes. During player 1 phrases, only player 1 sings the song, and during player 2 phrases, only player 2 sings the song. Both phrases can occur at the same time to make both players play at the same time.
 
 ## Vocals Text Events
 

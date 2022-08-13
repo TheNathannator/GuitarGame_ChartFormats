@@ -26,16 +26,18 @@
 | Markers   |                                              |
 | 127       | 2-lane roll marker                           |
 | 126       | 1-lane roll marker                           |
-| 124       | Fill marker 1                                |
-| 123       | Fill marker 2                                |
-| 122       | Fill marker 3                                |
-| 121       | Fill marker 4                                |
-| 120       | Fill marker 5                                |
+| 124       | Fill/Big Rock Ending marker 1                |
+| 123       | Fill/Big Rock Ending marker 2                |
+| 122       | Fill/Big Rock Ending marker 3                |
+| 121       | Fill/Big Rock Ending marker 4                |
+| 120       | Fill/Big Rock Ending marker 5                |
 | 116       | Star Power/Overdrive marker                  |
 | 112       | Green tom marker                             |
 | 111       | Blue tom marker                              |
 | 110       | Yellow tom marker                            |
 | 109       | Flam marker                                  |
+| 106       | Player 2 versus phrase marker                |
+| 105       | Player 1 versus phrase marker                |
 | 103       | Solo marker                                  |
 |           |                                              |
 | Expert    |                                              |
@@ -101,6 +103,16 @@ Flam markers are used to mark single notes as flams. Marked notes can either req
 
 - The specialized note method has the advantage of being accurate to which drum is being flammed, but can be cheesed by double-stroking with one stick.
 - The Rock Band-style method has the advantage of forcing the motion of a flam, but isn't particularly accurate to which drum is being flammed. It also requires either using the same conversion for two different colors, or making one of the conversions not have the original note as part of the chord.
+
+The versus phrases designate a section of the chart to be played by a specific player in certain 2-player versus modes. During player 1 phrases, only player 1 plays the chart, and during player 2 phrases, only player 2 plays the chart. Both phrases can occur at the same time to make both players play at the same time.
+
+Big Rock Endings (BREs) are freestyle phrases at the end of songs with so-called "big rock endings" where the band rocks out for a period of time before playing their final notes. These freestyle phrases let players gain bonus points by playing whatever they want during the phrase. Following the phrase is at least one note, which the player must hit in order to earn those bonus points. If they miss or overstrum, they lose the points.
+
+- The distinction between fils and BREs is that BREs are started by placing a `[coda]` text event on the `EVENTS` track.
+- The duration of the BRE markers determines how long the freestyle section will last. All 5 BRE notes must be used to mark the phrase.
+- After the freestyle phrase, there must be at least one note for the player to play. If no notes are present, the player cannot get their score.
+- Notes still need to be charted under Guitar and Bass BRE sections for the purpose of character animations. In general, notes should still be charted regardless because not every game supports BREs.
+- [More than one freestyle phrase may be placed during a BRE](https://youtube.com/watch?v=2iegD-LR8RE&t=208) (warning: this video is loud and the chart is awful), though this was probably never intended as it was never documented, and it might not work in some games. This is *very* edge-case, and almost no charts will have it.
 
 ### 5-Lane Note Mechanics
 
