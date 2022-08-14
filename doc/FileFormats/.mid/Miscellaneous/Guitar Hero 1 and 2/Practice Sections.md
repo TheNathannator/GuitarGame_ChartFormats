@@ -1,12 +1,10 @@
-# GH2 Practice Sections
+# GH2 and 80's Practice Sections
 
-Here is a list of practice mode section names, along with the in-game names they get converted to, from Guitar Hero 2 (both full release and late '06 demo), sorted alphabetically by event name.
+Here is a list of practice mode section names, along with the in-game names they get converted to, from Guitar Hero 2 (both full release and late '06 demo) and GH: Rock The 80's, sorted alphabetically by event name. (No GH1 sections, it didn't have practice mode.)
 
-Most of these sections are also present in Guitar Hero: Rocks the 80's. (No GH1, that didn't have practice mode.)
+For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game, indicated by `(sic)` next to the name. Also note that some of these sections have the same event names as ones from Rock Band, but have different in-game names. (The demos also have different names compared to the full game, the full-game name has been prioritized over the demo names.)
 
-For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game, indicated by `(sic)` next to the name. Also note that some of these events have the same event names as ones from Rock Band, but have different in-game names.
-
-Format of this document:
+Section names are listed in this format:
 
 - `event_name_without_brackets_or_section` - "In-game name"
 
