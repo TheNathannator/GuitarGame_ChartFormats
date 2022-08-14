@@ -221,6 +221,26 @@ This list only covers basic metadata. Other metadata is covered in other documen
 | `PreviewEnd`   | Time of the song, in seconds, where the song preview should end.                     | decimal    |
 | `MusicStream`  | The main audio stream.<br>When other audio stems are present, this is background audio not in the other tracks and/or instruments not charted. | file path |
 
+### Audio Files
+
+Audio files may be specified through the following metadata tags:
+
+| Entry Name     | Description                                                                              | Data type |
+| :---------     | :----------                                                                              | :-------- |
+| `MusicStream`  | The main audio stream.<br>When other audio stems are present, this is background audio not in the other tracks and/or instruments not charted. | file path |
+| `GuitarStream` | Lead Guitar audio.                                                                       | file path |
+| `RhythmStream` | Rhythm Guitar audio.                                                                     | file path |
+| `BassStream`   | Bass Guitar audio.                                                                       | file path |
+| `KeysStream`   | Keys audio.                                                                              | file path |
+| `DrumStream`   | Drums audio for the kick drum, plus snare, tom, and cymbal audio if 2-4 are not present. | file path |
+| `Drum2Stream`  | Drums audio for the snare drum, plus tom and cymbal audio if 3 and 4 are not present.    | file path |
+| `Drum3Stream`  | Drums audio for toms, plus cymbal audio if 4 is not present.                             | file path |
+| `Drum4Stream`  | Drums audio for cymbals.                                                                 | file path |
+| `VocalStream`  | Vocals audio.                                                                            | file path |
+| `CrowdStream`  | Background crowd noise/singing audio.                                                    | file path |
+
+Not all charts use these tags deliberately though, and instead rely on the reserved file names defined [here](../Audio%20Files.md). The preferred method of loading audio would be to first check for the reserved names, then fall back on the files in the metadata.
+
 ### song.ini
 
 Most modern .chart files use an accompanying song.ini file, carried over from the .mid format, instead of deliberately using the `[Song]` section. The metadata in the song.ini should be prioritized over the metadata in the .chart, as often times in these chart files the .chart metadata is not properly filled out.
