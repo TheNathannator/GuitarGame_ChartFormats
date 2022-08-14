@@ -84,6 +84,12 @@
 | 1          | Lyric Shift                   |
 | 0          | Range Shift                   |
 
+## Vocals Text Events
+
+| Event Text      | Description                                                                                    |
+| :---------      | :----------                                                                                    |
+| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
+
 ## Vocals Phrase Mechanics
 
 Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained are doubled (this applies on top of the standard combo multiplier), and health gained drastically increases.
@@ -95,12 +101,6 @@ Lyric shift markers set points at which a static lyric display should divide the
 Range shift markers set points at which the note display should re-calculate the range it displays and gradually shift towards the new range. The length of these markers determine the speed of the shift, not how long it stays shifted for.
 
 The player 1 and 2 phrases designate a section of the song to be sung by a specific player in certain 2-player versus modes. During player 1 phrases, only player 1 sings the song, and during player 2 phrases, only player 2 sings the song. Both phrases can occur at the same time to make both players play at the same time.
-
-## Vocals Text Events
-
-| Event Text      | Description                                                                                    |
-| :---------      | :----------                                                                                    |
-| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
 
 ### Vocals Lyrics
 

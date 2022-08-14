@@ -81,6 +81,20 @@ The notes listed here are not the only ones with meaning that may be seen. Notes
 | 60        | Easy Green (1st lane)               |
 | 59        | Easy Open*                          |
 
+## Track SysEx Events
+
+| Modifier | Description |
+| :------: | :---------- |
+| `0x01`   | Open note   |
+| `0x04`   | Tap note    |
+
+## Important Text Events
+
+| Event Text         | Description                           |
+| :---------         | :----------                           |
+| `[ENHANCED_OPENS]` | Enables note-based open note marking. |
+| `ENHANCED_OPENS`   | Non-bracketed version of the above.   |
+
 ### Note Mechanics
 
 Notes are strum notes by default. They get turned into HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .mid, the default threshold is `(<chart resolution> / 3) + 1` ticks, rounded down (the additional tick is for leniency, since some charts work better with it).
@@ -125,26 +139,10 @@ Big Rock Endings (BREs) are freestyle phrases at the end of songs with so-called
 - Notes still need to be charted under Guitar and Bass BRE sections for the purpose of character animations. In general, notes should still be charted regardless because not every game supports BREs.
 - [More than one freestyle phrase may be placed during a BRE](https://youtube.com/watch?v=2iegD-LR8RE&t=208) (warning: this video is loud and the chart is awful), though this was probably never intended as it was never documented, and it might not work in some games. This is *very* edge-case, and almost no charts will have it.
 
-## SysEx Events
-
-Supported modifier codes:
-
-| Modifier | Description |
-| :------: | :---------- |
-| `0x01`   | Open note   |
-| `0x04`   | Tap note    |
-
-For maximum compatibility with programs, the SysEx-based markers for tap notes and open notes should be used when writing charts instead of the note-based markers, as the note-based markers are relatively newer and not supported by much yet.
-
 ### SysEx Event Mechanics
 
 The open note SysEx event marks all notes within the phrase as an open note.
 
 The tap note SysEx event marks all notes within the phrase as tap notes.
 
-## Important Text Events
-
-| Event Text         | Description                           |
-| :---------         | :----------                           |
-| `[ENHANCED_OPENS]` | Enables note-based open note marking. |
-| `ENHANCED_OPENS`   | Non-bracketed version of the above.   |
+For maximum compatibility with programs, the SysEx-based markers for tap notes and open notes should be used when writing charts instead of the note-based markers, as the note-based markers are relatively newer and not supported by much yet.
