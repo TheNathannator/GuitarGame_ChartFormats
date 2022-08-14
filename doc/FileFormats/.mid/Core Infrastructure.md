@@ -234,6 +234,10 @@ To clarify some things said in these docs, some nomenclature will be defined her
 - "Marker" refers to an event that specifies a phrase or modifier.
 - "Text event" refers to any meta event of type `0x01` through `0x0F`.
 
+### Audio Files
+
+.mid doesn't have any way of naming specific audio files to be loaded for specific tracks. Instead, it uses the reserved file names listed [here](../Audio%20Files.md).
+
 ### Track Names
 
 Tracks are identified by their track name meta event, which is the first event of each track.
