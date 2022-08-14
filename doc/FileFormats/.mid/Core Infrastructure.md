@@ -238,6 +238,10 @@ To clarify some things said in these docs, some nomenclature will be defined her
 
 .mid doesn't have any way of naming specific audio files to be loaded for specific tracks. Instead, it uses the reserved file names listed [here](../Audio%20Files.md).
 
+### Metadata
+
+Song metadata is not stored within the .mid file itself. Instead, an accompanying song.ini file is used, the infrastructure for which is detailed [here](../song.ini/Core%20Infrastructure.md).
+
 ### Track Names
 
 Tracks are identified by their track name meta event, which is the first event of each track.
@@ -274,10 +278,6 @@ Some instruments don't adhere to these ranges though, and may use more ranges, d
 Tracks may contain other data in the notes outside of the difficulty ranges. These can be anything from animation data to modifiers that apply across the whole track.
 
 Typically, the top two octaves plus the few notes above it (notes 109-127) are reserved for this miscellaneous track data. Various notes below the difficulty ranges are often used as well.
-
-### Metadata
-
-Song metadata is not stored within any tracks. Instead, an accompanying song.ini file is used, the infrastructure for which is detailed [here](../song.ini/Core%20Infrastructure.md).
 
 Note that some song.ini tags affect how chart files should be parsed. These will be noted where relevant.
 
