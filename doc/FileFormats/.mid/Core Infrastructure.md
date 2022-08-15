@@ -322,7 +322,7 @@ The format they defined is as follows:
   | `0x01` | Medium                                                                           |
   | `0x02` | Hard                                                                             |
   | `0x03` | Expert                                                                           |
-  | `0xFF` | All difficulties<br>This value violates MIDI specs.<!-- Thanks, Phase Shift. --> |
+  | `0xFF` | All difficulties<br>This value is only known to appear on the tap note event, it should be considered invalid for other events. |
 
 - `Modifier` is the modification that the event applies.
 
