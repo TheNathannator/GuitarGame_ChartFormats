@@ -120,23 +120,35 @@ Any games/programs that want to add custom types should reserve the next set of 
 
 ### Note and Modifier Types
 
-| Note Type | Description                 |
-| :-------: | :----------                 |
-| Notes     |                             |
-| 0         | Kick                        |
-| 1         | Red                         |
-| 2         | Yellow                      |
-| 3         | Blue                        |
-| 4         | 5-lane Orange, 4-lane Green |
-| 5         | 5-lane Green                |
-| 32        | Expert+ kick / 2x kick      |
-|           |                             |
-| Cymbals   |                             |
-| 66        | Yellow cymbal modifier      |
-| 67        | Blue cymbal modifier        |
-| 68        | Green cymbal modifier       |
-|           |                             |
-| ??        | Accent and ghost modifiers  |
+| Note Type | Description                                 |
+| :-------: | :----------                                 |
+| Notes     |                                             |
+| 0         | Kick                                        |
+| 1         | Red                                         |
+| 2         | Yellow                                      |
+| 3         | Blue                                        |
+| 4         | 5-lane Orange, 4-lane Green                 |
+| 5         | 5-lane Green                                |
+| 32        | Expert+ kick / 2x kick                      |
+|           |                                             |
+| Accents   |                                             |
+| 34        | Red accent modifier                         |
+| 35        | Yellow accent modifier                      |
+| 36        | Blue accent modifier                        |
+| 37        | 5-lane Orange, 4-lane Green accent modifier |
+| 38        | 5-lane Green accent modifier                |
+|           |                                             |
+| Ghosts    |                                             |
+| 40        | Red ghost modifier                          |
+| 41        | Yellow ghost modifier                       |
+| 42        | Blue ghost modifier                         |
+| 43        | 5-lane Orange, 4-lane Green ghost modifier  |
+| 44        | 5-lane Green ghost modifier                 |
+|           |                                             |
+| Cymbals   |                                             |
+| 66        | Yellow cymbal modifier                      |
+| 67        | Blue cymbal modifier                        |
+| 68        | Green cymbal modifier                       |
 
 #### 4-Lane Note Mechanics
 
@@ -144,7 +156,7 @@ Any games/programs that want to add custom types should reserve the next set of 
 
 Expert+ / 2x kick notes are carried over from 5-lane. They are used for kicks faster than around 5-6 kicks per second (most commonly double-kick pedal sections), though there is some nuance to this regarding how long the kick sections last. These are used by alternating these faster kicks between normal kick notes and 2x Kick notes, to make double-kick notes opt-in and allow charts to be feasibly playable on kicks with only a single pedal.
 
-Accent and ghost notes are also carried over from 5-lane. They are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points. They have not been added to .chart yet, but they are planned.
+Accent and ghost notes are also carried over from 5-lane. They are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points.
 
 #### 5-Lane Note Mechanics
 
@@ -154,7 +166,7 @@ Drum sustains are used for imprecise/indiscernible fast rhythms such as drum rol
 
 Expert+ / 2x kick notes are used for kicks faster than around 5-6 kicks per second (most commonly double-kick pedal sections), though there is some nuance to this regarding how long the kick sections last. These are used by alternating these faster kicks between normal kick notes and 2x Kick notes, to make double-kick notes opt-in and allow charts to be feasibly playable on kicks with only a single pedal.
 
-Accent and ghost notes are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points. They have not been added to .chart yet, but they are planned.
+Accent and ghost notes are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points.
 
 ### Special Phrase Types
 
@@ -165,7 +177,8 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 | 64           | Drums Star Power activation phrase |
 |              |                                    |
 | Roll lanes   |                                    |
-| ??           | Drum roll markers                  |
+| 65           | 1-lane roll marker                 |
+| 66           | 2-lane roll marker                 |
 
 #### Special Phrase Mechanics
 
@@ -178,7 +191,7 @@ Star Power activation phrases mark a section of a song as an activation point, t
   - The note can either be generated at the exact end-point (overriding the existing notes), or can be an existing note in the chart which is both within the phrase, and closest to the end of the phrase (heed the note about the inclusion of the last tick as part of the phrase, as this phrase is usually marked across an entire measure or two without going slightly into the measure ahead of it).
 - Optionally, the length of the phrase may also be used to replicate the original freestyle fill feature from Rock Band that this phrase emulates.
 
-Roll lanes are a 4-lane mechanic used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes. This threshold can be either a static time threshold, or it can be based off of the actual charted notes. They have not been added to .chart yet, but they are planned.
+Roll lanes are a 4-lane mechanic used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes. This threshold can be either a static time threshold, or it can be based off of the actual charted notes.
 
 - Roll lanes are not specific to any lanes, rather they are applied dynamically to a lane based on the notes that are present.
 - There are two variants of roll lanes: single-lane, and double-lane.
