@@ -133,9 +133,9 @@ Value types used throughout these .chart documents are as follows:
 | Value type    | Description                                                                                                         |
 | :---------    | :----------                                                                                                         |
 | `number`      | An integer number written in base 10.                                                                               |
-| `decimal`     | A decimal-allowing number written in base 10.                                                                       |
+| `decimal`     | A decimal-allowing number written in base 10.<br>Should use a period/full stop `.` as the decimal place.            |
 | `string`      | Any amount of text surrounded by quotes.                                                                            |
-| `bare string` | Any amount of text *not* surrounded by quotes.                                                                      |
+| `bare string` | Any amount of text *not* surrounded by quotes, which also does not contain spaces.                                  |
 | `boolean`     | Either `true` or `false`.                                                                                           |
 | `file path`   | A file path surrounded by quotes.<br>Can be either relative to the chart file, or absolute to the OS's file system. |
 
