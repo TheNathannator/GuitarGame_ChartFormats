@@ -27,8 +27,6 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `preview_start_time` | Timestamp in milliseconds where the song preview starts.                                      | number      |
 | `preview_end_time`   | (May not actually exist) Timestamp in milliseconds that the preview should stop at.           | number      |
 | `preview`            | (PS) Two timestamps in milliseconds for preview start and end time.<br>Example: `55000 85000` | two numbers |
-| `video_start_time`   | Timestamp in milliseconds where playback of an included video will start. Can be negative.<br>This tag controls the time relative to the video, not relative to the chart. Negative values will delay the video, positive values will make the video be at a further point in when the chart starts. | number      |
-| `video_end_time`     | Timestamp in milliseconds where playback of an included video will end.                       | number      |
 |                      |                                                                                               |             |
 | `modchart`           | (CH) Indicates if this song is a modchart, for sorting purposes only.                         | boolean     |
 | `lyrics`             | Indicates if the song has lyrics or not.                                                      | boolean     |
@@ -126,6 +124,8 @@ These tags affect the parsing or configuration of a chart.
 | `background`    | Name/path for a background image file.     | file name |
 | `video`         | Name/path for a background video file.     | file name |
 | `video_loop`    | Sets whether or not the video should loop. | boolean   |
+| `video_start_time` | Timestamp in milliseconds where playback of an included video will start. Can be negative.<br>This tag controls the time relative to the video, not relative to the chart. Negative values will delay the video, positive values will make the video be at a further point in when the chart starts. | number      |
+| `video_end_time`   | Timestamp in milliseconds where playback of an included video will end.<br>This is assumed to also be relative to the video, not the chart. | number      |
 | `cover`         | Name/path for a cover image file.          | file name |
 | `link_name_a`   | Name for banner A.                         | string    |
 | `banner_link_a` | Link that clicking banner A will open.     | string    |
