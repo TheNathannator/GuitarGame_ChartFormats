@@ -48,9 +48,12 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `diff_guitar`         | Lead Guitar difficulty.         | number    |
 | `diff_guitarghl`      | 6-Fret Lead difficulty.         | number    |
 | `diff_guitar_coop`    | Guitar Co-op difficulty.        | number    |
+| `diff_coop`           | Guitar Co-op difficulty for CH. | number    |
+| `diff_coopghl`        | 6-Fret Guitar Co-op difficulty. | number    |
 | `diff_guitar_real`    | Pro Guitar difficulty.          | number    |
 | `diff_guitar_real_22` | Pro Guitar 22-fret difficulty.  | number    |
 | `diff_rhythm`         | Rhythm Guitar difficulty.       | number    |
+| `diff_rhythmghl`      | 6-Fret Rhythm Guitar difficulty.| number    |
 |                       |                                 |           |
 | `diff_bass`           | Bass Guitar difficulty.         | number    |
 | `diff_bassghl`        | 6-Fret Bass difficulty.         | number    |
