@@ -33,6 +33,8 @@ This document lays out the core infrastructure of the .chart format. To keep the
   - [Special Phrases](#special-phrases)
   - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Local Events](#local-events)
+- [Miscellaneous Notes](#miscellaneous-notes)
+  - [Time Conversion Formulas](#time-conversion-formulas)
 - [References](#references)
 
 ## Brief History
@@ -423,6 +425,52 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 - `Text` is a *bare* string that contains the event data.
 
 Much like how global events disallow quotation marks in their text, spaces are not allowed in local events since values in section data are space-separated. However, there are likely charts with spaces in local events out there somewhere that necessitate the ability to parse these events properly, or at least reject the chart when it occurs.
+
+## Miscellaneous Notes
+
+### Time Conversion Formulas
+
+If the tempo of a chart is constant, you may use these formulas to get the time or ticks of any note within the chart:
+
+- Ticks to time:
+
+  $$
+  seconds = {60 \over BPM} \times {ticks \over resolution}
+  $$
+
+  Breakdown of the formula:
+  - ${seconds \over minute} = 60$
+  - ${seconds \over beat} = {{seconds \over minute} ÷ BPM}$
+  - $current beat = {tick \over resolution}$
+  - $seconds = {seconds \over beat} \times current beat$
+
+- Time to ticks:
+
+  $$
+  ticks = seconds ÷ {60 \over BPM} \times resolution
+  $$
+
+  Breakdown of the formula:
+  - ${seconds \over minute} = 60$
+  - ${seconds \over beat} = {seconds \over minute} ÷ BPM$
+  - $current beat = seconds ÷ {seconds \over beat}$
+  - $ticks = current beat \times resolution$
+
+In a large amount of cases though, the tempo won't be constant. For these, you'll need to instead go over the whole chart and calculate the difference in time between each note as you go:
+
+$$
+\Delta seconds = {60 \over current BPM} \times {current tick - previous tick \over resolution}
+$$
+
+Breakdown of the formula:
+
+- ${seconds \over minute} = 60$
+- ${seconds \over beat} = {seconds \over minute} ÷ current BPM$
+- $\Delta ticks = current tick - previous tick$
+- $\Delta beat = {\Delta ticks \over resolution}$
+- $\Delta seconds = {seconds \over beat} \times \Delta beat$
+
+If a tempo change happens at the same time as other events, that tempo change should not be used for those events and the previous should be used instead.
 
 ## References
 
