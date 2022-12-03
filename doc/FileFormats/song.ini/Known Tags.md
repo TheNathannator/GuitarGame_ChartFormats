@@ -4,6 +4,15 @@ There are *many* tags in existence, so listing them all in one place is rather d
 
 In the descriptions, game names in parentheses indicate where the tag originates from if it is either specific to a game, is more specialized, or is a legacy tag. FoFiX stands for Frets on Fire X, PS stands for Phase Shift, and CH stands for Clone Hero.
 
+## Table of Contents
+
+- [Song/Chart Metadata](#songchart-metadata)
+- [Track Difficulties](#track-difficulties)
+- [Chart Properties](#chart-properties)
+- [Images/Other Resources](#imagesother-resources)
+- [Miscellaneous](#miscellaneous)
+- [Resources](#resources)
+
 ## Song/Chart Metadata
 
 | Tag Name             | Description                                                                                   | Data type   |

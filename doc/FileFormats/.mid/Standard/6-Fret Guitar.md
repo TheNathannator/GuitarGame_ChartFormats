@@ -6,7 +6,7 @@
 - [Track Notes](#track-notes)
   - [Note Mechanics](#note-mechanics)
   - [Phrase Mechanics](#phrase-mechanics)
-- [SysEx Events](#sysex-events)
+- [Track SysEx Events](#track-sysex-events)
   - [SysEx Event Mechanics](#sysex-event-mechanics)
 
 ## Track Names
@@ -69,15 +69,6 @@
 | 59        | Easy White 1 (4th lane)   |
 | 58        | Easy Open                 |
 
-## Track SysEx Events
-
-These are carried over from 5-fret guitar.
-
-| Modifier | Description |
-| :------: | :---------- |
-| `0x01`   | Open note   |
-| `0x04`   | Tap note    |
-
 ### Note Mechanics
 
 Notes are strum notes by default. They get turned into HOPOs (hammer-ons/pull-offs) automatically if they are close enough to the previous note, unless they are the same lane as the previous note, or are a chord. In .mid, the default threshold is `(<chart resolution> / 3) + 1` ticks, rounded down (the additional tick is for leniency, since some charts work better with it).
@@ -101,6 +92,15 @@ Star Power phrases mark sections of the chart where the player may gain Star Pow
 Solo markers designate sections of the song where a part in the song is playing a solo. These sections display a percentage of notes hit, and award bonus points at the end of the solo based on the percentage of notes hit.
 
 - The backwards-compatibility needs of 5-fret guitar are not present in 6-fret guitar.
+
+## Track SysEx Events
+
+These are carried over from 5-fret guitar.
+
+| Modifier | Description |
+| :------: | :---------- |
+| `0x01`   | Open note   |
+| `0x04`   | Tap note    |
 
 ### SysEx Event Mechanics
 

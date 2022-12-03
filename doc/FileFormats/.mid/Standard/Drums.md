@@ -2,8 +2,8 @@
 
 ## Table of Contents
 
-- [Drums Tracks](#drums-tracks)
-- [Drums Notes](#drums-notes)
+- [Track Names](#track-names)
+- [Track Notes](#track-notes)
   - [4-Lane Note Mechanics](#4-lane-note-mechanics)
   - [4-Lane Phrase Mechanics](#4-lane-phrase-mechanics)
   - [5-Lane Note Mechanics](#5-lane-note-mechanics)
@@ -12,14 +12,14 @@
 - [Track Type Determining](#track-type-determining)
 - [Track Type Conversions](#track-type-conversions)
 
-## Drums Tracks
+## Track Names
 
 - `PART DRUMS` - Standard 4-Lane, 4-Lane Pro, and 5-Lane Drums
 - `PART DRUM` - Alternate track to `PART DRUMS` that FoFiX supports
 - `PART DRUMS_2X` - RBN 2x Kick drums chart
 - `PART REAL_DRUMS_PS` - Phase Shift's Real Drums
 
-## Drums Notes
+## Track Notes
 
 | MIDI Note | Description                                  |
 | :-------: | :----------                                  |
@@ -72,14 +72,6 @@
 | 62        | Easy Yellow (2nd lane)                       |
 | 61        | Easy Red (1st lane)                          |
 | 60        | Easy Kick                                    |
-
-## Important Text Events
-
-| Event Text                         | Description                         |
-| :---------                         | :----------                         |
-| `[ENABLE_CHART_DYNAMICS]`          | Enables accent/ghost marking.       |
-| `ENABLE_CHART_DYNAMICS`            | Non-bracketed version of the above. |
-| `[mix <diff> drums<config><flag>]` | Sets a stem configuration for drums.<br>Can be found both with or without brackets, and with either spaces or underscores. |
 
 ### 4-Lane Note Mechanics
 
@@ -134,6 +126,14 @@ Drum sustains are used for imprecise/indiscernible rhythms such as drum rolls or
 Expert+ / 2x kick notes are used for fast kicks that require a second pedal to play. 2x Kick notes should be opt-in, as they exist to allow someone with a single pedal to play a chart that would otherwise require two. When enabled, they are equivalent to normal kicks.
 
 Accent and ghost notes are notes that notate relatively louder or quieter notes within the section. Hitting them correctly is optional, and typically just grants bonus points.
+
+## Important Text Events
+
+| Event Text                         | Description                         |
+| :---------                         | :----------                         |
+| `[ENABLE_CHART_DYNAMICS]`          | Enables accent/ghost marking.       |
+| `ENABLE_CHART_DYNAMICS`            | Non-bracketed version of the above. |
+| `[mix <diff> drums<config><flag>]` | Sets a stem configuration for drums.<br>Can be found both with or without brackets, and with either spaces or underscores. |
 
 ### Mix Event Details
 

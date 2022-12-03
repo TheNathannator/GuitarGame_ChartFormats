@@ -8,13 +8,6 @@ song.ini files are used for storing song metadata. Originally they were used for
   - [Header](#header)
   - [Tags](#tags)
   - [Comments](#comments)
-- [Known Tags](#known-tags)
-  - [Song/Chart Metadata](#songchart-metadata)
-  - [Track Difficulties](#track-difficulties)
-  - [Chart Properties](#chart-properties)
-  - [Images/Other Resources](#imagesother-resources)
-  - [Miscellaneous](#miscellaneous)
-- [Resources](#resources)
 
 ## Basic Structure
 

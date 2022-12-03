@@ -17,6 +17,7 @@ This document lays out the core infrastructure of the .chart format. To keep the
   - [Section Names](#section-names)
 - [Song Section Details](#song-section-details)
   - [Basic Metadata](#basic-metadata)
+  - [Audio Files](#audio-files)
   - [song.ini](#songini)
   - [Song Section Example](#song-section-example)
 - [SyncTrack Section Details](#synctrack-section-details)

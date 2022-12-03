@@ -1,22 +1,24 @@
-# 6-Fret Guitar in .chart
+# Vocals in .mid
 
 ## Table of Contents
 
-- [Vocals Tracks](#vocals-tracks)
-- [Vocals Notes](#vocals-notes)
-- [Vocals Lyrics](#vocals-lyrics)
-  - [Lyrics Markup](#lyrics-markup)
-- [Vocals Phrase Mechanics](#vocals-phrase-mechanics)
-- [Vocals Text Events](#vocals-text-events)
+- [Track Names](#track-names)
+- [Track Notes](#track-notes)
+  - [Phrase Mechanics](#phrase-mechanics)
+- [Text Events](#text-events)
+  - [Lyrics](#lyrics)
+    - [Lyrics Markup](#lyrics-markup)
+    - [Displaying in Vocals Gameplay](#displaying-in-vocals-gameplay)
+    - [Displaying as Plain Text](#displaying-as-plain-text)
 
-## Vocals Tracks
+## Track Names
 
 - `PART VOCALS` - Standard vocals track
 - `HARM1` - Harmonies track 1
 - `HARM2` - Harmonies track 2
 - `HARM3` - Harmonies track 3
 
-## Vocals Notes
+## Track Notes
 
 | MIDI Note  | Description                   |
 | :-------:  | :----------                   |
@@ -84,13 +86,7 @@
 | 1          | Lyric Shift                   |
 | 0          | Range Shift                   |
 
-## Vocals Text Events
-
-| Event Text      | Description                                                                                    |
-| :---------      | :----------                                                                                    |
-| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
-
-## Vocals Phrase Mechanics
+### Phrase Mechanics
 
 Star Power phrases mark sections of the chart where the player may gain Star Power. When Star Power is activated, points gained are doubled (this applies on top of the standard combo multiplier), and health gained drastically increases.
 
@@ -102,7 +98,13 @@ Range shift markers set points at which the note display should re-calculate the
 
 The player 1 and 2 phrases designate a section of the song to be sung by a specific player in certain 2-player versus modes. During player 1 phrases, only player 1 sings the song, and during player 2 phrases, only player 2 sings the song. Both phrases can occur at the same time to make both players play at the same time.
 
-### Vocals Lyrics
+## Text Events
+
+| Event Text      | Description                                                                                    |
+| :---------      | :----------                                                                                    |
+| `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
+
+### Lyrics
 
 Lyrics are stored as meta events (usually text or lyric), usually paired up with notes in the 36 to 84 range to determine pitch.
 
@@ -114,7 +116,7 @@ Lyric phrases are marked using either note 105 or note 106, or both at the same 
 - The two separate phrase markers was done in Rock Band to handle competitive modes where two players playing the same part take turns playing the part, with sections where they both play at the same time. These modes were dropped in Rock Band 3 however, and thus the main phrase marker is note 105.
 - For harmonies, the `HARM1` phrase is used for all 3 harmony tracks. The `HARM2` phrase is used to mark when harmony 2/3 lyrics shift in static vocals, and it must cover all notes in `HARM3`. Phrase markers are not used in `HARM3`.
 
-### Lyrics Markup
+#### Lyrics Markup
 
 | Name           | Symbol | Description                                                                                       |
 | :---           | :----: | :----------                                                                                       |
@@ -133,7 +135,7 @@ Lyric phrases are marked using either note 105 or note 106, or both at the same 
 
 Static lyrics refers to a setting where the notes scroll across the screen as normal, but lyrics are displayed in a constant position, only scrolling when a phrase has been completed or a shift point has been hit.
 
-### Displaying in Vocals Gameplay
+#### Displaying in Vocals Gameplay
 
 | Name           | Symbol | Action                                                                              |
 | :---           | :----: | :----------                                                                         |
@@ -152,7 +154,7 @@ Static lyrics refers to a setting where the notes scroll across the screen as no
 
 Syllables should not be joined together when using scrolling lyrics, but should be when using static lyrics.
 
-### Displaying as Plain Text
+#### Displaying as Plain Text
 
 | Name           | Symbol | Action                                                                         |
 | :---           | :----: | :----------                                                                    |
