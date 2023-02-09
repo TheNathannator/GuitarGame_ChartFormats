@@ -32,19 +32,19 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `track`              | Same as `album_track`.                                                                        | number      |
 | `playlist_track`     | Track number of the song within the playlist/setlist it's from.                               | number      |
 |                      |                                                                                               |             |
-| `song_length`        | Length of the song's audio in milliseconds.<br>Only meant as metadata, don't rely on this.    | number      |
+| `song_length`        | Length of the song's audio in milliseconds.<br>Metadata only, don't rely on this.             | number      |
 | `preview_start_time` | Timestamp in milliseconds where the song preview starts.                                      | number      |
-| `preview_end_time`   | (May not actually exist) Timestamp in milliseconds that the preview should stop at.           | number      |
+| `preview_end_time`   | Timestamp in milliseconds that the preview should stop at.                                    | number      |
 | `preview`            | (PS) Two timestamps in milliseconds for preview start and end time.<br>Example: `55000 85000` | two numbers |
 |                      |                                                                                               |             |
-| `modchart`           | (CH) Indicates if this song is a modchart, for sorting purposes only.                         | boolean     |
-| `lyrics`             | Indicates if the song has lyrics or not.                                                      | boolean     |
+| `modchart`           | Indicates if this song is a modchart.<br>Metadata only, don't rely on this.                   | boolean     |
+| `lyrics`             | Indicates if the song has lyrics or not.<br>Metadata only, don't rely on this.                | boolean     |
 |                      |                                                                                               |             |
 | `loading_phrase`     | Flavor text for this song, usually shown after picking the song or during loading.            | string      |
 | `playlist`           | (CH) Playlist that the song should show up in.                                                | string      |
 | `sub_playlist`       | (CH) Sub-playlist that the song should show up in.                                            | string      |
 | `cassettecolor`      | (FoFiX) Hex color to use in the song screen for the cassette.                                 | hex color   |
-| `tags`               | (FoFiX) Name is unclear, known use is to mark a song as a cover and have `As made famous by` display next to the artist name.<br>Only known valid value is `cover`. | string |
+| `tags`               | (FoFiX) Miscellaneous tags for the chart.<br>Only known valid value is `cover`. | string |
 
 ## Track Difficulties
 

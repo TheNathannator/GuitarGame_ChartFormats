@@ -251,7 +251,7 @@ Instrument track names usually follow a basic nomenclature of `PART <instrument 
 
 Other tracks have no typical nomenclature, and just have a specific name.
 
-Since any track name can be used for a track, unknown tracks should be ignored.
+Since any name can be used for a track, unknown tracks should be ignored.
 
 ### Track Events
 

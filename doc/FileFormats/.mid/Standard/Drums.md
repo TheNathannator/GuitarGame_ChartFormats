@@ -17,6 +17,7 @@
 - `PART DRUMS` - Standard 4-Lane, 4-Lane Pro, and 5-Lane Drums
 - `PART DRUM` - Alternate track to `PART DRUMS` that FoFiX supports
 - `PART DRUMS_2X` - RBN 2x Kick drums chart
+  - This shouldn't normally be present, it's intended for more easily creating 1x kick and 2x kick versions of a song since Rock Band doesn't have proper 2x kick support.
 - `PART REAL_DRUMS_PS` - Phase Shift's Real Drums
 
 ## Track Notes
