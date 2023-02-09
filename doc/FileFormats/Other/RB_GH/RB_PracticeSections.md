@@ -1,20 +1,44 @@
 # Rock Band Network 2 Practice Sections
 
-Here is a *gargantuan* list of practice mode section names found in Rock Band charts, along with the in-game names they get converted to, sorted alphabetically by event name.
+Here is a *gargantuan* list of practice mode section names, along with the in-game names they get converted to, from the Rock Band series. They are sorted alphanumerically by event name, with some contextual grouping applied as well.
 
-Largely sourced from a [C3/RBN Docs page](http://docs.c3universe.com/rbndocs/index.php?title=All_Practice_Sections), the rest are taken from one of the game's files.
+Largely sourced from a [C3/RBN Docs page](http://docs.c3universe.com/rbndocs/index.php?title=All_Practice_Sections), the rest are more specialized and only found in the game files.
 
-For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings in names are verbatim from the game, indicated by `(sic)` next to the name. Also note that some of these events have the same event names as ones from Guitar Hero 2, but have different in-game names.
+For best usability, these section names should be checked for in both `[section <name>]` and `[prc_<name>]` events, with and without brackets. Any misspellings or inconsistencies in names are verbatim from the game, indicated by "(sic)" next to the name. Also note that some of these events have the same event names as ones from Guitar Hero 2, but have different in-game names.
 
-This document is likely missing some section names here and there, feel free to add any that are missing.
+Some section names may be missing here and there, feel free to add any that are missing.
 
 Format of this document:
 
 - `event_name_without_brackets_or_prc/section` - "In-game name"
 
-## Main List
+## Table of Contents
 
-### A
+- [A](#a)
+- [B](#b)
+- [C](#c)
+- [D](#d)
+- [E](#e)
+- [F](#f)
+- [G](#g)
+- [H](#h)
+- [I](#i)
+- [J](#j)
+- [K](#k)
+- [L](#l)
+- [M](#m)
+- [N](#n)
+- [O](#o)
+- [P](#p)
+- [Q](#q)
+- [R](#r)
+- [S](#s)
+- [T](#t)
+- [U](#u)
+- [V](#v)
+- [Y](#y)
+
+## A
 
 - `a` - "A section"
 - `a1` - "A section 1"
@@ -39,7 +63,7 @@ Format of this document:
 - `alt_verse_c` - "Alt verse c"
 - `alt_verse_d` - "Alt verse d"
 
-### B
+## B
 
 - `b` - "B section"
 - `b1` - "B section 1"
@@ -234,12 +258,12 @@ Format of this document:
 - `breakdown_a` - "Breakdown a"
 - `breakdown_b` - "Breakdown b"
 - `breakdown_c` - "Breakdown c"
+- `breakdown_d` - "Breakdown d"
 - `breakdown_chorus` - "Breakdown chorus"
 - `breakdown_chorus_a` - "Breakdown chorus a"
 - `breakdown_chorus_b` - "Breakdown chorus b"
 - `breakdown_chorus_c` - "Breakdown chorus c"
 - `breakdown_chorus_d` - "Breakdown chorus d"
-- `breakdown_d` - "Breakdown d"
 - `bridge_1` - "Bridge 1"
 - `bridge_1a` - "Bridge 1a"
 - `bridge_1b` - "Bridge 1b"
@@ -317,7 +341,7 @@ Format of this document:
 - `build_up_d` - "Build up d"
 - `buildup` - "Build up"
 
-### C
+## C
 
 - `c` - "C section"
 - `c1` - "C section 1"
@@ -402,13 +426,13 @@ Format of this document:
 - `chorus_9d` - "Chorus 9d"
 - `chorus_a` - "Chorus a"
 - `chorus_b` - "Chorus b"
+- `chorus_c` - "Chorus c"
+- `chorus_d` - "Chorus d"
 - `chorus_break` - "Chorus break"
 - `chorus_break_a` - "Chorus break a"
 - `chorus_break_b` - "Chorus break b"
 - `chorus_break_c` - "Chorus break c"
 - `chorus_break_d` - "Chorus break d"
-- `chorus_c` - "Chorus c"
-- `chorus_d` - "Chorus d"
 - `chorus_riff` - "Chorus riff"
 - `chorus_riff_1` - "Chorus riff 1"
 - `chorus_riff_1a` - "Chorus riff 1a"
@@ -485,7 +509,7 @@ Format of this document:
 - `crescendo_c` - "Crescendo c"
 - `crescendo_d` - "Crescendo d"
 
-### D
+## D
 
 - `d` - "D section"
 - `d1` - "D section 1"
@@ -609,7 +633,7 @@ Format of this document:
 - `drum_solo_d` - "Drum solo d"
 - `drums_enter` - "Drums enter"
 
-### E
+## E
 
 - `e` - "E section"
 - `e1` - "E section 1"
@@ -627,7 +651,7 @@ Format of this document:
 - `ending_c` - "Ending c"
 - `ending_d` - "Ending d"
 
-### F
+## F
 
 - `f` - "F section"
 - `f1` - "F section 1"
@@ -726,7 +750,7 @@ Format of this document:
 - `flute_solo_d` - "Flute solo d"
 - `foreplay_intro` - "Foreplay intro"
 
-### G
+## G
 
 - `g` - "G section"
 - `g1` - "G section 1"
@@ -1102,7 +1126,7 @@ Format of this document:
 - `gtr_solo_r` - "Gtr solo r"
 - `gtr_solo_s` - "Gtr solo s"
 
-### H
+## H
 
 - `h` - "H section"
 - `h1` - "H section 1"
@@ -1276,7 +1300,7 @@ Format of this document:
 - `horn_solo_c` - "Horn solo c"
 - `horn_solo_d` - "Horn solo d"
 
-### I
+## I
 
 - `i` - "I section"
 - `i1` - "I section 1"
@@ -1317,13 +1341,13 @@ Format of this document:
 - `intro_a` - "Intro a"
 - `intro_b` - "Intro b"
 - `intro_c` - "Intro c"
+- `intro_d` - "Intro d"
+- `intro_e` - "Intro e"
 - `intro_chorus` - "Intro chorus"
 - `intro_chorus_a` - "Intro chorus a"
 - `intro_chorus_b` - "Intro chorus b"
 - `intro_chorus_c` - "Intro chorus c"
 - `intro_chorus_d` - "Intro chorus d"
-- `intro_d` - "Intro d"
-- `intro_e` - "Intro e"
 - `intro_fast` - "Intro fast"
 - `intro_fast_a` - "Intro fast a"
 - `intro_fast_b` - "Intro fast b"
@@ -1356,7 +1380,7 @@ Format of this document:
 - `intro_verse_c` - "Intro verse c"
 - `intro_verse_d` - "Intro verse d"
 
-### J
+## J
 
 - `j` - "J section"
 - `j1` - "J section 1"
@@ -1394,7 +1418,7 @@ Format of this document:
 - `jam_c` - "Jam c"
 - `jam_d` - "Jam d"
 
-### K
+## K
 
 - `k` - "K section"
 - `k1` - "K section 1"
@@ -1465,7 +1489,7 @@ Format of this document:
 - `kick_it` - "Kick It!"
 - `kybd_intro` - "Keyboard intro"
 
-### L
+## L
 
 - `lo_melody` - "Low melody"
 - `lo_melody_1` - "Low melody 1"
@@ -1492,7 +1516,7 @@ Format of this document:
 - `lo_melody_b` - "Low melody b"
 - `lo_melody_c` - "Low melody c"
 - `lo_melody_d` - "Low melody d"
-- `longtome_intro` - "Long Time intro"
+- `longtome_intro` (sic) - "Long Time intro"
 - `loud_part` - "Loud part"
 - `loud_part_1` - "Loud part 1"
 - `loud_part_1a` - "Loud part 1a"
@@ -1519,7 +1543,7 @@ Format of this document:
 - `loud_part_c` - "Loud part c"
 - `loud_part_d` - "Loud part d"
 
-### M
+## M
 
 - `main_riff` - "Main riff"
 - `main_riff_1` - "Main riff 1"
@@ -1605,7 +1629,7 @@ Format of this document:
 - `melody_c` - "Melody c"
 - `melody_d` - "Melody d"
 
-### N
+## N
 
 - `noise_solo` - "Noise solo"
 - `noise_build` - "Noise build"
@@ -1639,7 +1663,7 @@ Format of this document:
 - `noise_solo_c` - "Noise solo c"
 - `noise_solo_d` - "Noise solo d"
 
-### O
+## O
 
 - `odd_riff` - "Odd riff"
 - `odd_riff_1` - "Odd riff 1"
@@ -1776,20 +1800,20 @@ Format of this document:
 - `outro_a` - "Outro a"
 - `outro_b` - "Outro b"
 - `outro_c` - "Outro c"
+- `outro_d` - "Outro d"
+- `outro_e` - "Outro e"
 - `outro_chorus` - "Outro chorus"
 - `outro_chorus_a` - "Outro chorus a"
 - `outro_chorus_b` - "Outro chorus b"
 - `outro_chorus_c` - "Outro chorus c"
 - `outro_chorus_d` - "Outro chorus d"
-- `outro_d` - "Outro d"
-- `outro_e` - "Outro e"
 - `outro_solo` - "Outro solo"
 - `outro_solo_a` - "Outro solo a"
 - `outro_solo_b` - "Outro solo b"
 - `outro_solo_c` - "Outro solo c"
 - `outro_solo_d` - "Outro solo d"
 
-### P
+## P
 
 - `perc_break` - "Percussion break"
 - `perc_solo` - "Percussion solo"
@@ -2019,7 +2043,7 @@ Format of this document:
 - `preverse_c` - "Pre-verse c"
 - `preverse_d` - "Pre-verse d"
 
-### Q
+## Q
 
 - `quiet_intro` - "Quiet intro"
 - `quiet_intro_a` - "Quiet intro a"
@@ -2057,7 +2081,7 @@ Format of this document:
 - `quiet_verse_c` - "Quiet verse c"
 - `quiet_verse_d` - "Quiet verse d"
 
-### R
+## R
 
 - `release` - "Release"
 - `release_1` - "Release 1"
@@ -2086,7 +2110,7 @@ Format of this document:
 - `release_d` - "Release d"
 - `rhy_enters` - "Gtr2 enters"
 
-### S
+## S
 
 - `sax_solo` - "Sax solo"
 - `sax_solo_1` - "Sax solo 1"
@@ -2264,7 +2288,7 @@ Format of this document:
 - `spacey_part_b` - "Spacey part b"
 - `spacey_part_c` - "Spacey part c"
 - `spacey_part_d` - "Spacey part d"
-- `speed_picking` - "Fast picking"
+- `speed_picking` - "Fast picking" (sic)
 - `speedup` - "Speed up"
 - `speed_up_1` - "Speed up 1"
 - `speed_up_1a` - "Speed up 1a"
@@ -2395,9 +2419,9 @@ Format of this document:
 - `synth_solo_b` - "Synth solo b"
 - `synth_solo_c` - "Synth solo c"
 - `synth_solo_d` - "Synth solo d"
-- `syth_enters` - "Synth enters"
+- `syth_enters` (sic) - "Synth enters"
 
-### T
+## T
 
 - `tension` - "Tension"
 - `tension_1` - "Tension 1"
@@ -2450,7 +2474,7 @@ Format of this document:
 - `trippy_part_c` - "Trippy part c"
 - `trippy_part_d` - "Trippy part d"
 
-### U
+## U
 
 - `ugc_section_10_0` - "0% - 10%"
 - `ugc_section_10_10` - "10% - 20%"
@@ -2468,6 +2492,7 @@ Format of this document:
 - `ugc_section_20_60` - "60% - 80%"
 - `ugc_section_20_80` - "80% - 100%"
 - `ugc_section_5_0` - "0% - 5%"
+- `ugc_section_5_5` - "5% - 10%"
 - `ugc_section_5_10` - "10% - 15%"
 - `ugc_section_5_15` - "15% - 20%"
 - `ugc_section_5_20` - "20% - 25%"
@@ -2476,7 +2501,6 @@ Format of this document:
 - `ugc_section_5_35` - "35% - 40%"
 - `ugc_section_5_40` - "40% - 45%"
 - `ugc_section_5_45` - "45% - 50%"
-- `ugc_section_5_5` - "5% - 10%"
 - `ugc_section_5_50` - "50% - 55%"
 - `ugc_section_5_55` - "55% - 60%"
 - `ugc_section_5_60` - "60% - 65%"
@@ -2488,7 +2512,7 @@ Format of this document:
 - `ugc_section_5_90` - "90% - 95%"
 - `ugc_section_5_95` - "95% - 100%"
 
-### V
+## V
 
 - `vamp` - "Vamp"
 - `vamp_1` - "Vamp 1"
@@ -2635,8 +2659,6 @@ Format of this document:
 - `vocal_intro_c` - "Vocal intro c"
 - `vocal_intro_d` - "Vocal intro d"
 
-### Y
+## Y
 
 - `yeah` - "Yeah!"
-
-## Known Edge Cases
