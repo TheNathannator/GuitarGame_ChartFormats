@@ -23,6 +23,6 @@ This game read the entire .chart file format directly into the game, which made 
 Clone Hero would go on to implement its own mechanics into the .chart file format, such as the format for lyrics by mdsitton, Guitar Hero Live track data, and drums cymbal marking/SP activation phrases.
 
 Even today, the format continues to evolve.
-There are still features to add to reach full drums parity with the .mid chart format, and a new proposal for DJ Hero tracks within .chart files has been made from the DJ Hero community.
+There were new features added to bring drums to parity with what's available in the .mid format, and a new proposal for DJ Hero tracks within .chart files has been made from the DJ Hero community.
 Despite all this though, others have gripes with the format, and some want to create a new format free of the burdens of past mistakes, both of the format itself, and of specifications made for some of the tracks.
 The ultimate fate of the .chart format remains to be seen.
