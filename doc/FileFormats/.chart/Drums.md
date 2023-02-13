@@ -190,6 +190,7 @@ Star Power activation phrases mark a section of a song as an activation point, t
 - The length of the phrase is not important in its base functionality, rather, the end of the phrase is used to mark a note as an activation note that when hit will activate Star Power, and when missed will not break combo.
   - The note can either be generated at the exact end-point (overriding the existing notes), or can be an existing note in the chart which is both within the phrase, and closest to the end of the phrase (heed the note about the inclusion of the last tick as part of the phrase, as this phrase is usually marked across an entire measure or two without going slightly into the measure ahead of it).
 - Optionally, the length of the phrase may also be used to replicate the original freestyle fill feature from Rock Band that this phrase emulates.
+- These phrases can also be used to mark a Big Rock Ending phrase on drums by placing a `coda`/`[coda]` event on the global events track, though currently it is the only instrument that supports it.
 
 Roll lanes are a 4-lane mechanic used to make imprecise/indiscernible fast rhythms such as drum rolls or cymbal swells easier to play. They prevent overhitting and only require you to hit faster than a certain threshold to hit the charted notes. This threshold can be either a static time threshold, or it can be based off of the actual charted notes.
 
