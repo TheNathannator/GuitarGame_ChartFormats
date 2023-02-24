@@ -385,7 +385,7 @@ A special phrase usually does not apply to the tick immediately after the length
 
 ### Note, Modifier, and Special Phrase Type Divisions
 
-To help prevent issues with future additions to existing specifications creating nonsensical ordering for note/modifier/special types, it has been decided that going forward types should be divided into sections of 32 to help organize things. These divisions will be specified in each track type's document.
+To help prevent issues with future additions to existing specifications creating nonsensical ordering for note/modifier/special types, it was decided that going forward types should be divided into sections of 32 to help organize things. These divisions will be specified in each track type's document.
 
 ### Local Events
 

@@ -99,7 +99,7 @@ Fill markers are used to mark phrases in which a player can activate Star Power.
 
 - With the freestyle phrase option, a special activation note is placed at the end of the phrase. This note can require some hits in the freestyle phrase in order to appear.
 - With the static phrase option, either one of the existing notes in the phrase can be marked as an activation note, or the notes at the end can be replaced with a specific activation note.
-- Note that some charts may not have all 5 of the fill notes marked, notably charts exported to .mid with Moonscraper.<!-- TODO: Update this note once this is fixed in Moonscraper -->
+- Note that some charts may not have all 5 of the fill notes marked, notably charts exported to .mid with older versions of Moonscraper.
 
 Flam markers are used to mark single notes as flams. Marked notes can either require two hits to hit (that is, require that they be played as a flam), or be converted into Rock Band-style flams, where one note is turned into two notes right next each other.
 

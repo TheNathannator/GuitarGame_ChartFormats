@@ -230,7 +230,7 @@ To clarify some things said in these docs, some nomenclature will be defined her
 
 - "Note" refers to a MIDI event that specifies a note in the chart.
 - "MIDI note" refers to a Note On/Off event pair.
-- "Phrase" refers to an in-game mechanic that lasts for a duration.
+- "Phrase" refers to an in-game mechanic that lasts for a duration. Unless specified otherwise, phrases do not affect the tick they end on.
 - "Modifier" refers to an in-game mechanic that may modify one or more other events.
 - "Marker" refers to an event that specifies a phrase or modifier.
 - "Text event" refers to any meta event of type `0x01` through `0x0F`.
@@ -267,7 +267,7 @@ Usually, all difficulties of an instrument are contained within a single track. 
 
 The common difficulty note ranges are as follows:
 
-- Expert: 96-108
+- Expert: 96-107
 - Hard: 84-95
 - Medium: 72-83
 - Easy: 60-71

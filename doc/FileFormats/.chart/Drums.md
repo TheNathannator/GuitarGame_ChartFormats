@@ -211,7 +211,7 @@ These are far from the only local events that may be seen, these are just the on
 | `soloend`                                     | Ends a solo.<br>Any notes at the same position are included in the solo. |
 | `mix_<difficulty>_drums<configuration><flag>` | Sets a specific stem configuration for the chart, detailed below. |
 
-The `mix` event comes from Rock Band, and follows this format:
+The `mix` event comes from Rock Band. It's provided for parity with .mid, as there are additional flags that affect chart parsing or stem configuration beyond what can be automatically set up, and follows this format:
 
 `mix_<difficulty>_drums<configuration><flags>`
 
