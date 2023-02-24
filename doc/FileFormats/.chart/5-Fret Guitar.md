@@ -125,7 +125,7 @@ These are far from the only local events that may be seen, these are just the on
 | Event Name | Description    |
 | :--------- | :----------    |
 | `solo`     | Starts a solo. |
-| `soloend`  | Ends a solo.   |
+| `soloend`  | Ends a solo.<br>Any notes at the same position are included in the solo. |
 
 Other local events that can be found come from Guitar Hero or Rock Band charts.
 

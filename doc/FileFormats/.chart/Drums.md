@@ -208,7 +208,7 @@ These are far from the only local events that may be seen, these are just the on
 | Event Name                                    | Description                                                       |
 | :---------                                    | :----------                                                       |
 | `solo`                                        | Starts a solo.                                                    |
-| `soloend`                                     | Ends a solo.                                                      |
+| `soloend`                                     | Ends a solo.<br>Any notes at the same position are included in the solo. |
 | `mix_<difficulty>_drums<configuration><flag>` | Sets a specific stem configuration for the chart, detailed below. |
 
 The `mix` event comes from Rock Band, and follows this format:

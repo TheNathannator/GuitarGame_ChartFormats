@@ -101,7 +101,7 @@ These are far from the only local events that may be seen, these are just the on
 | Event Name | Description    |
 | :--------- | :----------    |
 | `solo`     | Starts a solo. |
-| `soloend`  | Ends a solo.   |
+| `soloend`  | Ends a solo.<br>Any notes at the same position are included in the solo. |
 
 These are remnants from the early days of Guitar Hero Live .chart charting. They are deprecated and were only used to be able to export to the .mid 6-fret format before .chart got its own 6-fret format. They should not be used for new charts.
 
