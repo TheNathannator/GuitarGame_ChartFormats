@@ -236,6 +236,7 @@ To clarify some things said in these docs, some nomenclature will be defined her
 - "Modifier" refers to an in-game mechanic that may modify one or more other events.
 - "Marker" refers to an event that specifies a phrase or modifier.
 - "Text event" refers to any meta event of type `0x01` through `0x0F`.
+- Any time `<angle brackets>` are used marks something that is not constant. The brackets are not part of the end result, they are used only as a variable name delimiter
 
 ### Audio Files
 
@@ -286,7 +287,7 @@ Note that some song.ini tags affect how chart files should be parsed. These will
 
 ### Text Events
 
-Text events refer to any meta events on a track. They are used to markup things that would be impractical to use notes for, such as venue parameters or character animation triggers. Typically, the text of these events are surrounded by \[square brackets\].
+Text events refer to any meta events on a track. They are used to markup things that would be impractical to use notes for, such as venue parameters or character animation triggers. Typically, the text of these events are surrounded by \[square brackets\]. For simplicity, only the bracketed versions are listed in text event listings.
 
 ### Global and Local Events
 
@@ -296,11 +297,11 @@ Local events are text events placed on an instrument track. These events affect 
 
 #### Basic Global Events
 
-| Event Text       | Description              |
-| :---------       | :----------              |
-| `section <name>` | Marks the start point of a section, used by Practice mode and post-game summary.<br>Note that some of these events may have an underscore `_` instead of a space before the section name. |
-| `prc_<name>`     | Same as the above.       |
-| `end`            | Marks the end of a song. |
+| Event Text         | Description              |
+| :---------         | :----------              |
+| `[section <name>]` | Marks the start point of a section, used by Practice mode and post-game summary.<br>Note that some of these events may have an underscore `_` instead of a space before the section name. |
+| `[prc_<name>]`     | Same as the above.       |
+| `[end]`            | Marks the end of a song. |
 
 ### Phase Shift SysEx Event Specification
 

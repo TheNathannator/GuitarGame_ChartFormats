@@ -91,7 +91,7 @@ Roll lanes are used to make imprecise/indiscernible rhythms such as drum rolls o
 - Roll lanes are not inherently specific to any lanes, rather they are applied dynamically to a lane based on the notes that are present, excluding kicks.
 - There are two variants of roll lanes:
   - Single-lane rolls are used for drum or cymbal rolls that only apply to a single lane at a time.
-  - Double-lane rolls are used for cymbal swells that alternate between two different lanes.
+  - Double-lane rolls are used when alternating between two different lanes.
 - If a single-lane roll starts on a chord (excluding kicks), the next non-chord note determines which lane the roll goes on.
 - Roll lanes only apply to Expert unless they are marked at a velocity between 50-41, in which case they apply to Hard as well.
 
@@ -110,7 +110,7 @@ The versus phrases designate a section of the chart to be played by a specific p
 
 Big Rock Endings (BREs) are freestyle phrases at the end of songs with so-called "big rock endings" where the band rocks out for a period of time before playing their final notes. These freestyle phrases let players gain bonus points by playing whatever they want during the phrase. Following the phrase is at least one note, which the player must hit in order to earn those bonus points. If they miss or overstrum, they lose the points.
 
-- The distinction between fils and BREs is that BREs are started by placing a `[coda]` text event on the `EVENTS` track.
+- The distinction between fills and BREs is that BREs are started by placing a `[coda]` text event on the `EVENTS` track.
 - The duration of the BRE markers determines how long the freestyle section will last. All 5 BRE notes must be used to mark the phrase.
 - After the freestyle phrase, there must be at least one note for the player to play. If no notes are present, the player cannot get their score.
 - Notes still need to be charted under Guitar and Bass BRE sections for the purpose of character animations. In general, notes should still be charted regardless because not every game supports BREs.
@@ -133,7 +133,6 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 | Event Text                         | Description                         |
 | :---------                         | :----------                         |
 | `[ENABLE_CHART_DYNAMICS]`          | Enables accent/ghost marking.       |
-| `ENABLE_CHART_DYNAMICS`            | Non-bracketed version of the above. |
 | `[mix <diff> drums<config><flag>]` | Sets a stem configuration for drums.<br>Can be found both with or without brackets, and with either spaces or underscores. |
 
 ### Mix Event Details

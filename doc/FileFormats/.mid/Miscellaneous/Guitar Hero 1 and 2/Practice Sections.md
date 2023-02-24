@@ -201,7 +201,6 @@ Section names are listed in this format:
 
 ## I
 
-- `i bridge` - "Bridge"
 - `intro` - "Intro"
 - `intro_a` - "Intro a"
 - `intro_and_verse1` - "Intro & Verse 1"

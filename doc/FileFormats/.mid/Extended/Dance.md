@@ -61,6 +61,8 @@ So far the only implementations of the format are in Phase Shift and Editor on F
 
 ## Track Velocities
 
+Only one velocity level is defined, and chances are this definition was not respected. It is only listed here for completeness.
+
 | MIDI Velocity | Description |
 | :-----------: | :---------- |
 | 127           | Normal note |

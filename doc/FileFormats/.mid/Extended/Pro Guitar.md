@@ -6,7 +6,14 @@ This mode has some rather complicated mechanics, so some things may have been mi
 
 ## Table of Contents
 
-
+- [Track Names](#track-names)
+- [Track Notes](#track-notes)
+- [Track Channels](#track-channels)
+- [Track SysEx Events](#track-sysex-events)
+- [Note Mechanics](#note-mechanics)
+- [Phrase Mechanics](#phrase-mechanics)
+- [Marker Mechanics](#marker-mechanics)
+- [Track Text Events](#track-text-events)
 
 ## Track Names
 
