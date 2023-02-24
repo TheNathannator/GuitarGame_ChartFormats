@@ -1,8 +1,10 @@
 # MIDI
 
-A MIDI file is a file that stores a MIDI stream. It is a binary format and uses the `.mid` and `.midi` file extensions (`.midi` is not typically used for charts, however).
+The `.mid`/`.midi` format is a binary stream of MIDI events. The extension used for charts is `.mid`; `.midi` is not typically used and is not supported by most programs that use it for charts.
 
-Modern .mid charts follow a format originating from Rock Band's .mid chart format, with some additional functionality added in by Phase Shift and Clone Hero. Older .mid charts are slightly different and are based on Guitar Hero 1/2's format, but follow similar patterns.
+Harmonix designed a specific layout for the charts in Guitar Hero 1/2 and Rock Band using .mid files, and early fan-games were quick to analyze and adopt the format. Its use was further helped by the introduction of Rock Band Network, a service for Rock Band that allowed people to license and chart songs to be made available as DLC. This format remains prominent today, and still receives new features on occasion as the need arises.
+
+Modern .mid charts follow a format originating from Rock Band's .mid chart format, with additional functionality added by the community in games such as Phase Shift and Clone Hero. Older .mid charts are slightly different and are based on Guitar Hero 1/2's format, though the differences are small and easily accounted for.
 
 ## Table of Contents
 
