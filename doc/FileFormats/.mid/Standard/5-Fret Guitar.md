@@ -145,4 +145,3 @@ For maximum compatibility with programs, the SysEx-based markers for tap notes a
 | Event Text         | Description                           |
 | :---------         | :----------                           |
 | `[ENHANCED_OPENS]` | Enables note-based open note marking. |
-| `ENHANCED_OPENS`   | Non-bracketed version of the above.   |
