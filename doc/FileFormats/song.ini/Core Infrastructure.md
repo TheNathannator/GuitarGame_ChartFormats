@@ -37,16 +37,9 @@ Various value types are specified in this document:
   - Note that there may be [formatting](https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/StyledText.html#supported-tags) [tags](http://digitalnativestudios.com/textmeshpro/docs/rich-text/) present in these tags, such as `<color=#00FF00>`. When parsing, make sure to trim these out if you don't use them.
 - `boolean` fields can be either `True`/`False` (or `true`/`false`), or `0`/`1` (only a couple booelan tags do this, but simplest to specify it for all).
 - `file name` fields specify a file to be loaded for some purpose.
-
-Some value types are a bit more specialized:
-
-- `Pro Guitar tuning` - 4 to 6 numbers representing semitone differences from standard tuning, and an optional string for the tuning name
-  - Examples:
-  - `0 0 0 0 0 0 "Standard tuning"`
-  - `0 2 5 7 10 10`
-  - `-2 0 0 0 "Drop D tuning"`
-  - `0 0 0 0 0`
 - `MIDI note`/`MIDI velocity` - Any MIDI note/velocity number. Notes go from 0 to 127, velocities go from 1 to 127 (0 is equivalent to a Note Off, and so is not valid in these values).
+
+Any additional formats needed are specified where relevant.
 
 ### Comments
 
