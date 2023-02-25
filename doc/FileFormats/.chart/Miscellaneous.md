@@ -49,7 +49,7 @@ These sections' formats are not documented, as they are not necessarily standard
 Some definitions:
 
 - GHTCP stands for Guitar Hero Three Control Panel, a tool to modify Guitar Hero 3, which includes importing songs.
-- Feedback refers to the Feedback Editor program, not the never-released game built off of it.
+- Feedback refers to the Feedback Editor program.
 
 | Key            | Description                                                                                                  | Data type |
 | :---           | :----------                                                                                                  | :-------- |
@@ -60,12 +60,19 @@ Some definitions:
 | `Player2`      | (GHTCP) Instrument to use for player 2.<br>Valid values are `Bass`/`bass` and `Rhythm`/`rhythm`.             | bare string |
 | `CountOff`     | (GHTCP) The countoff sample to use in-game.                                                                  | string    |
 | `GuitarVolume` | (GHTCP) Sets the volume for the guitar audio track.                                                          | decimal   |
-| `GuitarVol`    | (GHTCP) Alias for the above.                                                                                 | decimal   |
+| `GuitarVol`    | (GHTCP) Same as the above.                                                                                   | decimal   |
 | `BandVolume`   | (GHTCP) Sets the volume for the band audio track.                                                            | decimal   |
-| `BandVol`      | (GHTCP) Alias for the above.                                                                                 | decimal   |
+| `BandVol`      | (GHTCP) Same as the above.                                                                                   | decimal   |
 | `HoPo`         | (GHTCP) The HOPO threshold that should be used for this chart.<br>This value is equal to `(<step size denominator>) / 4` (1/4 step = 1.00, 1/8 = 2.00, 1/2 = 0.50, etc.). | decimal |
-| `Fretboard`    | (Feedback) File path to a fretboard image for this song.<br>At least with how Feedback saves it, the file extension is not included. | file path |
-| `MediaType`    | (Unknown origins) Type of media to display in-game?                                                          | string    |
+| `Fretboard`    | (Feedback) The fretboard image to use for this song, without the file extension.                             | file path |
+| `MediaType`    | (Feedback) Type of media to display in-game?                                                                 | string    |
+| `MusicURL`     | (Feedback) URL for the song audio file.                                                                      | string    |
+| `PreviewURL`   | (Feedback) URL for the preview audio file.                                                                   | string    |
+
+Referenecs:
+
+- https://github.com/szymmirr/Open-GHTCP-2021/blob/master/GHNamespace8/ChartParser.cs
+- https://github.com/TurkeyMan/feedback-editor/blob/master/FeedBack/Source/Song.cpp
 
 ## Obscure and Odd Formats
 
