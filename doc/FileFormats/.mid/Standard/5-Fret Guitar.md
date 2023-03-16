@@ -100,7 +100,7 @@ Chords may have individual notes with different lengths. These are referred to a
 
 Some .mid charts contain notes that are almost on the same position, but not quite. Guitar Hero 1/2 and Rock Band have a mechanism to snap notes with a position difference of 10 ticks or less together as a chord, with the position to snap to being the start position of the earliest note within the chord. Doing this snapping is not particularly recommended for new games since it'll rarely be an issue and sloppy charting should not be encouraged, but handling this in chart editors when importing is fine.
 
-*The note-based open notes are disabled by default since note 59 is normally part of left hand animations in GH2/RB tracks. An `[ENABLE_CHART_DYNAMICS]` text event (with or without brackets) needs to be placed at the start of the track to enable them.
+*The note-based open notes are disabled by default since note 59 is normally part of left hand animations in GH2/RB tracks. An `[ENHANCED_OPENS]` text event (with or without brackets) needs to be placed at the start of the track to enable them.
 
 ### Phrase Mechanics
 
