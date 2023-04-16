@@ -209,12 +209,12 @@ Meta events are events that store non-MIDI data such as text. They follow this f
 | `0xFF 0x06 <len> <text[]>`                    | Marker              | Marks a point in a sequence.<br>In a type-1 file, this is typically only on the first track. |
 | `0xFF 0x07 <len> <text[]>`                    | Cue point           | Describes an event happening at this point in an accompanying media. |
 | `0xFF 0x20 0x01 <chn>`                        | MIDI channel prefix | Associates a MIDI channel to all following events, including SysEx and other meta events, up until the next normal channel event or another channel prefix event.<br>`chn` is any channel number from 0-15. |
-| `0xFF 0x2F 0x00`                              | End of track        | Marks the exact ending point of a track. Per the specs, this event is *not* optional. |
+| `0xFF 0x2F 0x00`                              | End of track        | Marks the exact ending point of a track. Per the specs, this event is *not* optional, it must be the last event in a track. |
 | `0xFF 0x51 0x03 <tmp>`                        | Set tempo           | Sets a new tempo.<br>`tmp` is the tempo as a 24-bit number, in microseconds per quarter note.<br>If tempo is not specified, it is assumed to be 120 BPM. |
 | `0xFF 0x54 0x05 <hr> <min> <sec> <frm> <frc>` | SMPTE offset        | Sets an SMPTE time that a track should start at.<br>Every value is 1 byte: `hr` is the hour, `min` is the minute, `sec` is the second, `frm` is the frame, and `frc` is the fractional frame in 1/100ths of a frame. |
-| `0xFF 0x58 0x04 <num> <den> <clk> <base>`     | Time signature      | Sets a new time signature.<br>`num` is the numerator, `den` is a power-of-2 exponent for the denominator, `clk` is the number of MIDI clocks in a metronome click, `base` is the number of notated 32nd notes per MIDI quarter note.<br>If a time signature is not specified by a chart, it is assumed to be 4/4. |
+| `0xFF 0x58 0x04 <num> <den> <clk> <base>`     | Time signature      | Sets a new time signature.<br>`num` is the numerator, `den` is a power-of-2 exponent for the denominator, `clk` is the number of MIDI clocks in a metronome click, `base` is the number of notated 32nd notes per MIDI quarter note.<br>If a time signature is not specified, it is assumed to be 4/4. |
 | `0xFF 0x59 0x02 <shp/flt> <maj/min>`          | Key signature       | Sets a new key signature.<br>`shp/flat` is the number of sharps or flats from -7 to 7 (positive is sharps, negative is flats, 0 is none), `maj/min` is 0 for major, 1 for minor. |
-| `0xFF 0x7F <len> <data[]>`                    | Sequencer-specific  | Stores a sequencer-specific meta event. |
+| `0xFF 0x7F <len> <data[]>`                    | Vendor-defined      | Stores a vendor-defined meta event. |
 
 ### Notable Specification Violations
 
