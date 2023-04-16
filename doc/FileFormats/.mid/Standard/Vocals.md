@@ -14,9 +14,8 @@
 ## Track Names
 
 - `PART VOCALS` - Standard vocals track
-- `HARM1` - Harmonies track 1
-- `HARM2` - Harmonies track 2
-- `HARM3` - Harmonies track 3
+- `HARM1`, `HARM2`, `HARM3` - Harmonies track 1, 2, and 3 respectively
+- `PART HARM1`, `PART HARM2`, `PART HARM3` - Alternative harmony track names
 
 ## Track Notes
 

@@ -356,8 +356,8 @@ The format they defined is as follows:
 
   | Value  | Description  |
   | :---:  | :----------  |
-  | `0x00` | Phrase start |
-  | `0x01` | Phrase end   |
+  | `0x00` | Phrase end   |
+  | `0x01` | Phrase start |
 
 ## References
 
