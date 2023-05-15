@@ -6,6 +6,7 @@ Rock Band Network 1 and Rock Band Network 2 have different sets of venue notes a
 
 ## Table of Contents
 
+- [Track Names](#track-names)
 - [Track Notes](#track-notes)
   - [RB1, RB2, RBN1](#rb1-rb2-rbn1)
   - [RB3, RBN2](#rb3-rbn2)
@@ -20,6 +21,11 @@ Rock Band Network 1 and Rock Band Network 2 have different sets of venue notes a
     - [Post-Processing Effects](#post-processing-effects)
     - [Venue Lighting](#venue-lighting-1)
     - [Other](#other-1)
+
+## Track Names
+
+- `VENUE` - Standard venue effects
+- `MV VENUE` - (RB2 only) Venue effects for music video venues
 
 ## Track Notes
 
