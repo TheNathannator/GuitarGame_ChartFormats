@@ -2,6 +2,9 @@
 
 ## Table of Contents
 
+- [Drums Track Types](#drums-track-types)
+  - [Determining Track Type](#determining-track-type)
+  - [Track Type Conversions](#track-type-conversions)
 - [Track Names](#track-names)
 - [Track Notes](#track-notes)
   - [4-Lane Note Mechanics](#4-lane-note-mechanics)
@@ -9,8 +12,66 @@
   - [5-Lane Note Mechanics](#5-lane-note-mechanics)
 - [Important Text Events](#important-text-events)
   - [Mix Event Details](#mix-event-details)
-- [Track Type Determining](#track-type-determining)
-- [Track Type Conversions](#track-type-conversions)
+
+## Drums Track Types
+
+There are three types of drum tracks:
+
+- Standard 4-lane
+  - Four lanes, drums and cymbals as the same note type
+- 4-lane Pro
+  - Four lanes, drums and cymbals as separate notes but still sharing lanes
+  - Four drums, three cymbals
+- 5-lane
+  - Five lanes, drums and cymbals as distinct lanes
+  - Three drums, two cymbals
+
+These all unfortunately share the same track, and there are no specifications to allow explicitly distinguishing between different types of drum tracks by track name, so the track type must be determined through heuristics.
+
+### Determining Track Type
+
+The type of a Drums track can be determined using a process such as the following:
+
+1. Check for the `pro_drums` and `five_lane_drums` tags in the song.ini.
+   - If one is present, and set to true, force the drums track to be parsed as that type.
+   - If neither are present, fall back to the note type detection.
+   - Both being set to true is an invalid state, and either should not be accepted, or one is preferred over the other.
+2. Check the chart for notes that indicate the type:
+   - If cymbal markers are present, it's a 4-lane Pro track.
+   - If the 5-lane green note is present, or if notes are sustained, it's a 5-lane track.
+   - If neither 5-lane nor Pro are detected, fall back to standard 4-lane.
+   - If both are detected, it may be preferable to prioritize Pro over 5-lane.
+
+If both 5-lane and Pro Drums are detected, it may be preferable to prioritize Pro over 5-lane.
+
+### Track Type Conversions
+
+Here are some suggested conversions between different drum types:
+
+- 5-lane to 4-lane Pro:
+
+| 5-lane | 4-lane Pro    |
+| :----- | :---------    |
+| Red    | Red           |
+| Yellow | Yellow cymbal |
+| Blue   | Blue tom      |
+| Orange | Green cymbal  |
+| Green  | Green tom     |
+| O + G  | G cym + B tom |
+
+- 4-lane Pro to 5-lane:
+
+| 4-lane Pro    | 5-lane |
+| :---------    | :----- |
+| Red           | Red    |
+| Yellow cymbal | Yellow |
+| Yellow tom    | Blue   |
+| Blue cymbal   | Orange |
+| Blue tom      | Blue   |
+| Green cymbal  | Orange |
+| Green tom     | Green  |
+| Y tom + B tom | R + B  |
+| B cym + G cym | Y + O  |
 
 ## Track Names
 
@@ -169,42 +230,3 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
   | `easynokick` | Unmutes the cymbal+tom/other stem on Easy.<br>Used in sections where there are no kick notes to unmute the kick stem. |
 
   - Modifications reset upon reaching a new mix event. If there is no flag supplied, all modifications are reset and no new modifications are applied.
-
-## Track Type Determining
-
-Drum tracks don't have any way of specifying which kind of drums track they are from within the track itself, so its type must be determined through heuristics.
-
-The type can be determined using a process such as the following:
-
-1. Check if the accompanying song.ini file has either the `pro_drums` or `five_lane_drums` tags. If it does, then force the drums track to be parsed as if it were that type. If both exist and are set to true, skip to the next step.
-2. If the song.ini tags to force a type do not exist, check the chart for 5-lane green, cymbal markers, and drum sustains.
-3. If both 5-lane and Pro are detected, it may be preferable to prioritize Pro over 5-lane.
-
-## Track Type Conversions
-
-Here are some suggested conversions for converting between 5-lane and 4-lane Pro is desired:
-
-- 5-lane to 4-lane Pro:
-
-| 5-lane | ->  | 4-lane Pro    |
-| :----- | :-: | :---------    |
-| Red    | ->  | Red           |
-| Yellow | ->  | Yellow cymbal |
-| Blue   | ->  | Blue tom      |
-| Orange | ->  | Green cymbal  |
-| Green  | ->  | Green tom     |
-| O + G  | ->  | G cym + B tom |
-
-- 4-lane Pro to 5-lane:
-
-| 4-lane Pro    | ->  | 5-lane |
-| :---------    | :-: | :----- |
-| Red           | ->  | Red    |
-| Yellow cymbal | ->  | Yellow |
-| Yellow tom    | ->  | Blue   |
-| Blue cymbal   | ->  | Orange |
-| Blue tom      | ->  | Blue   |
-| Green cymbal  | ->  | Orange |
-| Green tom     | ->  | Green  |
-| Y tom + B tom | ->  | R + B  |
-| B cym + G cym | ->  | Y + O  |

@@ -4,12 +4,13 @@ This document details the format for drums in .chart files.
 
 ## Table of Contents
 
+- [Drums Track Types](#drums-track-types)
+  - [Determining Track Type](#determining-track-type)
+  - [Track Type Conversions](#track-type-conversions)
 - [Song Section](#song-section)
   - [Metadata](#metadata)
 - [Instrument Names](#instrument-names)
   - [Section Names](#section-names)
-  - [Drums Track Types](#drums-track-types)
-    - [Determining Track Type](#determining-track-type)
   - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Note and Modifier Types](#note-and-modifier-types)
     - [4-Lane Note Mechanics](#4-lane-note-mechanics)
@@ -18,6 +19,64 @@ This document details the format for drums in .chart files.
     - [Special Phrase Mechanics](#special-phrase-mechanics)
   - [Local Events](#local-events)
 - [Example](#example)
+
+## Drums Track Types
+
+There are three types of drum tracks:
+
+- Standard 4-lane
+  - Four lanes, drums and cymbals as the same note type
+- 4-lane Pro
+  - Four lanes, drums and cymbals as separate notes but still sharing lanes
+  - Four drums, three cymbals
+- 5-lane
+  - Five lanes, drums and cymbals as distinct lanes
+  - Three drums, two cymbals
+
+These all unfortunately share the same track, and there are no specifications to allow explicitly distinguishing between different types of drum tracks by track name, so the track type must be determined through heuristics.
+
+### Determining Track Type
+
+The type of a Drums track can be determined using a process such as the following:
+
+1. Check for the `pro_drums` and `five_lane_drums` tags in the song.ini.
+   - If one is present, and set to true, force the drums track to be parsed as that type.
+   - If neither are present, fall back to the note type detection.
+   - Both being set to true is an invalid state, and either should not be accepted, or one is preferred over the other.
+2. Check the chart for notes that indicate the type:
+   - If cymbal markers are present, it's a 4-lane Pro track.
+   - If the 5-lane green note is present, or if notes are sustained, it's a 5-lane track.
+   - If neither 5-lane nor Pro are detected, fall back to standard 4-lane.
+   - If both are detected, it may be preferable to prioritize Pro over 5-lane.
+
+### Track Type Conversions
+
+Here are some suggested conversions between different drum types:
+
+- 5-lane to 4-lane Pro:
+
+| 5-lane | 4-lane Pro    |
+| :----- | :---------    |
+| Red    | Red           |
+| Yellow | Yellow cymbal |
+| Blue   | Blue tom      |
+| Orange | Green cymbal  |
+| Green  | Green tom     |
+| O + G  | G cym + B tom |
+
+- 4-lane Pro to 5-lane:
+
+| 4-lane Pro    | 5-lane |
+| :---------    | :----- |
+| Red           | Red    |
+| Yellow cymbal | Yellow |
+| Yellow tom    | Blue   |
+| Blue cymbal   | Orange |
+| Blue tom      | Blue   |
+| Green cymbal  | Orange |
+| Green tom     | Green  |
+| Y tom + B tom | R + B  |
+| B cym + G cym | Y + O  |
 
 ## Song Section
 
@@ -44,66 +103,6 @@ Difficulties:
 - `Hard`
 - `Medium`
 - `Easy`
-
-### Drums Track Types
-
-There are three types of drum tracks that may be found in .chart:
-
-- Standard 4-lane
-  - Four lanes, drums and cymbals as the same note type
-- 4-lane Pro
-  - Four lanes, drums and cymbals as separate notes
-  - Four drums, three cymbals
-- 5-lane
-  - Five lanes, drums and cymbals as distinct lanes
-  - Three drums, two cymbals
-
-When Pro Drums were added to .chart, no additional specifications were done to allow explicitly distinguishing between different types of drum tracks by instrument name, so the track type must be determined through heuristics.
-
-#### Determining Track Type
-
-The type of a Drums track can be determined using a process such as the following:
-
-1. Check for the `pro_drums` and `five_lane_drums` song.ini tags.
-   - If one is present, and set to true, force the drums track to be parsed as that type.
-   - If neither are present, fall back to the note type detection.
-   - Both being set to true is an invalid state, and either should not be accepted, or one is preferred over the other.
-1. Check the chart for notes that indicate the type:
-   - If cymbal markers are present, it's a 4-lane Pro track.
-   - If the 5-lane green note is present, it's a 5-lane track.
-   - If both or neither are present, fall back to standard 4-lane.
-
-- If an accompanying song.ini exists, check if it has either of the `pro_drums` or `five_lane_drums` tags, and whether it is set to true or false. If set to true, then force the drums track to be parsed as if it were that type.
-- If there is no song.ini, or if the tags to force a type do not exist, check the chart for 5-lane green and cymbal markers.
-  - If 5-lane green is detected,
-- If both 5-lane and Pro are detected, it may be preferable to prioritize Pro over 5-lane.
-
-Additionally, if you wish to convert 5-lane to 4-lane Pro or vice versa to allow all charts to be played on all drum kit types, here are some suggested conversions:
-
-- 5-lane to 4-lane Pro:
-
-| 5-lane | 4-lane Pro    |
-| :----- | :---------    |
-| Red    | Red           |
-| Yellow | Yellow cymbal |
-| Blue   | Blue tom      |
-| Orange | Green cymbal  |
-| Green  | Green tom     |
-| O + G  | G cym + B tom |
-
-- 4-lane Pro to 5-lane:
-
-| 4-lane Pro    | 5-lane |
-| :---------    | :----- |
-| Red           | Red    |
-| Yellow cymbal | Yellow |
-| Yellow tom    | Blue   |
-| Blue cymbal   | Orange |
-| Blue tom      | Blue   |
-| Green cymbal  | Orange |
-| Green tom     | Green  |
-| Y tom + B tom | R + B  |
-| B cym + G cym | Y + O  |
 
 ### Note, Modifier, and Special Phrase Type Divisions
 
