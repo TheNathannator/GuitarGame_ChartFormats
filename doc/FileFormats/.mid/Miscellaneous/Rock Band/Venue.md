@@ -156,7 +156,9 @@ There are two ways to call a directed cut:
 
 | Event Text                  | Description |
 | :---------                  | :---------- |
-| `[lighting (<descriptor>)]` | Sets a venue lighting cue.<br>A `[verse]` event must be placed before any other lighting call events to initialize the lighting system. |
+| `[lighting (<descriptor>)]` | Sets a venue lighting cue.<br>In Rock Band, a `[verse]` event must be placed before any other lighting call events to initialize the lighting system. |
+| `[verse]`                   | Venue lighting cue for a verse. Soft but full blends of color. |
+| `[chorus]`                  | Venue lighting cue for a chorus. Stark, dramatic colors.       |
 
 Lighting types:
 
@@ -451,3 +453,8 @@ These events trigger an explosion or flamethrowers on the venue. These only work
 | `[bonusfx_optional]` | Triggers an explosion effect if the player is doing well. |
 
 These should not be used during a BRE, as it does this automatically.
+
+## References
+
+- [C3 Docs: RBN1 Camera and Lights](http://docs.c3universe.com/rbndocs/index.php?title=RBN1_Camera_and_Lights)
+- [C3 Docs: RBN2 Camera And Lights](http://docs.c3universe.com/rbndocs/index.php?title=RBN2_Camera_And_Lights)
