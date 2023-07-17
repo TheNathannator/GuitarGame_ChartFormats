@@ -367,32 +367,32 @@ These apply post-processing effects to the camera. A video demonstrating these e
 | `[bright.pp]`                       | Drastically brightens everything.                                                |
 | `[clean_trails.pp]`                 | Small video feed delay (a visual "echo").                                        |
 | `[contrast_a.pp]`                   | Gritty, polarized black & white.                                                 |
-| `[desat_blue.pp]`                   | Black & white with a slight blue tinge.                                          |
-| `[desat_posterize_trails.pp]`       | Video feed delay with desaturated and posterized colors.                         |
+| `[desat_blue.pp]`                   | Turns colors into a muted, monochrome blue.                                      |
+| `[desat_posterize_trails.pp]`       | Video feed delay with high contrast, posterized, black & white colors.           |
 | `[film_16mm.pp]`                    | Grainy, slightly darker colors.                                                  |
-| `[film_b+w.pp]`                     | Desaturates colors to black & white.                                             |
-| `[film_blue_filter.pp]`             | Blue filter with visible scan lines.                                             |
+| `[film_b+w.pp]`                     | Turns colors to black and white.                                                 |
+| `[film_blue_filter.pp]`             | Turns colors to a grainy, monochrome blue, with visible scan lines.              |
 | `[film_contrast.pp]`                | Darkens dark colors, lightens light colors.                                      |
 | `[film_contrast_blue.pp]`           | Contrasts the blue channel of the image.                                         |
 | `[film_contrast_green.pp]`          | Contrasts the green channel of the image.                                        |
 | `[film_contrast_red.pp]`            | Contrasts the red channel of the image.                                          |
-| `[film_sepia_ink.pp]`               | Hue-shifts colors to yellowish-gray shades.                                      |
-| `[film_silvertone.pp]`              | Hue-shifts colors to gray shades.                                                |
+| `[film_sepia_ink.pp]`               | Turns colors to yellowish-gray shades.                                           |
+| `[film_silvertone.pp]`              | Turns colors to grainy, gray shades.                                             |
 | `[flicker_trails.pp]`               | Black & white video feed delay with wavering brightness.                         |
-| `[horror_movie_special.pp]`         | Polarizes colors to inverted red & black.                                        |
+| `[horror_movie_special.pp]`         | Photo-negative colors, polarized to red and black.                               |
 | `[photo_negative.pp]`               | Inverts colors and brightness.                                                   |
-| `[photocopy.pp]`                    | Black & white with a choppy, low-FPS effect.                                     |
+| `[photocopy.pp]`                    | Black & white with a grainy, low-FPS effect.                                     |
 | `[posterize.pp]`                    | Posterizes colors.                                                               |
 | `[ProFilm_a.pp]`                    | Default, no notable effects.                                                     |
-| `[ProFilm_b.pp]`                    | Slight red effect, slightly muted colors.                                        |
-| `[ProFilm_mirror_a.pp]`             | Left side mirrors right side, posterizes colors to oranges, greens, and yellows. |
-| `[ProFilm_psychedelic_blue_red.pp]` | Polarizes colors to either red or blue.                                          |
-| `[shitty_tv.pp]`                    | Very grainy video with lightened colors and slightly offset color channels.      |
-| `[space_woosh.pp]`                  | Heavy video feed delay with drastically lightened and offset colors.             |
+| `[ProFilm_b.pp]`                    | Desaturates lighter colors, turns darker colors into a muted, monochrome red.    |
+| `[ProFilm_mirror_a.pp]`             | Left side mirrors right side, with colors shifted to blue, greens, and yellows.  |
+| `[ProFilm_psychedelic_blue_red.pp]` | Polarizes bright colors to red, dark colors to blue.                             |
+| `[shitty_tv.pp]`                    | Grainy video with lightened colors and abberated color channels.                 |
+| `[space_woosh.pp]`                  | Heavy video feed delay, with greatly brightened colors and abberated channels.   |
 | `[video_a.pp]`                      | Slightly grainy video with visible scanlines.                                    |
 | `[video_bw.pp]`                     | Black & white with visible scanlines.                                            |
-| `[video_security.pp]`               | Hue-shifts colors to night-vision green with visible scanlines.                  |
-| `[video_trails.pp]`                 | Longer video feed delay.                                                         |
+| `[video_security.pp]`               | Turns colors to night-vision green, with visible scanlines.                      |
+| `[video_trails.pp]`                 | Longer video feed delay, with slightly brightened/contrasted colors.             |
 
 #### Venue Lighting
 
