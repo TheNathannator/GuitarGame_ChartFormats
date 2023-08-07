@@ -387,52 +387,6 @@ Local events are events that appear in instrument tracks. They use the `E` type 
 
 Much like how global events disallow quotation marks in their text, spaces are normally not allowed in local events since values in section data are space-separated. It is also recommended to ignore these semantics and to treat all text following the type code as a single parameter.
 
-## Miscellaneous Notes
-
-### Time Conversion Formulas
-
-If the tempo of a chart is constant, you may use these formulas to get the time or ticks of any note within the chart:
-
-- Ticks to time:
-
-  $$
-  seconds = {60 \over BPM} \times {ticks \over resolution}
-  $$
-
-  Breakdown of the formula:
-  - ${seconds \over minute} = 60$
-  - ${seconds \over beat} = {{seconds \over minute} ÷ BPM}$
-  - $current beat = {tick \over resolution}$
-  - $seconds = {seconds \over beat} \times current beat$
-
-- Time to ticks:
-
-  $$
-  ticks = seconds ÷ {60 \over BPM} \times resolution
-  $$
-
-  Breakdown of the formula:
-  - ${seconds \over minute} = 60$
-  - ${seconds \over beat} = {seconds \over minute} ÷ BPM$
-  - $current beat = seconds ÷ {seconds \over beat}$
-  - $ticks = current beat \times resolution$
-
-In a large amount of cases though, the tempo won't be constant. For these, you'll need to instead go over the whole chart and calculate the difference in time between each note as you go:
-
-$$
-\Delta seconds = {60 \over current BPM} \times {current tick - previous tick \over resolution}
-$$
-
-Breakdown of the formula:
-
-- ${seconds \over minute} = 60$
-- ${seconds \over beat} = {seconds \over minute} ÷ current BPM$
-- $\Delta ticks = current tick - previous tick$
-- $\Delta beat = {\Delta ticks \over resolution}$
-- $\Delta seconds = {seconds \over beat} \times \Delta beat$
-
-If a tempo change happens at the same time as other events, that tempo change should not be used for those events and the previous should be used instead.
-
 ## References
 
 These are the references for all of the .chart docs.
