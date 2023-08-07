@@ -10,7 +10,7 @@ Since .chart is an old format, there is of course content considered to be legac
 
 ## Section Names
 
-Some older charts have a `SingleBass` track present, which is not a standard section name. This was (supposedly, at least) never implemented in any games, and is considered to be unsupported.
+Some older charts have a `SingleBass` track present, which was used for GH3/GHTCP. This is just another 5-fret guitar track, the semantics of which are not fully clear yet; however, most everything nowadays doesn't support it.
 
 The following tracks are present in Feedback Editor, but they were never actually fleshed out and simply use the regular 5-fret guitar layout.
 
@@ -45,6 +45,16 @@ Some definitions:
 | `MediaType`    | (Feedback) Type of media to display in-game?                                                                 | string    |
 | `MusicURL`     | (Feedback) URL for the song audio file.                                                                      | string    |
 | `PreviewURL`   | (Feedback) URL for the preview audio file.                                                                   | string    |
+
+## Battle Mode Special Phrases
+
+These special phrases are used by GHTCP to mark phrases used in battles. The specifics aren't clear yet, more research needs to be done to figure out what exactly they're for.
+
+| Special Type | Description              |
+| :----------: | :----------              |
+| 3            | Battle Star Power phrase |
+| 4            | Battle player 1 phrase   |
+| 5            | Battle player 2 phrase   |
 
 ## References
 
