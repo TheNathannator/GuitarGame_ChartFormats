@@ -86,8 +86,8 @@ Header chunks contain metadata about the MIDI file as a whole. They use the `MTh
   - Even though this length is constant, the MIDI Association docs state that the value in the file must be respected, as there could potentially be additions in the future that change the length.
 - `Format type` is a 16-bit number indicating the Format of the file:
   - `0x00 00` - The file contains a single track.
-  - `0x00 01` - The file contains one or more simultaneous tracks.
-  - `0x00 02` - The file contains one or more sequential single-track patterns. (These are not used in chart files.)
+  - `0x00 01` - The file contains one or more simultaneous tracks. This is the only type valid for chart files.
+  - `0x00 02` - The file contains one or more sequential single-track patterns.
 - `Number of tracks` is a 16-bit number representing the number of tracks in the file. As this is only metadata, the actual number of tracks may be different than specified here.
 - `Delta-time type/resolution` is a 16-bit number representing both what unit the resolution is measured in, and how many ticks the unit is divided in to.
   - The most-significant bit (bit 15) is a boolean indicating the format:
@@ -142,15 +142,15 @@ Not all of these event types pertain to chart files, but they're listed anyways 
 
 Channel voice events control a channel's voices. The bottom 4 bits of channel voice messages represent a 4-bit channel number, giving 16 channels per track (numbered 0-15 throughout this document). In the following table, this will be notated as `n` in the Byte column.
 
-| Format                 | Name             | Description |
-| :-----                 | :---             | :---------- |
-| `8n <num> <vel>`       | Note Off         | Marks the end of a note.<br>`num` is a note number from 0-127, `vel` is a velocity value from 0-127. |
-| `9n <num> <vel>`       | Note On          | Marks the start of a note.<br>`num` is a note number from 0-127, `vel` is a velocity value from 0-127.<br>A Note On with a velocity of 0 is equivalent to a Note Off. |
-| `An <num> <prs>`       | Polyphonic Key Pressure | An aftertouch value that modifies an active note in some way.<br>`num` is a note number from 0-127, `prs` is a pressure value from 0-127. |
-| `Bn <num> <val>`       | Control Change   | Changes the value of a control channel.<br>`num` is a controller number from 0-127, and `val` is a control value from 0-127.<br>Controller numbers 120-127 are reserved for channel mode messages, see below. |
-| `Cn <prgm>`            | Program Change   | Changes the selected program (sound, voice, preset, etc.) of a channel.<br>`prgm` is a program number from 0-127. |
-| `Dn <prs>`             | Channel Pressure | An aftertouch value that modifies the whole channel in some way.<br>`prs` is a pressure value from 0-127. |
-| `En <num> <lsb> <msb>` | Pitch Bend       | Bends the pitch of a note.<br>`num` is a note number, `lsb` and `msb` are a 14-bit bend value from 0-16383, where `lsb` are the least significant bits, and `msb` are the most significant bits, excluding the top (7th) bit of each byte.<br>Max negative is (LSB, MSB) 0, 0; center is 0, 64 (8,192); max positive is 127, 127 (16,383). |
+| Format           | Name             | Description |
+| :-----           | :---             | :---------- |
+| `8n <num> <vel>` | Note Off         | Marks the end of a note.<br>`num` is a note number from 0-127, `vel` is a velocity value from 0-127. |
+| `9n <num> <vel>` | Note On          | Marks the start of a note.<br>`num` is a note number from 0-127, `vel` is a velocity value from 0-127.<br>A Note On with a velocity of 0 is equivalent to a Note Off. |
+| `An <num> <prs>` | Polyphonic Key Pressure | An aftertouch value that modifies an active note in some way.<br>`num` is a note number from 0-127, `prs` is a pressure value from 0-127. |
+| `Bn <num> <val>` | Control Change   | Changes the value of a control channel.<br>`num` is a controller number from 0-127, and `val` is a control value from 0-127.<br>Controller numbers 120-127 are reserved for channel mode messages, see below. |
+| `Cn <prgm>`      | Program Change   | Changes the selected program (sound, voice, preset, etc.) of a channel.<br>`prgm` is a program number from 0-127. |
+| `Dn <prs>`       | Channel Pressure | An aftertouch value that modifies the whole channel in some way.<br>`prs` is a pressure value from 0-127. |
+| `En <lsb> <msb>` | Pitch Bend       | Bends the pitch of a channel.<br>`lsb` and `msb` are a 14-bit bend value from 0-16383, where `lsb` are the least significant bits, and `msb` are the most significant bits, excluding the top (7th) bit of each byte.<br>Max negative is (LSB, MSB) 0, 0; center is 0, 64 (8,192); max positive is 127, 127 (16,383). |
 
 #### Channel Mode
 
