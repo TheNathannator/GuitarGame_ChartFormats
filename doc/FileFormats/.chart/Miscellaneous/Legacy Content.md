@@ -48,7 +48,7 @@ Some definitions:
 
 ## Battle Mode Special Phrases
 
-These special phrases are used by GHTCP to mark phrases used in battles. The specifics aren't clear yet, more research needs to be done to figure out what exactly they're for.
+These special phrases are used by GHTCP to mark phrases used in battles. They don't appear to have ever been used in any charts, or even publically documented, but it's possible that GHTCP might be able to export the original GH3 boss battle charts using these phrases.
 
 | Special Type | Description              |
 | :----------: | :----------              |

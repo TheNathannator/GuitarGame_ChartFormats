@@ -40,7 +40,7 @@ Some charts may contain track events in the `[Events]` section with the `H` type
 - `HandPos` is a number that corresponds to each of the .mid hand position notes, as detailed in the .mid docs. Possible values range from 0 to 19 (though Feedback, the only editor to make use of them, only outputs up to 18 when loading a .mid file that has them).
 - `Length` is how long this hand position should be held, in ticks.
 
-As a result of these being in the Events track, they are not specific to an instrument track, and can't really be used outside of converting to a Guitar Hero 1/2 .mid chart. However, it would be safe to assume that some charts may have these in instrument tracks instead, though no currently known examples exist.
+These presumably ended up in the global `[Events]` section because GH1 used a global `ANIM` track in its charts to store this information, due to only supporting one guitar track at the time.
 
 ## Instrument Sections
 
