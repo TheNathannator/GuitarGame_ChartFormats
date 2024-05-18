@@ -43,9 +43,13 @@ To clarify some things said in these docs, some nomenclature will be defined her
 
 .mid doesn't have any way of naming specific audio files to be loaded for specific tracks. Instead, it uses the reserved file names listed [here](../Audio%20Files.md).
 
-### Metadata
+### Song Metadata
 
 Song metadata is not stored within the .mid file itself. Instead, an accompanying song.ini file is used, the infrastructure for which is detailed [here](../song.ini/Core%20Infrastructure.md).
+
+### MIDI Metadata
+
+.mid chart files are encoded using format type 1 (multi-track) and ticks-per-quarter resolution. Type 0/2 and SMPTE resolution are not supported.
 
 ### Track Names
 
