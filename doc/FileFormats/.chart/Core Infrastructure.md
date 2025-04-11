@@ -375,9 +375,15 @@ A special phrase usually does not apply to the tick at the very end of its lengt
 
 ### Note, Modifier, and Special Phrase Type Divisions
 
-To help prevent issues with future additions creating nonsensical orderings for note/modifier/special types, the values for each are divided into groups of 32 for organization. These divisions are specified in each track type's document.
+To help prevent issues with future additions creating nonsensical orderings for event type numbers, the values for each are divided into groups of 32 for organization. In general, the divisions are as follows:
 
-No new divisions are currently planned, as there aren't many additional features supported by GH or RB that could be added. Any extensions that games wish to create should be done as a proprietary variant of the .chart format, rather than directly in .chart itself.
+| Type Number | Description
+| :---------- | :----------
+| 0 thru 31   | Standard
+| 32 thru 63  | Guitar Hero
+| 64 thru 95  | Rock Band
+
+No new divisions are currently planned, as there aren't many additional features supported by GH or RB that could be added. Any extensions that games wish to create should be done as a custom/proprietary variant of the format with a distinct file extension, rather than directly in .chart itself.
 
 ### Local Events
 

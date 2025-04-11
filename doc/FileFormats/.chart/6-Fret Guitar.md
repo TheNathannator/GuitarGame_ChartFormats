@@ -8,7 +8,6 @@ This document details the format for 6-fret guitar in .chart files.
   - [Metadata](#metadata)
 - [Instrument Sections](#instrument-sections)
   - [Section Names](#section-names)
-  - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Note and Modifier Types](#note-and-modifier-types)
     - [Note Mechanics](#note-mechanics)
   - [Special Phrase Types](#special-phrase-types)
@@ -42,15 +41,6 @@ Difficulties:
 - `Hard`
 - `Medium`
 - `Easy`
-
-### Note, Modifier, and Special Phrase Type Divisions
-
-| Note Type    | Reservation
-| :--------    | :----------
-| 0 thru 31    | Standard
-| 32 thru 63   | Guitar Hero
-| 64 thru 95   | Rock Band
-| 96 thru 127  | Clone Hero/Strikeline
 
 ### Note and Modifier Types
 
