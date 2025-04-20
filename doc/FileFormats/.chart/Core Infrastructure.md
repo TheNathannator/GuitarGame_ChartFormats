@@ -35,8 +35,6 @@ Note that the usage of C-style comments in examples throughout these documents i
   - [Special Phrases](#special-phrases)
   - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
   - [Local Events](#local-events)
-- [Miscellaneous Notes](#miscellaneous-notes)
-  - [Time Conversion Formulas](#time-conversion-formulas)
 - [References](#references)
 
 ## File Names

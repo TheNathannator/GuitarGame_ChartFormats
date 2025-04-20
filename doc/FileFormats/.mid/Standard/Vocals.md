@@ -102,6 +102,7 @@ The player 1 and 2 phrases designate a section of the song to be sung by a speci
 | Event Text      | Description                                                                                    |
 | :---------      | :----------                                                                                    |
 | `[range_shift]` | Shifts the range of the vocals display to match the range of the song from this point forward. |
+| `[range_shift <time>]` | Same as the above, where `<time>` is a decimal number of seconds that the shift lasts for. |
 
 ### Lyrics
 

@@ -141,6 +141,11 @@ There are two ways to call a directed cut:
   | `directed_drums_pnt`  | Drummer points at camera.                                  |
   | `directed_duo_drums`  | Drummer sings along, no vocalist in shot.                  |
   |                       |                                                            |
+  | `directed_vocal`      | Vocalist impact moment.                                    |
+  | `directed_vocal_cam`  | Vocalist interacts with camera; not tied to the downbeat.  |
+  | `directed_vocal_cls`  | Vocalist closeup.                                          |
+  | `directed_vocal_np`   | Vocalist in an idle state.                                 |
+  |                       |                                                            |
   | `directed_vocals`     | Vocalist impact moment.                                    |
   | `directed_vocals_cam` | Vocalist interacts with camera; not tied to the downbeat.  |
   | `directed_vocals_cls` | Vocalist closeup.                                          |

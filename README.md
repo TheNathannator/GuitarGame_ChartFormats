@@ -4,6 +4,17 @@ A repository of documentation for chart files of guitar- or band-centric rhythm 
 
 These documents focus on the customs formats used in games such as Clone Hero, Phase Shift, and FoFiX, as well as programs such as Moonscraper and FeedBack Editor. There's also documentation for some adjacent game formats such as DJ Hero customs, as well as some oddities found here and there that either are related to these games, or use these formats.
 
+## Starting Out
+
+To start reading these docs, pick a format and read its general overview:
+
+- [.chart](doc/FileFormats/.chart/Core%20Infrastructure.md)
+- [.mid](doc/FileFormats/.mid/Core%20Infrastructure.md)
+- [song.ini](doc/FileFormats/song.ini/Core%20Infrastructure.md)
+- [Audio files](doc/FileFormats/Audio%20Files.md)
+
+It is *very* important that these general overview docs are read first, as they contain important notes which other docs assume you have read and understood.
+
 ## Contributing
 
 Contributions are welcome! Feel free to fork this repository and add your own changes or documentation for other games.
