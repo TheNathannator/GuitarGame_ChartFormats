@@ -15,6 +15,7 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `sub_playlist`  | (CH) Sub-playlist that the song should show up in.                                            | string      |
 | `modchart`      | (CH) Indicates if this song is a modchart.<br>Meant for sorting purposes only.                | boolean     |
 | `lyrics`        | (FoFiX) Indicates if the song has lyrics or not.<br>Meant for sorting purposes only.          | boolean     |
+| `rating`        | (RB) The age rating of the song.<br>1 = Family Friendly<br>2 = Supervision Recommended<br>3 = Mature Content<br>4 or 0 = Unrated | boolean     |
 
 ## Chart Properties
 
