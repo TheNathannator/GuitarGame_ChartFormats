@@ -14,7 +14,7 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `playlist`      | (CH) Playlist that the song should show up in.                                                | string      |
 | `sub_playlist`  | (CH) Sub-playlist that the song should show up in.                                            | string      |
 | `modchart`      | (CH) Indicates if this song is a modchart.<br>Meant for sorting purposes only.                | boolean     |
-| `lyrics`        | (CH) Indicates if the song has lyrics or not.<br>Meant for sorting purposes only.             | boolean     |
+| `lyrics`        | (FoFiX) Indicates if the song has lyrics or not.<br>Meant for sorting purposes only.          | boolean     |
 
 ## Chart Properties
 
