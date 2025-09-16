@@ -100,6 +100,10 @@ Sustains shorter than a 1/12th step are cut off and turned into a normal (non-su
 
 Chords may have individual notes with different lengths. These are referred to as extended sustains (start at different times) and disjoint chords (start at the same time, end at different times).
 
+Lifts may occur at the same time as a regular note. These are often referend to as split chords, as they require the play to lift one note and hit the other.
+
+Pressing the Overdrive button will hit any notes for the player, including chords and will also hold down sustains for the entire duration.
+
 ### Phrase Mechanics
 
 Overdrive phrases mark sections of the chart where the player may gain Overdrive. When Overdrive is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
