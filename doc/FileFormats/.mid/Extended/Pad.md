@@ -102,7 +102,7 @@ Chords may have individual notes with different lengths. These are referred to a
 
 Lifts may occur at the same time as a regular note. These are often referend to as split chords, as they require the play to lift one note and hit the other.
 
-Pressing the Overdrive button will hit any notes for the player, including chords and will also hold down sustains for the entire duration.
+Pressing the Overdrive button will hit any notes for the player, including chords and will also hold down sustains for their entire duration.
 
 ### Phrase Mechanics
 
