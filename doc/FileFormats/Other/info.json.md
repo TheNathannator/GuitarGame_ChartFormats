@@ -14,7 +14,7 @@ Info.json is the metadata format Encore supports, though it is mostly deprecated
 | `loading_phrase`     | Flavor text for this song, usually shown after picking the song or during loading. | string    |
 |                      |                                                                                    |           |
 | `midi`               | Name of the song's midi chart.                                                     | string    |
-| `art`                | Name of the song's midi chart.                                                     | string    |
+| `art`                | Name of the song's cover art.                                                     | string    |
 | `source`             | Name of an icon image to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://opensource.yarg.in/). | string |
 | `preview_start_time` | Timestamp in milliseconds where the song preview starts.                           | number    |
 |                      |                                                                                    |           |
