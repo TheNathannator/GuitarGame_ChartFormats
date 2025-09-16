@@ -48,3 +48,4 @@ Info.json is the metadata format Encore supports, though it is mostly deprecated
 | `stems`              | `bass`                | File name of the bass stem.                                                        | string    |
 | `stems`              | `lead`                | File name of the guitar stem.                                                      | string    |
 | `stems`              | `vocals`              | File name of the vocals stem.                                                      | string    |
+| `stems`              | `keys`                | File name of the keys stem.                                                        | string    |
