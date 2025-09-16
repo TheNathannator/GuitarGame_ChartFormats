@@ -1,6 +1,6 @@
 # Pad in .mid
 
-This track is for gamepad modes specifically designed for controller. Debutting in Fortnite Festival and being usuable in Encore.
+This track is for gamepad modes specifically designed for controller. Debutting in Fortnite Festival and being usable in Encore.
 
 So far the only implementations of this is in Encore, and will only have documentation on how it works in Encore.
 Because of Encore supporting json and INI formats of songs, some things will specify which format it's in.
