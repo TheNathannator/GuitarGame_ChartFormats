@@ -9,13 +9,14 @@ Info.json is the metadata format Encore supports, though it is mostly deprecated
 | `name`               | Title of the song.                                                                 | string    |
 | `artist`             | Artist(s) or band(s) behind the song.                                              | string    |
 | `album`              | Title of the album the song is featured in.                                        | string    |
-| `year`               | Year of the song’s release.                                                        | string    |
+| `release_year`               | Year of the song’s release.                                                        | string    |
 | `length`             | Length of the song in seconds.                                                     | number    |
 | `loading_phrase`     | Flavor text for this song, usually shown after picking the song or during loading. | string    |
 |                      |                                                                                    |           |
 | `midi`               | Name of the song's midi chart.                                                     | string    |
 | `art`                | Name of the song's midi chart.                                                     | string    |
 | `source`             | Name of an icon image to display for this song.<br>Included in either the chart folder or the game the chart was made for, or sourced from [this repository of icons](https://opensource.yarg.in/). | string |
+| `preview_start_time` | Timestamp in milliseconds where the song preview starts.                           | number    |
 |                      |                                                                                    |           |
 | `icon_drums`         | Likely used to be for setting the icon of drums--Has no effect in-game.            | string    |
 | `icon_bass`          | Likely used to be for setting the icon of bass--Has no effect in-game.             | string    |
@@ -38,7 +39,8 @@ Info.json is the metadata format Encore supports, though it is mostly deprecated
 | `diff`               | `plastic_drums`       | Difficulty of the Classic Drums track.                                             | number    |
 | `diff`               | `plastic_bass`        | Difficulty of the Classic Bass track.                                              | number    |
 | `diff`               | `plastic_guitar`      | Difficulty of the Classic Guitar track.                                            | number    |
-| `diff`               | `plastic_vocals`      | Difficulty of the Classic Vocals track.                                            | number    |
+| `diff`               | `pitched_vocals`      | Difficulty of the Classic Vocals track.                                            | number    |
+| `diff`               | `plastic_vocals`      | Difficulty of the Plastic Vocals track.*                                           | number    |
 | `diff`               | `plastic_keys`        | Difficulty of the Classic Keys track.                                              | number    |
 |                      |                       |                                                                                    |           |
 | `stems`              | `backing`             | File name of the background audio.                                                 | string    |
