@@ -4,6 +4,7 @@ This track is for gamepad modes specifically designed for controller. Debutting 
 
 So far the only implementations of this is in Encore, and will only have documentation on how it works in Encore.
 Because of Encore supporting json and INI formats of songs, some things will specify which format it's in.
+Encore is actively being developed and as such some of the things listed here may not apply but could be added or is planned to be added.
 
 ## Table of Contents
 
