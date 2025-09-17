@@ -82,6 +82,8 @@ These tags affect the parsing or configuration of a chart.
 |                              |                                                                    |           |
 | `real_keys_lane_count_right` | Specifies the number of lanes for the right hand in Real Keys.     | number    |
 | `real_keys_lane_count_left`  | Specifies the number of lanes for the left hand in Real Keys.      | number    |
+|                              |                                                                    |           |
+| `vocal_scroll_speed`         | Specifies a scaling factor for the vocals track speed, as a percentage (default is 100).| number |
 
 - `Pro Guitar tuning` - 4 to 6 numbers representing semitone differences from standard tuning, and an optional string for the tuning name.
   - Examples:
