@@ -17,6 +17,7 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `lyrics`        | (FoFiX) Indicates if the song has lyrics or not.<br>Meant for sorting purposes only.          | boolean     |
 | `rating`        | (RB) The age rating of the song.<br>1 = Family Friendly<br>2 = Supervision Recommended<br>3 = Mature Content<br>4 or 0 = Unrated | boolean     |
 
+
 ## Chart Properties
 
 | Tag Name                | Description                                                                              | Data type |
@@ -43,6 +44,16 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `kit_type`              | (PS) Sound sample set index for drums.                                                   | number    |
 | `keys_type`             | (PS) Sound sample set index for keys.                                                    | number    |
 | `dance_type`            | (PS) Sound sample set index for dance.                                                   | number    |
+
+## Track Difficulties
+
+| Tag Name              | Description                                               | Data type |
+| :-------              | :----------                                               | :-------: |
+| `diff_guitar_pad`     | (Encore) Difficulty of the Gamepad Lead track.            | number    |
+| `diff_bass_pad`       | (Encore) Difficulty of the Gamepad Bass track.            | number    |
+| `diff_drums_pad`      | (Encore) Difficulty of the Gamepad Drums track.           | number    |
+| `diff_keys_pad`       | (Encore) Difficulty of the Gamepad Keys track.            | number    |
+| `diff_vocals_pad`     | (Encore) Difficulty of the Gamepad Vocals track.          | number    |
 
 ## Images and Other Resources
 
