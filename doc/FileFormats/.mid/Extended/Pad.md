@@ -14,16 +14,23 @@ Encore is actively being developed and as such some of the things listed here ma
   - [Phrase Mechanics](#phrase-mechanics)
 
 ## Track Names
-- `PART_GUITAR` - Pad Lead (.json)
-- `PAD_GUITAR` - Pad Lead (.ini)
-- `PART_BASS` - Pad Bass (.json)
-- `PAD_BASS` - Pad Bass (.ini)
-- `PART_DRUMS` - Pad Drums (.json)
-- `PAD_DRUMS` - Pad Drums (.ini)
-- `PART_VOCALS` - Pad Vocals (.json)
-- `PAD_VOCALS` - Pad Vocals (.ini)
-- `PART_KEYS` - Pad Keys (.json)
-- `PAD_KEYS` - Pad Keys (.ini)
+The track names used depend on which metadata format is used for the chart.
+
+In older `info.json`-format charts:
+
+- `PART GUITAR` - Pad Lead
+- `PART BASS` - Pad Bass
+- `PART DRUMS` - Pad Drums
+- `PART VOCALS` - Pad Vocals
+- `PART KEYS` - Pad Keys
+
+In newer `song.ini`-format charts:
+
+- `PAD GUITAR` - Pad Lead
+- `PAD BASS` - Pad Bass
+- `PAD DRUMS` - Pad Drums
+- `PAD VOCALS` - Pad Vocals
+- `PAD KEYS` - Pad Keys
 
 ## Track Notes
 
