@@ -1,10 +1,8 @@
 # Gamepad Tracks in .mid
 
-This track is for gamepad modes specifically designed for controller. Debutting in Fortnite Festival and being usable in Encore.
+These tracks are for modes designed around playing with a regular controller instead of an instrument peripheral. In particular, these tracks are based on Fortnite Festival, with lift notes as their notable distinguishing feature.
 
-So far the only implementations of this is in Encore, and will only have documentation on how it works in Encore.
-Because of Encore supporting json and INI formats of songs, some things will specify which format it's in.
-Encore is actively being developed and as such some of the things listed here may not apply but could be added or is planned to be added.
+**This specification is not final!** Currently, the only implementation of this format is featured in Encore, and so all documentation here is based on that implementation. Encore is still being actively developed, so the features listed here may change with time, and may not even be implemented yet at the time of writing.
 
 ## Table of Contents
 
