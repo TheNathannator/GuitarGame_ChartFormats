@@ -1,4 +1,4 @@
-# Pad in .mid
+# Gamepad Tracks in .mid
 
 This track is for gamepad modes specifically designed for controller. Debutting in Fortnite Festival and being usable in Encore.
 
