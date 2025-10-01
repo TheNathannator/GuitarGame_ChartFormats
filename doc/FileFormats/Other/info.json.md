@@ -1,6 +1,6 @@
 # info.json
 
-Info.json is the metadata format Encore supports, though it is mostly deprecated now as seemingly only Encore uses the format and lacks important metadata tags.
+Encore originally used an `info.json` file for storing metadata. It is considered deprecated in favor of a typical song.ini, as it lacks important metadata tags and stopped being maintained due to being annoying to work with in code.
 
 ## Main Tags
 
