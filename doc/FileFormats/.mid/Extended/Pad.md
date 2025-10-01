@@ -106,10 +106,6 @@ Sustains shorter than a 1/12th step are cut off and turned into a normal (non-su
 
 Chords may have individual notes with different lengths. These are referred to as extended sustains (start at different times) and disjoint chords (start at the same time, end at different times).
 
-Lifts may occur at the same time as a regular note. These are often referend to as split chords, as they require the play to lift one note and hit the other.
-
-Pressing the Overdrive button will hit any notes for the player, including chords and will also hold down sustains for their entire duration.
-
 ### Phrase Mechanics
 
 Overdrive phrases mark sections of the chart where the player may gain Overdrive. When Overdrive is activated, points gained from notes are doubled (this applies on top of the standard combo multiplier), and health gained from hit notes drastically increases.
@@ -121,7 +117,6 @@ Trill and tremolo lanes are used to make imprecise/indiscernible trills or jacks
 - Tremolo lanes can be used on chords.
 - Trill lanes should only be used with two-note trills.
 - These only apply to Expert unless they are marked at a velocity between 50-41, in which case it applies to Hard as well.
-
 Big Rock Endings (BREs) are freestyle phrases at the end of songs with so-called "big rock endings" where the band rocks out for a period of time before playing their final notes. These freestyle phrases let players gain bonus points by playing whatever they want during the phrase. Following the phrase is at least one note, which the player must hit in order to earn those bonus points. If they miss or strike, they lose the points.
 
 - BREs are started by placing a `[coda]` text event on the `EVENTS` track. Then, the duration of the BRE markers determines how long the freestyle section will last. All 5 BRE notes must be used to mark the phrase.
