@@ -1,7 +1,7 @@
 # Encore info.json
 
 Encore originally used an `info.json` file for storing metadata. It is considered deprecated in favor of a typical song.ini, as it lacks important metadata tags and stopped being maintained due to being annoying to work with in code.
-
+```
 {
   // Title of the song.
   "name": string,
@@ -54,3 +54,4 @@ Encore originally used an `info.json` file for storing metadata. It is considere
     "keys": string
   }
 }
+```
