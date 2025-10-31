@@ -73,15 +73,17 @@ These tags affect the parsing or configuration of a chart.
 | `pro_drums`                  | Forces the Drums track to be Pro Drums.                            | boolean   |
 | `five_lane_drums`            | Forces the Drums track to be 5-lane.                               | boolean   |
 |                              |                                                                    |           |
-| `vocal_gender`               | Specifies a voice type for the singer (either "male" or "female"). | string    |
+| `vocal_gender`               | The voice type for the singer (either "male" or "female").         | string    |
 |                              |                                                                    |           |
-| `real_guitar_tuning`         | Specifies a tuning for 17-fret Pro Guitar.                         | Pro Guitar tuning |
-| `real_guitar_22_tuning`      | Specifies a tuning for 22-fret Pro Guitar.                         | Pro Guitar tuning |
-| `real_bass_tuning`           | Specifies a tuning for 17-fret Pro Bass.                           | Pro Guitar tuning |
-| `real_bass_22_tuning`        | Specifies a tuning for 22-fret Pro Bass.                           | Pro Guitar tuning |
+| `real_guitar_tuning`         | The tuning for 17-fret Pro Guitar.                                 | Pro Guitar tuning |
+| `real_guitar_22_tuning`      | The tuning for 22-fret Pro Guitar.                                 | Pro Guitar tuning |
+| `real_bass_tuning`           | The tuning for 17-fret Pro Bass.                                   | Pro Guitar tuning |
+| `real_bass_22_tuning`        | The tuning for 22-fret Pro Bass.                                   | Pro Guitar tuning |
 |                              |                                                                    |           |
-| `real_keys_lane_count_right` | Specifies the number of lanes for the right hand in Real Keys.     | number    |
-| `real_keys_lane_count_left`  | Specifies the number of lanes for the left hand in Real Keys.      | number    |
+| `real_keys_lane_count_right` | The number of lanes for the right hand in Real Keys.               | number    |
+| `real_keys_lane_count_left`  | The number of lanes for the left hand in Real Keys.                | number    |
+|                              |                                                                    |           |
+| `vocal_scroll_speed`         | A percent scaling factor for the speed of the vocals track. Default is 100. | number |
 
 - `Pro Guitar tuning` - 4 to 6 numbers representing semitone differences from standard tuning, and an optional string for the tuning name.
   - Examples:
