@@ -1,0 +1,47 @@
+site_name: Guitar Game Chart Formats
+site_description: Documentation for chart files of guitar- or band-centric rhythm games
+site_author: Community
+repo_url: https://github.com/TheNathannator/GuitarGame_ChartFormats
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.top
+    - navigation.indexes
+    - navigation.sticky
+    - navigation.expand
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: deep-purple
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep-purple
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - awesome-pages
+
+extra_css:
+  - stylesheets/styles.css
+
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.superfences
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+
+docs_dir: docs
+site_dir: site
