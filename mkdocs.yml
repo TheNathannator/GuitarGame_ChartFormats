@@ -31,10 +31,18 @@ plugins:
   - search
   - awesome-pages
 
+extra_javascript:
+  - .mkdocs/js/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
 extra_css:
-  - stylesheets/styles.css
+  - .mkdocs/stylesheets/styles.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
 
 markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.highlight:
       use_pygments: true
   - pymdownx.superfences
