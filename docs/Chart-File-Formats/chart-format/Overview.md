@@ -106,7 +106,7 @@ Track events contain data for a note, phrase, or other event that happens at a c
   - `A`: Tempo position anchor
   - `B`: Tempo change
   - `E`: Text event
-  - `H`: (Legacy) Guitar Hero 1 hand animation position. Specified in the [5-Fret Guitar document](5-Fret%20Guitar.md).
+  - `H`: (Legacy) Guitar Hero 1 hand animation position. Specified in the [5-Fret Guitar document](5-Fret-Guitar.md).
   - `N`: Note event
   - `S`: Special phrase
   - `TS`: Time signature change
@@ -173,7 +173,7 @@ Audio files may be specified through the following metadata tags:
 | `VocalStream`  | Vocals audio.                                                                            | file path |
 | `CrowdStream`  | Background crowd noise/singing audio.                                                    | file path |
 
-Not all charts use these tags deliberately though, and instead rely on the reserved file names defined [here](../Audio%20Files.md). The preferred method of loading audio would be to first check for the reserved names, then fall back on the files in the metadata.
+Not all charts use these tags deliberately though, and instead rely on the reserved file names defined [here](../Supported-Audio-Files.md). The preferred method of loading audio would be to first check for the reserved names, then fall back on the files in the metadata.
 
 ### song.ini
 

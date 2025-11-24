@@ -63,7 +63,7 @@ In the descriptions, game names in parentheses indicate where the tag originates
 | `rating`           | (PS) Player's rating of the song?                                                   | number        |
 |                    |                                                                                     |               |
 |                    |                                                                                     |               |
-|                    | See the [FoFiX Careers doc](../Other/Frets%20on%20Fire%20X/Careers.md) for details. |               |
+|                    | See the [FoFiX Careers doc](../../Game-Specific-Formats/Frets-on-Fire-X/Careers.md) for details. |  |
 | `unlock_id`        | (FoFiX) Career ID for this song.                                                    | string        |
 | `unlock_require`   | (FoFiX) The career ID that must be completed to unlock this song.                   | string        |
 | `unlock_text`      | (FoFiX) Text to display if the song is locked.                                      | string        |

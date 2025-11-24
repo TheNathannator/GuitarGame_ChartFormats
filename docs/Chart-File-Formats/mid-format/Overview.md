@@ -1,6 +1,6 @@
 # MIDI
 
-The `.mid`/`.midi` format is a binary stream of MIDI events. The extension used for charts is `.mid`; `.midi` is not typically used and is not supported by most programs that use it for charts. For an overview on the MIDI file format itself, refer to the [MIDI General Info](MIDI%20General%20Info.md) document.
+The `.mid`/`.midi` format is a binary stream of MIDI events. The extension used for charts is `.mid`; `.midi` is not typically used and is not supported by most programs that use it for charts. For an overview on the MIDI file format itself, refer to the [MIDI General Info](MIDI-Technical.md) document.
 
 Harmonix designed a specific layout for the charts in Guitar Hero 1/2 and Rock Band using .mid files, and early fan-games were quick to analyze and adopt the format. Its use was further helped by the introduction of Rock Band Network, a service for Rock Band that allowed people to license and chart songs to be made available as DLC. This format remains prominent today, and still receives new features on occasion as the need arises.
 
@@ -51,8 +51,6 @@ Instrument track names usually follow a basic nomenclature of `PART <instrument 
 Miscellaneous/global tracks typically use an un-prefixed name which describes their purpose (for example, `EVENTS` and `VENUE`).
 
 Since any name can be used for a track, unknown tracks should be ignored.
-
-Details for specific tracks may be found within the [`Standard`](Standard/) folder next to this document. Note that this folder primarily only covers details that are commonly supported within the community; for details on the original Harmonix-created formats, refer to the [`Guitar Hero 1 and 2`](Game-Specific/Guitar-Hero-1-and-2/) and [`Rock Band`](Game-Specific/Rock-Band/) folders within the [`Game-Specific`](Game-Specific/) folder.
 
 ### Track Events
 
