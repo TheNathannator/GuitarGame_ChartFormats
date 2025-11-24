@@ -18,7 +18,6 @@ theme:
     - navigation.top
     - navigation.indexes
     - navigation.sticky
-    - navigation.expand
     - content.code.copy
   palette:
     - scheme: default
