@@ -4,6 +4,9 @@ site_author: Community
 repo_url: https://github.com/TheNathannator/GuitarGame_ChartFormats
 edit_uri: edit/main/docs/
 
+exclude_docs: |
+  !.mkdocs/
+
 theme:
   name: material
   features:
