@@ -1,6 +1,6 @@
 # .chart
 
-.chart is a text-based custom chart format originating from the GH1/2 era, similar in form to .ini files.<!-- so much so that Feedback Editor actually uses a .ini parser to parse them lol --> It was originally created as an intermediate format, meant to be converted for use in a game, but nowadays it is typically used directly.
+.chart is a text-based custom chart format originating from the GH1/2 era, similar in form to .ini files.<!-- so much so that Feedback Editor actually uses a .ini parser to parse them lol --> It was originally created as an intermediate format, meant to be converted for use in a game, but nowadays it is typically used directly. See [Brief History](Brief-History.md) for more details on the history of the format.
 
 This document lays out the core infrastructure of the .chart format. To keep these docs easily extensible, specifications for different game/instrument types will go in separate documents, and only the base infrastruture will be detailed here.
 

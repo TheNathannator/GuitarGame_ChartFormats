@@ -8,47 +8,46 @@ These documents focus on the customs formats used in games such as Clone Hero, P
 
 **Start by reading the overview for your format of interest.** These contain important foundational information that other docs assume you understand:
 
+### Audio
+
+- [Supported Audio Files](Chart-File-Formats/Supported-Audio-Files.md)
+
+### song.ini
+
+Holds metadata and configuration for a chart.
+
+- [Overview](Chart-File-Formats/song-ini/Overview.md)
+- [Standard Tags](Chart-File-Formats/song-ini/Standard-Tags.md)
+
 ### .chart
-*Modern custom format used by Clone Hero, Phase Shift*
-- [5-Fret Guitar](Chart-File-Formats/chart-format/5-Fret-Guitar.md) - Lead, Bass, Rhythm, Co-op
-- [6-Fret Guitar](Chart-File-Formats/chart-format/6-Fret-Guitar.md) - Lead, Bass, Co-op
+
+A text-based format originally created in the GH1/2 days as a storage format for Feedback Editor.
+
+- [Overview](Chart-File-Formats/chart-format/Overview.md)
+- [Brief History](Chart-File-Formats/chart-format/Brief-History.md)
+- [5-Fret Guitar](Chart-File-Formats/chart-format/5-Fret-Guitar.md)
+- [6-Fret Guitar](Chart-File-Formats/chart-format/6-Fret-Guitar.md)
 - [Drums](Chart-File-Formats/chart-format/Drums.md)
 - [Lyrics](Chart-File-Formats/chart-format/Lyrics.md)
 
-### .mid Standard
-*Legacy MIDI format used by Rock Band, Guitar Hero*
+### .mid
+
+A MIDI-based format originally devised by Harmonix for Guitar Hero and Rock Band, adopted by the community and extended to support modern features.
+
+- [Overview](Chart-File-Formats/mid-format/Overview.md)
+- [Technical Format Details](Chart-File-Formats/mid-format/MIDI-Technical.md)
+
+#### Standard Features
+
 - [5-Fret Guitar](Chart-File-Formats/mid-format/Standard/5-Fret-Guitar.md)
 - [6-Fret Guitar](Chart-File-Formats/mid-format/Standard/6-Fret-Guitar.md)
 - [Drums](Chart-File-Formats/mid-format/Standard/Drums.md)
 - [Vocals](Chart-File-Formats/mid-format/Standard/Vocals.md)
 
-### .mid Extended
-*MIDI variants for pro/real instruments*
+#### Extended Features
+
 - [Pro Guitar](Chart-File-Formats/mid-format/Extended/Pro-Guitar.md)
 - [Pro Keys](Chart-File-Formats/mid-format/Extended/Pro-Keys.md)
 - [Real Drums](Chart-File-Formats/mid-format/Extended/Real-Drums.md)
-- [Real Keys](Chart-File-Formats/mid-format/Extended/Real-Ketructureys.md)
+- [Real Keys](Chart-File-Formats/mid-format/Extended/Real-Keys.md)
 - [Dance](Chart-File-Formats/mid-format/Extended/Dance.md)
-
-### Misc
-- **[song.ini](Chart-File-Formats/song-ini/Overview.md)** - Song metadata and configuration
-- **[Audio Files](Chart-File-Formats/Supported-Audio-Files.md)** - Audio standards and file handling
-
----
-
-## Contributing
-
-Contributions are welcome! Feel free to fork this repository and add your own changes or documentation for other games.
-
-Some general recommendations:
-
-- Start with the basics, then elaborate further as you go down.
-- Try to keep things organized on a track-type basis.
-- Make uncertainty in your documentation clear, so others know not to take it at face value and so that it can be better researched later.
-- If you used external references, link them as sources in a References section so others can reference those as well.
-
-These are not strict guidelines, but they help to make referencing and adding to easier.
-
-## License
-
-This project is licensed under Creative Commons Zero 1.0 Universal. See [LICENSE](../LICENSE) for details.

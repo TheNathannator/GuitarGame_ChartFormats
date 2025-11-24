@@ -1,8 +1,4 @@
-# General Notes
-
-General notes that apply to most/all chart formats.
-
-## Tick \<-\> Time Conversions
+# Time Conversions
 
 Here are some formulas for converting between ticks and time.
 
