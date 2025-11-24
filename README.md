@@ -6,7 +6,7 @@ These documents focus on the customs formats used in games such as Clone Hero, P
 
 ## Documentation
 
-**[Read the documentation](https://thenathanator.github.io/GuitarGame_ChartFormats/)**
+**[Read the documentation](https://thenathannator.github.io/GuitarGame_ChartFormats/)**
 
 See the site for contribution guidelines and getting started information.
 
