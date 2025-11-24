@@ -1,6 +1,10 @@
 site_name: Guitar Game Chart Formats
 site_description: Documentation for chart files of guitar- or band-centric rhythm games
 site_author: Community
+
+docs_dir: docs
+site_dir: site
+
 repo_url: https://github.com/TheNathannator/GuitarGame_ChartFormats
 edit_uri: edit/main/docs/
 
@@ -34,15 +38,6 @@ plugins:
   - search
   - awesome-pages
 
-extra_javascript:
-  - .mkdocs/js/katex.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-
-extra_css:
-  - .mkdocs/stylesheets/styles.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
-
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
@@ -54,5 +49,11 @@ markdown_extensions:
       permalink: true
   - attr_list
 
-docs_dir: docs
-site_dir: site
+extra_javascript:
+  - .mkdocs/js/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - .mkdocs/stylesheets/styles.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
