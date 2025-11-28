@@ -1,4 +1,4 @@
-# .chart Brief History
+# Brief History
 
 Paraphrased and extended from [FireFox's .chart specifications](https://docs.google.com/document/d/1v2v0U-9HQ5qHeccpExDOLJ5CMPZZ3QytPmAG5WF0Kzs/edit?usp=sharing):
 

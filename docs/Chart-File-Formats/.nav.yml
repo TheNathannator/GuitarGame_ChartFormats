@@ -1,0 +1,5 @@
+nav:
+  - ".chart": chart-format
+  - ".mid": mid-format
+  - "song.ini": song-ini
+  - Supported-Audio-Files.md
