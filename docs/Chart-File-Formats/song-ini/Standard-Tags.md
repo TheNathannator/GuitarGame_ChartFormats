@@ -88,6 +88,8 @@ These tags affect the parsing or configuration of a chart.
 | `real_bass_22_tuning`  | The tuning for 22-fret Pro Bass.                                                 | Pro Guitar tuning |
 |                        |                                                                                  |           |
 | `vocal_scroll_speed`   | A percent scaling factor for the speed of the vocals track.<br>Default is 100.   | number    |
+|                        |                                                                                  |           |
+| `tuning_offset_cents`  | Number of cents to nudge vocal chart pitch data up or down by, for non-A440 songs.<br>Default is 0. Conventionally should fall in the range [-50,50]. | number    |
 
 - `Pro Guitar tuning` - 4 to 6 numbers representing semitone differences from standard tuning, and an optional string for the tuning name.
   - Examples:
