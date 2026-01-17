@@ -4,7 +4,7 @@ A repository of documentation for chart files of guitar- or band-centric rhythm 
 
 [Read these docs more comfortably on GitHub Pages!](https://thenathannator.github.io/GuitarGame_ChartFormats/)
 
-These documents focus on the customs formats used in games such as Clone Hero, Phase Shift, and FoFiX, as well as programs such as Moonscraper and FeedBack Editor. There's also documentation for some adjacent game formats such as DJ Hero customs, as well as some oddities found here and there that either are related to these games, or use these formats.
+These documents focus on the custom formats used in games such as Clone Hero, Phase Shift, and FoFiX, as well as programs like Moonscraper and FeedBack Editor. They also include documentation for some related game formats, such as DJ Hero customs, and cover various peculiarities found here and there that are either connected to these games or utilize these formats.
 
 ## TODO
 
