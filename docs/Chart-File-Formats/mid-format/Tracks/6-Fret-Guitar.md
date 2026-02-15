@@ -6,6 +6,7 @@
 - `PART BASS GHL` - 6-Fret Bass Guitar
 - `PART RHYTHM GHL` - 6-Fret Rhythm Guitar
 - `PART GUITAR COOP GHL` - 6-Fret Co-op Guitar
+- `PART KEYS GHL` - 6-Fret Co-op Guitar
 
 ## Track Notes
 

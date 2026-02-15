@@ -21,6 +21,7 @@ Instrument names:
 - `GHLBass` – Guitar Hero Live Bass
 - `GHLRhythm` - Guitar Hero Live Rhythm
 - `GHLCoop` - Guitar Hero Live Co-op
+- `GHLKeys` - Guitar Hero Live Keys
 
 Difficulties:
 
