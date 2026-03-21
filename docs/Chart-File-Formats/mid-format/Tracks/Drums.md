@@ -128,7 +128,7 @@ Here are some suggested conversions between different drum types:
 
 Expert+ / 2x kick notes are carried over from 5-lane. They are used for fast kicks that require a second pedal to play. 2x Kick notes should be opt-in, as they exist to allow someone with a single pedal to play a chart that would otherwise require two. When enabled, they are equivalent to normal kicks.
 
-Accent and ghost notes are also carried over from 5-lane. They are notes that notate relatively louder or quieter notes within the section. They are marked by setting notes to a velocity of 127 (accent) or 1 (ghost), and they must be enabled through the `[ENABLE_CHART_DYNAMICS]` text event for legacy compatibilty reasons.
+Accent and ghost notes are also carried over from 5-lane. They are notes that notate relatively louder or quieter notes within the section. They are marked by setting notes to a velocity of 127 (accent) or 1 (ghost), and they must be enabled through the `[ENABLE_CHART_DYNAMICS]` or `ENABLE_CHART_DYNAMICS` text events for legacy compatibilty reasons.
 
 ### 4-Lane Phrase Mechanics
 
@@ -178,9 +178,9 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 
 ## Important Text Events
 
-| Event Text                         | Description                         |
-| :---------                         | :----------                         |
-| `[ENABLE_CHART_DYNAMICS]`          | Enables accent/ghost marking.       |
+| Event Text                         | Description                                                             |
+| :---------                         | :----------                                                             |
+| `[ENABLE_CHART_DYNAMICS]`          | Enables accent/ghost marking.<br>Can be found with or without brackets. |
 | `[mix <diff> drums<config><flag>]` | Sets a stem configuration for drums.<br>Can be found both with or without brackets, and with either spaces or underscores. |
 
 ### Mix Event Details
