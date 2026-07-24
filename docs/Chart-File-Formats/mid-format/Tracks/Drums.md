@@ -75,6 +75,7 @@ Here are some suggested conversions between different drum types:
 | Markers   |                                              |
 | 127       | 2-lane roll marker                           |
 | 126       | 1-lane roll marker                           |
+| 125       | Kick roll marker                             |
 | 124       | Fill/Big Rock Ending marker 1                |
 | 123       | Fill/Big Rock Ending marker 2                |
 | 122       | Fill/Big Rock Ending marker 3                |
@@ -141,7 +142,10 @@ Roll lanes are used to make imprecise/indiscernible rhythms such as drum rolls o
   - Single-lane rolls are used for drum or cymbal rolls that only apply to a single lane at a time.
   - Double-lane rolls are used when alternating between two different lanes.
 - If a single-lane roll starts on a chord (excluding kicks), the next non-chord note determines which lane the roll goes on.
-- Roll lanes only apply to Expert unless they are marked at a velocity between 50-41, in which case they apply to Hard as well.
+- Roll lanes only apply to Expert by default. By setting a roll lane's marker note within one of the following velocity ranges, the roll lane can carry down to LDs:
+  - `[41,50]` applies the roll lane to Expert and Hard
+  - `[31,40]` applies the roll lane to Expert, Hard, and Medium. This range is not supported by RB3
+  - `[21,30]` applies the roll lane to all difficulties. This range is not supported by RB3
 
 Fill markers are used to mark phrases in which a player can activate Star Power. These phrases can either replace the notes within the phrase with a freestyle phrase, or they can keep the existing notes and just mark the end of the phrase as an activation point (referred to as "static" fills).
 
