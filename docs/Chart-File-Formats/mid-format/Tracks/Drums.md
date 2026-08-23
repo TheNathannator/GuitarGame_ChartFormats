@@ -24,7 +24,7 @@ The type of a Drums track can be determined using a process such as the followin
    - If neither are present, fall back to the note type detection.
    - Both being set to true is an invalid state, and either should not be accepted, or one is preferred over the other.
 2. Check the chart for notes that indicate the type:
-   - If cymbal markers are present, it's a 4-lane Pro track.
+   - If tom markers are present, it's a 4-lane Pro track.
    - If the 5-lane green note is present, or if notes are sustained, it's a 5-lane track.
    - If neither 5-lane nor Pro are detected, fall back to standard 4-lane.
    - If both are detected, it may be preferable to prioritize Pro over 5-lane.
