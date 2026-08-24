@@ -147,6 +147,7 @@ Accent and ghost notes are notes that notate relatively louder or quieter notes 
 | Roll lanes   |                                    |
 | 65           | 1-lane roll marker                 |
 | 66           | 2-lane roll marker                 |
+| 67           | Kick roll marker                   |
 
 #### Special Phrase Mechanics
 
